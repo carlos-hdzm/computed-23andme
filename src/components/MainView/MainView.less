@@ -1,0 +1,67 @@
+.main-view {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+
+  .top-panel {
+    flex-basis: 10vh;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: var(--divider);
+
+    .file-selector {
+      flex-basis: 30%;
+      padding: 1rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-basis: 30%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+
+      .version,
+      .confidence {
+        width: 40%;
+      }
+
+      select {
+        appearance: base-select;
+        padding: 0.5rem 0.5rem 0.5rem 1rem;
+        width: 100%;
+        font-size: 1rem;
+        background-color: #fff;
+        color: #000;
+        border: var(--divider);
+
+        &::picker-icon {
+          font-size: 1rem;
+        }
+      }
+
+      ::picker(select) {
+        appearance: base-select;
+        padding: 0.5rem;
+        font-size: 1rem;
+        background-color: #fff;
+        color: #000;
+        border: var(--divider);
+      }
+    }
+  }
+
+  .main-panel {
+    display: flex;
+    flex-flow: row;
+    flex-grow: 1;
+    position: relative;
+    height: 90vh;
+  }
+}

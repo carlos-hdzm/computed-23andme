@@ -1,0 +1,37 @@
+.region-row {
+  &.depth-0 {
+    --depth-padding-left: 0;
+    font-weight: bolder;
+  }
+
+  &.depth-1 {
+    --depth-padding-left: 0;
+    font-weight: bold;
+  }
+
+  &.depth-2 {
+    --depth-padding-left: 1rem;
+  }
+
+  &.depth-3 {
+    --depth-padding-left: 2rem;
+  }
+
+  &.depth-0,
+  &.depth-1,
+  &.depth-2,
+  &.depth-3 {
+    .region-name {
+      padding: 0 0 0 var(--depth-padding-left);
+
+      div {
+        border-left: 5px solid var(--region-color);
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  &:hover {
+    background: #ccc;
+  }
+}

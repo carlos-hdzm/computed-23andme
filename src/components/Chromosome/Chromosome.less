@@ -1,0 +1,22 @@
+.haplotype {
+  display: flex;
+  height: 20px;
+  flex-direction: row;
+  --stripe-light-color: #eee;
+  --stripe-dark-color: #bbb;
+  --stripe-light-width: 5px;
+  --stripe-dark-width: 1px;
+
+  .arm {
+    height: 20px;
+    border-radius: 10px;
+    background: repeating-linear-gradient(135deg,
+        var(--stripe-light-color),
+        var(--stripe-light-color) var(--stripe-light-width),
+        var(--stripe-dark-color) var(--stripe-light-width),
+        var(--stripe-dark-color) calc(var(--stripe-light-width) + var(--stripe-dark-width)),
+      );
+    display: flex;
+    overflow: hidden;
+  }
+}
