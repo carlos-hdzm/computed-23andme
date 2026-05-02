@@ -8,7 +8,8 @@ import './Proportions.less';
 const Proportions = () => {
   const { data, version, confidence } = useContext(AppContext);
   const regions = useMemo(() => {
-    // @ts-ignore
+    if (!data || !version || !confidence) return [];
+    // @ts-expect-error Different versions have different confidence types
     const regionsObject = (data[version][confidence] as ConfidenceEntry).regions;
     const subregions = ('world' in regionsObject) ? regionsObject.world.subregions : regionsObject;
     return sortSubregionsByProportion(subregions!, { containsUnassigned: 'unassigned' in subregions! });

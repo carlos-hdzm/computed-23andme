@@ -7,7 +7,8 @@ import ChromosomePair from '../ChromosomePair/ChromosomePair';
 const ChromosomeViewer = () => {
   const { data, version, confidence } = useContext(AppContext);
   const chromosomes: ChromosomesData<ChromosomeHaplotype> = useMemo(() => {
-    // @ts-ignore
+    if (!data || !version || !confidence) return { autosomal: [], sex: [] } as unknown as ChromosomesData<ChromosomeHaplotype>;
+    // @ts-expect-error Different versions have different confidence types
     return (data[version][confidence] as ConfidenceEntry).chromosomes as ChromosomesData<ChromosomeHaplotype>;
   }, [data, version, confidence]);
 

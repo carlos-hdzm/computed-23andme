@@ -1,28 +1,12 @@
-import { useCallback, useContext } from "react";
-import { useAsync } from "react-async";
-import { AppContext, AppDispatchContext } from "../../context/context";
+import React, { useCallback } from "react";
 import './FileSelector.less';
+import { useFileUpload } from "../../context/FileUploadContext";
+import processCSVString from "../../processing";
 
-const FileSelector = () => {
-  const { data } = useContext(AppContext);
-  const dispatch = useContext(AppDispatchContext);
-  const { isPending, isFulfilled, error, run } = useAsync({ deferFn: async () => { } });
-
-  const processFile = useCallback(async (file: File) => {
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      try {
-        const text = event.target?.result as string;
-        run(text);
-      } catch (err) {
-        console.error('Error processing file:', err);
-      }
-    };
-    reader.onerror = (event) => {
-      console.error('Error reading file:', event.target?.error);
-    };
-    reader.readAsText(file);
-  }, [run]);
+const FileSelector: React.FC = React.memo(() => {
+  const {
+    processFile,
+  } = useFileUpload({ processData: processCSVString });
 
   const handleFileUpload = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -45,7 +29,7 @@ const FileSelector = () => {
     processFile(file);
   }, [processFile]);
 
-  return (<>
+  return (<div className='file-selector'>
     <input
       type='file'
       name='file-input'
@@ -61,9 +45,9 @@ const FileSelector = () => {
       onDragEnter={handleDrag}
       onDrop={handleDrop}
     >
-
+      Click to upload or drop your Computed Data (CSV) file.
     </label>
-  </>)
-};
+  </div>);
+});
 
 export default FileSelector;

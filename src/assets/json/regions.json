@@ -1,0 +1,1547 @@
+{
+  "v5.2": {
+    "name": "world",
+    "label": "World",
+    "depth": 0,
+    "children": [
+      {
+        "name": "sub-saharan_african",
+        "label": "Sub-saharan African",
+        "depth": 1,
+        "children": [
+          {
+            "name": "west_african",
+            "label": "West African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "senegambian_&_guinean",
+                "label": "Senegambian & Guinean",
+                "depth": 3
+              },
+              {
+                "name": "ghanaian_liberian_&_sierra_leonean",
+                "label": "Ghanaian, Liberian & Sierra Leonean",
+                "depth": 3
+              },
+              {
+                "name": "nigerian",
+                "label": "Nigerian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_west_african",
+                "label": "Broadly West African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "northern_east_african",
+            "label": "Northern East African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "sudanese",
+                "label": "Sudanese",
+                "depth": 3
+              },
+              {
+                "name": "ethiopian_&_eritrean",
+                "label": "Ethiopian & Eritrean",
+                "depth": 3
+              },
+              {
+                "name": "somali",
+                "label": "Somali",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_east_african",
+                "label": "Broadly Northern East African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "congolese_&_southern_east_african",
+            "label": "Congolese & Southern East African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "angolan_&_congolese",
+                "label": "Angolan & Congolese",
+                "depth": 3
+              },
+              {
+                "name": "southern_east_african",
+                "label": "Southern East African",
+                "depth": 3
+              },
+              {
+                "name": "broadly_congolese_&_southern_east_african",
+                "label": "Broadly Congolese & Southern East African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "african_hunter-gatherer",
+            "label": "African Hunter-gatherer",
+            "depth": 2
+          },
+          {
+            "name": "broadly_sub-saharan_african",
+            "label": "Broadly Sub-saharan African",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "east_asian_&_indigenous_american",
+        "label": "East Asian & Indigenous American",
+        "depth": 1,
+        "children": [
+          {
+            "name": "northern_asian",
+            "label": "Northern Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "siberian",
+                "label": "Siberian",
+                "depth": 3
+              },
+              {
+                "name": "manchurian_&_mongolian",
+                "label": "Manchurian & Mongolian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_asian",
+                "label": "Broadly Northern Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "indigenous_american",
+            "label": "Indigenous American",
+            "depth": 2
+          },
+          {
+            "name": "chinese_&_southeast_asian",
+            "label": "Chinese & Southeast Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "vietnamese",
+                "label": "Vietnamese",
+                "depth": 3
+              },
+              {
+                "name": "filipino_&_austronesian",
+                "label": "Filipino & Austronesian",
+                "depth": 3
+              },
+              {
+                "name": "indonesian_thai_khmer_&_myanma",
+                "label": "Indonesian, Thai, Khmer & Myanma",
+                "depth": 3
+              },
+              {
+                "name": "chinese",
+                "label": "Chinese",
+                "depth": 3
+              },
+              {
+                "name": "chinese_dai",
+                "label": "Chinese Dai",
+                "depth": 3
+              },
+              {
+                "name": "broadly_chinese_&_southeast_asian",
+                "label": "Broadly Chinese & Southeast Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "japanese_&_korean",
+            "label": "Japanese & Korean",
+            "depth": 2,
+            "children": [
+              {
+                "name": "japanese",
+                "label": "Japanese",
+                "depth": 3
+              },
+              {
+                "name": "korean",
+                "label": "Korean",
+                "depth": 3
+              },
+              {
+                "name": "broadly_japanese_&_korean",
+                "label": "Broadly Japanese & Korean",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "broadly_east_asian_&_indigenous_american",
+            "label": "Broadly East Asian & Indigenous American",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "european",
+        "label": "European",
+        "depth": 1,
+        "children": [
+          {
+            "name": "northwestern_european",
+            "label": "Northwestern European",
+            "depth": 2,
+            "children": [
+              {
+                "name": "british_&_irish",
+                "label": "British & Irish",
+                "depth": 3
+              },
+              {
+                "name": "finnish",
+                "label": "Finnish",
+                "depth": 3
+              },
+              {
+                "name": "french_&_german",
+                "label": "French & German",
+                "depth": 3
+              },
+              {
+                "name": "scandinavian",
+                "label": "Scandinavian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northwestern_european",
+                "label": "Broadly Northwestern European",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "southern_european",
+            "label": "Southern European",
+            "depth": 2,
+            "children": [
+              {
+                "name": "greek_&_balkan",
+                "label": "Greek & Balkan",
+                "depth": 3
+              },
+              {
+                "name": "spanish_&_portuguese",
+                "label": "Spanish & Portuguese",
+                "depth": 3
+              },
+              {
+                "name": "italian",
+                "label": "Italian",
+                "depth": 3
+              },
+              {
+                "name": "sardinian",
+                "label": "Sardinian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_southern_european",
+                "label": "Broadly Southern European",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "eastern_european",
+            "label": "Eastern European",
+            "depth": 2
+          },
+          {
+            "name": "ashkenazi_jewish",
+            "label": "Ashkenazi Jewish",
+            "depth": 2
+          },
+          {
+            "name": "broadly_european",
+            "label": "Broadly European",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "western_asian_&_north_african",
+        "label": "Western Asian & North African",
+        "depth": 1,
+        "children": [
+          {
+            "name": "northern_west_asian",
+            "label": "Northern West Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "cypriot",
+                "label": "Cypriot",
+                "depth": 3
+              },
+              {
+                "name": "anatolian",
+                "label": "Anatolian",
+                "depth": 3
+              },
+              {
+                "name": "iranian_caucasian_&_mesopotamian",
+                "label": "Iranian, Caucasian & Mesopotamian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_west_asian",
+                "label": "Broadly Northern West Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "arab_egyptian_&_levantine",
+            "label": "Arab, Egyptian & Levantine",
+            "depth": 2,
+            "children": [
+              {
+                "name": "peninsular_arab",
+                "label": "Peninsular Arab",
+                "depth": 3
+              },
+              {
+                "name": "levantine",
+                "label": "Levantine",
+                "depth": 3
+              },
+              {
+                "name": "egyptian",
+                "label": "Egyptian",
+                "depth": 3
+              },
+              {
+                "name": "coptic_egyptian",
+                "label": "Coptic Egyptian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_arab_egyptian_&_levantine",
+                "label": "Broadly Arab, Egyptian & Levantine",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "north_african",
+            "label": "North African",
+            "depth": 2
+          },
+          {
+            "name": "broadly_western_asian_&_north_african",
+            "label": "Broadly Western Asian & North African",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "central_&_south_asian",
+        "label": "Central & South Asian",
+        "depth": 1,
+        "children": [
+          {
+            "name": "central_asian_northern_indian_&_pakistani",
+            "label": "Central Asian, Northern Indian & Pakistani",
+            "depth": 2,
+            "children": [
+              {
+                "name": "central_asian",
+                "label": "Central Asian",
+                "depth": 3
+              },
+              {
+                "name": "northern_indian_&_pakistani",
+                "label": "Northern Indian & Pakistani",
+                "depth": 3
+              },
+              {
+                "name": "bengali_&_northeast_indian",
+                "label": "Bengali & Northeast Indian",
+                "depth": 3
+              },
+              {
+                "name": "gujarati_patidar",
+                "label": "Gujarati Patidar",
+                "depth": 3
+              },
+              {
+                "name": "broadly_central_asian_northern_indian_&_pakistani",
+                "label": "Broadly Central Asian, Northern Indian & Pakistani",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "southern_indian_subgroup",
+            "label": "Southern Indian Subgroup",
+            "depth": 2
+          },
+          {
+            "name": "southern_south_asian",
+            "label": "Southern South Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "southern_indian_&_sri_lankan",
+                "label": "Southern Indian & Sri Lankan",
+                "depth": 3
+              },
+              {
+                "name": "malayali_subgroup",
+                "label": "Malayali Subgroup",
+                "depth": 3
+              },
+              {
+                "name": "broadly_southern_south_asian",
+                "label": "Broadly Southern South Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "broadly_central_&_south_asian",
+            "label": "Broadly Central & South Asian",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "melanesian",
+        "label": "Melanesian",
+        "depth": 1,
+        "children": [
+          {
+            "name": "broadly_melanesian",
+            "label": "Broadly Melanesian",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "unassigned",
+        "label": "Unassigned",
+        "depth": 1
+      }
+    ]
+  },
+  "v5.9": {
+    "name": "world",
+    "label": "World",
+    "depth": 0,
+    "children": [
+      {
+        "name": "sub-saharan_african",
+        "label": "Sub-saharan African",
+        "depth": 1,
+        "children": [
+          {
+            "name": "west_african",
+            "label": "West African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "senegambian_&_guinean",
+                "label": "Senegambian & Guinean",
+                "depth": 3
+              },
+              {
+                "name": "ghanaian_liberian_&_sierra_leonean",
+                "label": "Ghanaian, Liberian & Sierra Leonean",
+                "depth": 3
+              },
+              {
+                "name": "nigerian",
+                "label": "Nigerian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_west_african",
+                "label": "Broadly West African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "northern_east_african",
+            "label": "Northern East African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "sudanese",
+                "label": "Sudanese",
+                "depth": 3
+              },
+              {
+                "name": "ethiopian_&_eritrean",
+                "label": "Ethiopian & Eritrean",
+                "depth": 3
+              },
+              {
+                "name": "somali",
+                "label": "Somali",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_east_african",
+                "label": "Broadly Northern East African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "congolese_&_southern_east_african",
+            "label": "Congolese & Southern East African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "angolan_&_congolese",
+                "label": "Angolan & Congolese",
+                "depth": 3
+              },
+              {
+                "name": "southern_east_african",
+                "label": "Southern East African",
+                "depth": 3
+              },
+              {
+                "name": "broadly_congolese_&_southern_east_african",
+                "label": "Broadly Congolese & Southern East African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "african_hunter-gatherer",
+            "label": "African Hunter-gatherer",
+            "depth": 2
+          },
+          {
+            "name": "broadly_sub-saharan_african",
+            "label": "Broadly Sub-saharan African",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "east_asian_&_indigenous_american",
+        "label": "East Asian & Indigenous American",
+        "depth": 1,
+        "children": [
+          {
+            "name": "northern_asian",
+            "label": "Northern Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "siberian",
+                "label": "Siberian",
+                "depth": 3
+              },
+              {
+                "name": "manchurian_&_mongolian",
+                "label": "Manchurian & Mongolian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_asian",
+                "label": "Broadly Northern Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "indigenous_american",
+            "label": "Indigenous American",
+            "depth": 2
+          },
+          {
+            "name": "chinese_&_southeast_asian",
+            "label": "Chinese & Southeast Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "vietnamese",
+                "label": "Vietnamese",
+                "depth": 3
+              },
+              {
+                "name": "filipino_&_austronesian",
+                "label": "Filipino & Austronesian",
+                "depth": 3
+              },
+              {
+                "name": "indonesian_thai_khmer_&_myanma",
+                "label": "Indonesian, Thai, Khmer & Myanma",
+                "depth": 3
+              },
+              {
+                "name": "chinese",
+                "label": "Chinese",
+                "depth": 3
+              },
+              {
+                "name": "chinese_dai",
+                "label": "Chinese Dai",
+                "depth": 3
+              },
+              {
+                "name": "broadly_chinese_&_southeast_asian",
+                "label": "Broadly Chinese & Southeast Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "japanese_&_korean",
+            "label": "Japanese & Korean",
+            "depth": 2,
+            "children": [
+              {
+                "name": "japanese",
+                "label": "Japanese",
+                "depth": 3
+              },
+              {
+                "name": "korean",
+                "label": "Korean",
+                "depth": 3
+              },
+              {
+                "name": "broadly_japanese_&_korean",
+                "label": "Broadly Japanese & Korean",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "broadly_east_asian_&_indigenous_american",
+            "label": "Broadly East Asian & Indigenous American",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "european",
+        "label": "European",
+        "depth": 1,
+        "children": [
+          {
+            "name": "northwestern_european",
+            "label": "Northwestern European",
+            "depth": 2,
+            "children": [
+              {
+                "name": "british_&_irish",
+                "label": "British & Irish",
+                "depth": 3
+              },
+              {
+                "name": "finnish",
+                "label": "Finnish",
+                "depth": 3
+              },
+              {
+                "name": "french_&_german",
+                "label": "French & German",
+                "depth": 3
+              },
+              {
+                "name": "scandinavian",
+                "label": "Scandinavian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northwestern_european",
+                "label": "Broadly Northwestern European",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "southern_european",
+            "label": "Southern European",
+            "depth": 2,
+            "children": [
+              {
+                "name": "greek_&_balkan",
+                "label": "Greek & Balkan",
+                "depth": 3
+              },
+              {
+                "name": "spanish_&_portuguese",
+                "label": "Spanish & Portuguese",
+                "depth": 3
+              },
+              {
+                "name": "italian",
+                "label": "Italian",
+                "depth": 3
+              },
+              {
+                "name": "sardinian",
+                "label": "Sardinian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_southern_european",
+                "label": "Broadly Southern European",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "eastern_european",
+            "label": "Eastern European",
+            "depth": 2
+          },
+          {
+            "name": "ashkenazi_jewish",
+            "label": "Ashkenazi Jewish",
+            "depth": 2
+          },
+          {
+            "name": "broadly_european",
+            "label": "Broadly European",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "western_asian_&_north_african",
+        "label": "Western Asian & North African",
+        "depth": 1,
+        "children": [
+          {
+            "name": "northern_west_asian",
+            "label": "Northern West Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "cypriot",
+                "label": "Cypriot",
+                "depth": 3
+              },
+              {
+                "name": "anatolian",
+                "label": "Anatolian",
+                "depth": 3
+              },
+              {
+                "name": "iranian_caucasian_&_mesopotamian",
+                "label": "Iranian, Caucasian & Mesopotamian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_west_asian",
+                "label": "Broadly Northern West Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "arab_egyptian_&_levantine",
+            "label": "Arab, Egyptian & Levantine",
+            "depth": 2,
+            "children": [
+              {
+                "name": "peninsular_arab",
+                "label": "Peninsular Arab",
+                "depth": 3
+              },
+              {
+                "name": "levantine",
+                "label": "Levantine",
+                "depth": 3
+              },
+              {
+                "name": "egyptian",
+                "label": "Egyptian",
+                "depth": 3
+              },
+              {
+                "name": "coptic_egyptian",
+                "label": "Coptic Egyptian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_arab_egyptian_&_levantine",
+                "label": "Broadly Arab, Egyptian & Levantine",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "north_african",
+            "label": "North African",
+            "depth": 2
+          },
+          {
+            "name": "broadly_western_asian_&_north_african",
+            "label": "Broadly Western Asian & North African",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "central_&_south_asian",
+        "label": "Central & South Asian",
+        "depth": 1,
+        "children": [
+          {
+            "name": "central_asian_northern_indian_&_pakistani",
+            "label": "Central Asian, Northern Indian & Pakistani",
+            "depth": 2,
+            "children": [
+              {
+                "name": "central_asian",
+                "label": "Central Asian",
+                "depth": 3
+              },
+              {
+                "name": "northern_indian_&_pakistani",
+                "label": "Northern Indian & Pakistani",
+                "depth": 3
+              },
+              {
+                "name": "bengali_&_northeast_indian",
+                "label": "Bengali & Northeast Indian",
+                "depth": 3
+              },
+              {
+                "name": "gujarati_patidar",
+                "label": "Gujarati Patidar",
+                "depth": 3
+              },
+              {
+                "name": "broadly_central_asian_northern_indian_&_pakistani",
+                "label": "Broadly Central Asian, Northern Indian & Pakistani",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "southern_indian_subgroup",
+            "label": "Southern Indian Subgroup",
+            "depth": 2
+          },
+          {
+            "name": "southern_south_asian",
+            "label": "Southern South Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "southern_indian_&_sri_lankan",
+                "label": "Southern Indian & Sri Lankan",
+                "depth": 3
+              },
+              {
+                "name": "malayali_subgroup",
+                "label": "Malayali Subgroup",
+                "depth": 3
+              },
+              {
+                "name": "broadly_southern_south_asian",
+                "label": "Broadly Southern South Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "broadly_central_&_south_asian",
+            "label": "Broadly Central & South Asian",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "melanesian",
+        "label": "Melanesian",
+        "depth": 1,
+        "children": [
+          {
+            "name": "broadly_melanesian",
+            "label": "Broadly Melanesian",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "unassigned",
+        "label": "Unassigned",
+        "depth": 1
+      }
+    ]
+  },
+  "v7.0": {
+    "name": "world",
+    "label": "World",
+    "depth": 0,
+    "children": [
+      {
+        "name": "sub-saharan_african",
+        "label": "Sub-saharan African",
+        "depth": 1,
+        "children": [
+          {
+            "name": "west_african",
+            "label": "West African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "senegambian_&_guinean",
+                "label": "Senegambian & Guinean",
+                "depth": 3
+              },
+              {
+                "name": "ghanaian_liberian_&_sierra_leonean",
+                "label": "Ghanaian, Liberian & Sierra Leonean",
+                "depth": 3
+              },
+              {
+                "name": "nigerian",
+                "label": "Nigerian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_west_african",
+                "label": "Broadly West African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "northern_east_african",
+            "label": "Northern East African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "sudanese",
+                "label": "Sudanese",
+                "depth": 3
+              },
+              {
+                "name": "ethiopian_&_eritrean",
+                "label": "Ethiopian & Eritrean",
+                "depth": 3
+              },
+              {
+                "name": "somali",
+                "label": "Somali",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_east_african",
+                "label": "Broadly Northern East African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "congolese_&_southern_east_african",
+            "label": "Congolese & Southern East African",
+            "depth": 2,
+            "children": [
+              {
+                "name": "angolan_&_congolese",
+                "label": "Angolan & Congolese",
+                "depth": 3
+              },
+              {
+                "name": "southern_east_african",
+                "label": "Southern East African",
+                "depth": 3
+              },
+              {
+                "name": "broadly_congolese_&_southern_east_african",
+                "label": "Broadly Congolese & Southern East African",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "african_hunter-gatherer",
+            "label": "African Hunter-gatherer",
+            "depth": 2
+          },
+          {
+            "name": "broadly_sub-saharan_african",
+            "label": "Broadly Sub-saharan African",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "east_asian",
+        "label": "East Asian",
+        "depth": 1,
+        "children": [
+          {
+            "name": "japanese",
+            "label": "Japanese",
+            "depth": 2
+          },
+          {
+            "name": "korean",
+            "label": "Korean",
+            "depth": 2
+          },
+          {
+            "name": "chinese",
+            "label": "Chinese",
+            "depth": 2,
+            "children": [
+              {
+                "name": "northern_chinese_&_tibetan",
+                "label": "Northern Chinese & Tibetan",
+                "depth": 3
+              },
+              {
+                "name": "southern_chinese_&_taiwanese",
+                "label": "Southern Chinese & Taiwanese",
+                "depth": 3
+              },
+              {
+                "name": "southern_coastal_chinese",
+                "label": "Southern Coastal Chinese",
+                "depth": 3
+              },
+              {
+                "name": "broadly_chinese",
+                "label": "Broadly Chinese",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "chinese_dai",
+            "label": "Chinese Dai",
+            "depth": 2
+          },
+          {
+            "name": "vietnamese",
+            "label": "Vietnamese",
+            "depth": 2
+          },
+          {
+            "name": "filipino_&_austronesian",
+            "label": "Filipino & Austronesian",
+            "depth": 2
+          },
+          {
+            "name": "indonesian_thai_khmer_&_myanma",
+            "label": "Indonesian, Thai, Khmer & Myanma",
+            "depth": 2
+          },
+          {
+            "name": "northern_asian",
+            "label": "Northern Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "manchurian_&_mongolian",
+                "label": "Manchurian & Mongolian",
+                "depth": 3
+              },
+              {
+                "name": "siberian",
+                "label": "Siberian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_asian",
+                "label": "Broadly Northern Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "broadly_east_asian",
+            "label": "Broadly East Asian",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "indigenous_american",
+        "label": "Indigenous American",
+        "depth": 1,
+        "children": [
+          {
+            "name": "arctic_north_american",
+            "label": "Arctic North American",
+            "depth": 2
+          },
+          {
+            "name": "western_north_american",
+            "label": "Western North American",
+            "depth": 2
+          },
+          {
+            "name": "north_american",
+            "label": "North American",
+            "depth": 2
+          },
+          {
+            "name": "southern_mesoamerican",
+            "label": "Southern Mesoamerican",
+            "depth": 2
+          },
+          {
+            "name": "central_andean_&_amazonian",
+            "label": "Central Andean & Amazonian",
+            "depth": 2
+          },
+          {
+            "name": "northern_andean",
+            "label": "Northern Andean",
+            "depth": 2
+          },
+          {
+            "name": "broadly_indigenous_american",
+            "label": "Broadly Indigenous American",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "melanesian",
+        "label": "Melanesian",
+        "depth": 1,
+        "children": [
+          {
+            "name": "broadly_melanesian",
+            "label": "Broadly Melanesian",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "central_&_south_asian",
+        "label": "Central & South Asian",
+        "depth": 1,
+        "children": [
+          {
+            "name": "central_asian",
+            "label": "Central Asian",
+            "depth": 2
+          },
+          {
+            "name": "northern_indian_&_pakistani",
+            "label": "Northern Indian & Pakistani",
+            "depth": 2
+          },
+          {
+            "name": "bengali_&_northeast_indian",
+            "label": "Bengali & Northeast Indian",
+            "depth": 2
+          },
+          {
+            "name": "gujarati_patidar",
+            "label": "Gujarati Patidar",
+            "depth": 2
+          },
+          {
+            "name": "southern_indian_subgroup",
+            "label": "Southern Indian Subgroup",
+            "depth": 2
+          },
+          {
+            "name": "southern_indian_&_sri_lankan",
+            "label": "Southern Indian & Sri Lankan",
+            "depth": 2
+          },
+          {
+            "name": "malayali_subgroup",
+            "label": "Malayali Subgroup",
+            "depth": 2
+          },
+          {
+            "name": "broadly_central_&_south_asian",
+            "label": "Broadly Central & South Asian",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "western_asian_&_north_african",
+        "label": "Western Asian & North African",
+        "depth": 1,
+        "children": [
+          {
+            "name": "northern_west_asian",
+            "label": "Northern West Asian",
+            "depth": 2,
+            "children": [
+              {
+                "name": "cypriot",
+                "label": "Cypriot",
+                "depth": 3
+              },
+              {
+                "name": "anatolian",
+                "label": "Anatolian",
+                "depth": 3
+              },
+              {
+                "name": "iranian_caucasian_&_mesopotamian",
+                "label": "Iranian, Caucasian & Mesopotamian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_northern_west_asian",
+                "label": "Broadly Northern West Asian",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "arab_egyptian_&_levantine",
+            "label": "Arab, Egyptian & Levantine",
+            "depth": 2,
+            "children": [
+              {
+                "name": "peninsular_arab",
+                "label": "Peninsular Arab",
+                "depth": 3
+              },
+              {
+                "name": "levantine",
+                "label": "Levantine",
+                "depth": 3
+              },
+              {
+                "name": "egyptian_&_southern_levantine",
+                "label": "Egyptian & Southern Levantine",
+                "depth": 3
+              },
+              {
+                "name": "coptic_egyptian",
+                "label": "Coptic Egyptian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_arab_egyptian_&_levantine",
+                "label": "Broadly Arab, Egyptian & Levantine",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "north_african",
+            "label": "North African",
+            "depth": 2
+          },
+          {
+            "name": "broadly_western_asian_&_north_african",
+            "label": "Broadly Western Asian & North African",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "european",
+        "label": "European",
+        "depth": 1,
+        "children": [
+          {
+            "name": "british_&_irish",
+            "label": "British & Irish",
+            "depth": 2,
+            "children": [
+              {
+                "name": "irish",
+                "label": "Irish",
+                "depth": 3
+              },
+              {
+                "name": "scottish",
+                "label": "Scottish",
+                "depth": 3
+              },
+              {
+                "name": "english",
+                "label": "English",
+                "depth": 3
+              },
+              {
+                "name": "welsh",
+                "label": "Welsh",
+                "depth": 3
+              },
+              {
+                "name": "broadly_british_&_irish",
+                "label": "Broadly British & Irish",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "western_european",
+            "label": "Western European",
+            "depth": 2,
+            "children": [
+              {
+                "name": "dutch_&_northern_german",
+                "label": "Dutch & Northern German",
+                "depth": 3
+              },
+              {
+                "name": "belgian_rhinelander_&_southern_dutch",
+                "label": "Belgian, Rhinelander & Southern Dutch",
+                "depth": 3
+              },
+              {
+                "name": "french",
+                "label": "French",
+                "depth": 3
+              },
+              {
+                "name": "swiss_southwestern_german_&_western_austrian",
+                "label": "Swiss, Southwestern German & Western Austrian",
+                "depth": 3
+              },
+              {
+                "name": "austrian_&_southern_german",
+                "label": "Austrian & Southern German",
+                "depth": 3
+              },
+              {
+                "name": "broadly_western_european",
+                "label": "Broadly Western European",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "nordic",
+            "label": "Nordic",
+            "depth": 2,
+            "children": [
+              {
+                "name": "norwegian",
+                "label": "Norwegian",
+                "depth": 3
+              },
+              {
+                "name": "swedish",
+                "label": "Swedish",
+                "depth": 3
+              },
+              {
+                "name": "danish",
+                "label": "Danish",
+                "depth": 3
+              },
+              {
+                "name": "finnish",
+                "label": "Finnish",
+                "depth": 3
+              },
+              {
+                "name": "icelandic",
+                "label": "Icelandic",
+                "depth": 3
+              },
+              {
+                "name": "broadly_nordic",
+                "label": "Broadly Nordic",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "spanish_&_portuguese",
+            "label": "Spanish & Portuguese",
+            "depth": 2,
+            "children": [
+              {
+                "name": "portuguese_&_galician",
+                "label": "Portuguese & Galician",
+                "depth": 3
+              },
+              {
+                "name": "aragonese_&_catalan",
+                "label": "Aragonese & Catalan",
+                "depth": 3
+              },
+              {
+                "name": "basque",
+                "label": "Basque",
+                "depth": 3
+              },
+              {
+                "name": "canary_islander",
+                "label": "Canary Islander",
+                "depth": 3
+              },
+              {
+                "name": "andalusian_asturian_&_castilian",
+                "label": "Andalusian, Asturian & Castilian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_spanish_&_portuguese",
+                "label": "Broadly Spanish & Portuguese",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "italian_&_maltese",
+            "label": "Italian & Maltese",
+            "depth": 2,
+            "children": [
+              {
+                "name": "northern_italian",
+                "label": "Northern Italian",
+                "depth": 3
+              },
+              {
+                "name": "southern_italian",
+                "label": "Southern Italian",
+                "depth": 3
+              },
+              {
+                "name": "sardinian",
+                "label": "Sardinian",
+                "depth": 3
+              },
+              {
+                "name": "maltese",
+                "label": "Maltese",
+                "depth": 3
+              },
+              {
+                "name": "broadly_italian_&_maltese",
+                "label": "Broadly Italian & Maltese",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "greek_&_balkan",
+            "label": "Greek & Balkan",
+            "depth": 2,
+            "children": [
+              {
+                "name": "bosnian_croatian_montenegrin_&_serbian",
+                "label": "Bosnian, Croatian, Montenegrin & Serbian",
+                "depth": 3
+              },
+              {
+                "name": "kosovar_&_northern_albanian",
+                "label": "Kosovar & Northern Albanian",
+                "depth": 3
+              },
+              {
+                "name": "albanian_&_macedonian",
+                "label": "Albanian & Macedonian",
+                "depth": 3
+              },
+              {
+                "name": "greek",
+                "label": "Greek",
+                "depth": 3
+              },
+              {
+                "name": "bulgarian_moldovan_&_romanian",
+                "label": "Bulgarian, Moldovan & Romanian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_greek_&_balkan",
+                "label": "Broadly Greek & Balkan",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "central_&_eastern_european",
+            "label": "Central & Eastern European",
+            "depth": 2,
+            "children": [
+              {
+                "name": "estonian",
+                "label": "Estonian",
+                "depth": 3
+              },
+              {
+                "name": "latvian",
+                "label": "Latvian",
+                "depth": 3
+              },
+              {
+                "name": "lithuanian",
+                "label": "Lithuanian",
+                "depth": 3
+              },
+              {
+                "name": "slovenian",
+                "label": "Slovenian",
+                "depth": 3
+              },
+              {
+                "name": "czech_hungarian_slovak_&_southern_polish",
+                "label": "Czech, Hungarian, Slovak & Southern Polish",
+                "depth": 3
+              },
+              {
+                "name": "belarusian_polish_&_ukrainian",
+                "label": "Belarusian, Polish & Ukrainian",
+                "depth": 3
+              },
+              {
+                "name": "russian",
+                "label": "Russian",
+                "depth": 3
+              },
+              {
+                "name": "broadly_central_&_eastern_european",
+                "label": "Broadly Central & Eastern European",
+                "depth": 3
+              }
+            ]
+          },
+          {
+            "name": "ashkenazi_jewish",
+            "label": "Ashkenazi Jewish",
+            "depth": 2
+          },
+          {
+            "name": "broadly_european",
+            "label": "Broadly European",
+            "depth": 2
+          }
+        ]
+      },
+      {
+        "name": "unassigned",
+        "label": "Unassigned",
+        "depth": 1
+      }
+    ]
+  }
+}

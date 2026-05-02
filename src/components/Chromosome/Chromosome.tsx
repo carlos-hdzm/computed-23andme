@@ -11,7 +11,7 @@ type ChromosomeProps = {
 
 const longestLength = (chromosomesLengthsJSON as ChromosomeLengthObject)['1' as ChromosomeKey].length;
 
-const Chromosome: React.FC<ChromosomeProps> = ({ chromosome, label }) => {
+const Chromosome: React.FC<ChromosomeProps> = React.memo(({ chromosome, label }) => {
   const isYChromosome = label === 'Y';
   const chrKey = typeof label === 'number' ? (label.toString() as ChromosomeKey) : (`chr${label}-npar` as ChromosomeKey);
   const { length, centromere: [centromereMin, centromereMax] } = chromosomesLengthsJSON[chrKey];
@@ -52,6 +52,6 @@ const Chromosome: React.FC<ChromosomeProps> = ({ chromosome, label }) => {
       ))}
     </div>
   </div>);
-};
+});
 
 export default Chromosome;

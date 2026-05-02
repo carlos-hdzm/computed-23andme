@@ -1,0 +1,21 @@
+.main-panel {
+    display: flex;
+    flex-flow: row;
+    flex-grow: 1;
+    position: relative;
+    height: calc(100vh - var(--top-panel-height));
+
+    &.initial-panel, &.error-panel {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        
+        .file-selector {
+            flex-basis: 40%;
+        }
+
+        .sample-data {
+            flex-basis: 15%;
+        }
+    }
+}

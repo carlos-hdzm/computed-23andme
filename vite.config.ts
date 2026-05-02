@@ -10,18 +10,6 @@ export default defineConfig({
     nodePolyfills(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  resolve: {
-    alias: {
-      src: "/src",
-      components: "/src/components",
-      assets: "/src/assets",
-      context: "/src/context",
-      processing: "/src/processing",
-      styles: "/src/styles",
-      types: "/src/types",
-      util: "/src/util",
-    },
-  },
   css: {
     preprocessorOptions: {
       less: {

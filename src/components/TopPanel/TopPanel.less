@@ -1,0 +1,50 @@
+.top-panel {
+    flex-basis: var(--top-panel-height);
+    min-height: var(--top-panel-height);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: var(--divider);
+
+    .file-uploaded {
+        flex-basis: 30%;
+        padding: 1rem;
+    }
+
+    .controls {
+        display: flex;
+        flex-basis: 30%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+
+        .version,
+        .confidence {
+            width: 40%;
+        }
+
+        select {
+            appearance: base-select;
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
+            width: 100%;
+            font-size: 1rem;
+            background-color: #fff;
+            color: #000;
+            border: var(--divider);
+
+            &::picker-icon {
+                font-size: 1rem;
+            }
+        }
+
+        ::picker(select) {
+            appearance: base-select;
+            padding: 0.5rem;
+            font-size: 1rem;
+            background-color: #fff;
+            color: #000;
+            border: var(--divider);
+        }
+    }
+}

@@ -5,6 +5,7 @@ import sortSubregionsByProportion from "../../util/sortSubregions";
 import './RegionRow.less';
 import regionsStyles from '../../styles/regions.module.less';
 import { AppDispatchContext } from "../../context/context";
+import contextActions from "../../context/actions";
 
 type RegionRowProps = {
   regionName: string
@@ -18,11 +19,11 @@ const RegionRow: React.FC<RegionRowProps> = ({ regionEntry }) => {
   const { depth, total: { proportion }, subregions, cssClass, label } = regionEntry;
 
   const handleRowMouseOver: MouseOverEvent = useCallback(() => {
-    dispatch({ type: 'SET_HIGHLIGHT', highlight: cssClass });
+    dispatch(contextActions.setHighlight(cssClass));
   }, [cssClass, dispatch]);
 
   const handleRowMouseOut: MouseOverEvent = useCallback(() => {
-    dispatch({ type: 'SET_HIGHLIGHT', highlight: '' });
+    dispatch(contextActions.setHighlight(''));
   }, [dispatch]);
 
   return (<>
