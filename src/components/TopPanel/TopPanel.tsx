@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { AppContext, AppDispatchContext } from "../../context/context";
 import contextActions from "../../context/actions";
 import "./TopPanel.less";
-import type { ConfidenceType, VersionType } from "../../context/types";
+import type { ConfidenceLevel, ModelVersion } from "../../types";
 import {
   confidenceLabels,
   confidenceValues,
@@ -28,7 +28,7 @@ const TopPanel: React.FC = () => {
   const { reset, isSampleData, error, isDone } = useFileUpload();
 
   const handleVersionChange = useCallback(
-    ({ target: { value } }: ChangeEvent<VersionType>) => {
+    ({ target: { value } }: ChangeEvent<ModelVersion>) => {
       if (value !== "v7.0" && confidence === "mostLikely") {
         dispatch(contextActions.setConfidence(50));
       }
@@ -38,7 +38,7 @@ const TopPanel: React.FC = () => {
   );
 
   const handleConfidenceChange = useCallback(
-    ({ target: { value } }: ChangeEvent<ConfidenceType>) => {
+    ({ target: { value } }: ChangeEvent<ConfidenceLevel>) => {
       dispatch(contextActions.setConfidence(value));
     },
     [dispatch],

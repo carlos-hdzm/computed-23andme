@@ -6,7 +6,7 @@ import type {
     SetHighlightAction,
     SetSampleDataAction,
     ClearDataAction
-} from "./types";
+} from "../types";
 
 const contextActions = {
     setData(data: ComputedData): SetDataAction {

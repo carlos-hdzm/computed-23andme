@@ -1,3 +1,5 @@
+import type { ConfidenceLevel } from "../types";
+
 export const versionValues = ["v5.2", "v5.9", "v7.0"] as const;
 export const confidenceValues = {
     "v5.2" : [50, 60, 70, 80, 90] as const,
@@ -12,7 +14,7 @@ export const versionLabels: Record<(typeof versionValues)[number], string> = {
 };
 
 export const confidenceLabels: Record<
-  (typeof confidenceValues)['v7.0'][number],
+  ConfidenceLevel,
   string
 > = {
   mostLikely: "Most Likely",

@@ -1,4 +1,4 @@
-import type { ContextData, DataAction } from "./types";
+import type { ContextData, DataAction } from "../types";
 import sampleContextData from "./sample-data";
 
 export const dataReducer = (state: ContextData, action: DataAction) => {

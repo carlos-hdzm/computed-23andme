@@ -3,7 +3,7 @@ import type {
   ComputedData,
   ComputedDataV5Entry,
   ComputedDataV7Entry
-} from "../types/dataTypes"
+} from ".";
 
 type ContextDataCommon = {
   data: ComputedData
@@ -52,13 +52,6 @@ export type SetSampleDataAction = {
 export type ClearDataAction = {
   type: 'CLEAR_DATA'
 }
-
-export type VersionType = keyof ComputedData
-export type ConfidenceType =
-  keyof (
-    ComputedDataV5Entry<ChromosomeHaplotypeSplit> &
-    ComputedDataV7Entry<ChromosomeHaplotypeSplit>
-  )
 
 export type DataAction =
   SetDataAction | 

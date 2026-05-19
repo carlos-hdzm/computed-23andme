@@ -1,5 +1,4 @@
-import type { ChromosomeHaplotypeSplit, ComputedData } from '../types';
-import type { ContextData } from './types';
+import type { ComputedData, ContextData } from '../types';
 import sampleData from '../../assets/json/sample-data.json' with { type: 'json' };
 
 const sampleContextData: ContextData = {
