@@ -8,7 +8,7 @@ import {
   confidenceLabels,
   confidenceValues,
   versionLabels,
-} from "../../util/strings";
+} from "../../constants/strings";
 import { useFileUpload } from "../../context/FileUploadContext";
 import { getAvailableVersions } from "../../context/contextUtil";
 

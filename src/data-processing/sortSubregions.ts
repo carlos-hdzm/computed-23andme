@@ -1,6 +1,6 @@
-import type { RegionDataEntry, RegionsEntry } from "../types";
+import type { UnsortedRegionsEntry, SortedRegionsEntry } from "../types";
 
-const sortSubregionsByProportion = (subregions: RegionsEntry, { containsUnassigned = false, containsBroadly = false }): [string, RegionDataEntry][] => {
+const sortSubregionsByProportion = (subregions: UnsortedRegionsEntry, { containsUnassigned = false, containsBroadly = false }): SortedRegionsEntry => {
   let subregionsToSort = Object.entries(subregions);
   let broadlyRegion = '';
   if (containsUnassigned) {
@@ -18,7 +18,7 @@ const sortSubregionsByProportion = (subregions: RegionsEntry, { containsUnassign
     const { total: { proportion: totalA } } = regionA;
     const { total: { proportion: totalB } } = regionB;
     return totalB - totalA;
-  });
+  }) as SortedRegionsEntry;
   if (containsUnassigned) sortedSubregions.push(['unassigned', subregions.unassigned]);
   if (containsBroadly && broadlyRegion) sortedSubregions.push([broadlyRegion, subregions[broadlyRegion]]);
 

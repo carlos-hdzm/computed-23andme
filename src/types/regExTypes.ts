@@ -1,4 +1,4 @@
-import { type ProportionsEntry } from ".";
+import type { AutosomalChromosomesKey, ProportionsEntry } from ".";
 
 type NameRegExMatchType = RegExpMatchArray & {
   3: 'segments' | 'proportions' // type
@@ -36,7 +36,7 @@ type NameRegExMatchV7 = {
 
 export type NameRegExMatch = NameRegExMatchV5 | NameRegExMatchV7
 
-export type ChromosomeNumber = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | 'X-npar';
+export type ChromosomeNumber = AutosomalChromosomesKey | 'X-npar';
 
 export type LabelSegmentRegExMatch = RegExpMatchArray & {
   1: ChromosomeNumber // chromosome

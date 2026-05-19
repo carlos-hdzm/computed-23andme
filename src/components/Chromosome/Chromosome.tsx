@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import type { ChromosomeHaplotype, ChromosomeKey, ChromosomeLengthObject } from '../../types';
+import type { ChromosomeHaplotypeSplit, ChromosomeKey, ChromosomeLengthObject } from '../../types';
 import './Chromosome.less';
-import chromosomesLengthsJSON from '../../assets/json/chromosomes.json';
+import chromosomesLengthsJSON from '../../../assets/json/chromosomes.json';
 import ChromosomeSegment from "../ChromosomeSegment/ChromosomeSegment";
 
 type ChromosomeProps = {
-  chromosome?: ChromosomeHaplotype
+  chromosome?: ChromosomeHaplotypeSplit
   label: number | 'X' | 'Y'
 }
 

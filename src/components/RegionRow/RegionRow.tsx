@@ -1,7 +1,6 @@
 import React, { useCallback, useContext } from "react";
 import classNames from "classnames";
-import type { RegionDataEntry } from "../../types";
-import sortSubregionsByProportion from "../../util/sortSubregions";
+import type { SortedRegionDataEntry, SortedRegionsEntry } from "../../types";
 import './RegionRow.less';
 import regionsStyles from '../../styles/regions.module.less';
 import { AppDispatchContext } from "../../context/context";
@@ -9,7 +8,7 @@ import contextActions from "../../context/actions";
 
 type RegionRowProps = {
   regionName: string
-  regionEntry: RegionDataEntry
+  regionEntry: SortedRegionDataEntry
 }
 
 type MouseOverEvent = React.MouseEventHandler<HTMLTableRowElement>
@@ -38,7 +37,7 @@ const RegionRow: React.FC<RegionRowProps> = ({ regionEntry }) => {
       <td className='region-proportion'>{`${(proportion * 100).toFixed(2)}%`}</td>
     </tr>
     {
-      subregions && sortSubregionsByProportion(subregions, { containsBroadly: true }).map(([subregionName, subregionEntry]) => (
+      subregions && (subregions as SortedRegionsEntry).map(([subregionName, subregionEntry]) => (
         <RegionRow key={subregionName} regionName={subregionName} regionEntry={subregionEntry} />
       ))
     }

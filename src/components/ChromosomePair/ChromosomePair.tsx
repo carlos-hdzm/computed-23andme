@@ -1,5 +1,5 @@
 import React from "react";
-import type { ChromosomeHaplotype } from "../../types";
+import type { ChromosomeHaplotypeSplit } from "../../types";
 import './ChromosomePair.less';
 import Chromosome from "../Chromosome/Chromosome";
 import classNames from "classnames";
@@ -7,13 +7,13 @@ import classNames from "classnames";
 type AutosomalChromosomePairProps = {
   label: number
   isSexPair: false
-  pair: [ChromosomeHaplotype, ChromosomeHaplotype]
+  pair: [ChromosomeHaplotypeSplit, ChromosomeHaplotypeSplit]
 }
 
 type SexChromosomePairProps = {
   label?: never
   isSexPair: true
-  pair: [ChromosomeHaplotype] | [ChromosomeHaplotype, ChromosomeHaplotype]
+  pair: [ChromosomeHaplotypeSplit] | [ChromosomeHaplotypeSplit, ChromosomeHaplotypeSplit]
 }
 
 type ChromosomePairProps = AutosomalChromosomePairProps | SexChromosomePairProps

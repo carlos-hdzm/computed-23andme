@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import './FileSelector.less';
 import { useFileUpload } from "../../context/FileUploadContext";
-import processCSVString from "../../processing";
+import processCSVString from "../../data-processing";
 
 const FileSelector: React.FC = React.memo(() => {
   const {

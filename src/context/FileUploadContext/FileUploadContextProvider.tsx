@@ -1,5 +1,5 @@
 import React, { createContext, useMemo, useState } from "react";
-import type { ChromosomeHaplotype, ComputedData } from "../../types";
+import type { ChromosomeHaplotypeSplit, ComputedData } from "../../types";
 
 type FileUploadContextValue = {
   file: File | null;
@@ -15,7 +15,7 @@ type FileUploadDispatchContextValue = {
 };
 
 type FileUploadPropsContextValue = {
-  onResolve: <T extends ComputedData<ChromosomeHaplotype>>(data: T) => void;
+  onResolve: <T extends ComputedData>(data: T) => void;
 };
 
 type FileUploadContextProviderProps = {

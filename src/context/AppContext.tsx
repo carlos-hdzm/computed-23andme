@@ -1,6 +1,6 @@
 import React, { useCallback, useReducer } from "react";
 import { dataReducer } from "./reducer";
-import type { ChromosomeHaplotype, ComputedData } from "../types/objectTypes";
+import type { ChromosomeHaplotypeSplit, ComputedData } from "../types/dataTypes";
 import { AppContext, AppDispatchContext } from "./context";
 import contextActions from "./actions";
 import { initialData } from "./initial-data";
@@ -15,7 +15,7 @@ const AppContextProvider: React.FC<AppContextProviderType> = ({ children }) => {
   // @ts-expect-error Different versions have different confidence types
   const [contextValue, dispatch] = useReducer(dataReducer, null, initialData);
 
-  const saveData = useCallback((resolvedData: ComputedData<ChromosomeHaplotype>) => {
+  const saveData = useCallback((resolvedData: ComputedData) => {
     if (!resolvedData) return;
 
     dispatch(contextActions.setData(resolvedData));

@@ -1,14 +1,15 @@
 import csv from 'csvtojson';
 import type { ComputedDataEntry } from '../types';
-import { nestRegions, processData } from './processData';
+import { populateDataTemplate } from './populateDataTemplate';
+import { nestRegions } from './processData';
 
 const processCSVString = async (csvStr: string) => {
   try {
     const json = await csv().fromString(csvStr) as ComputedDataEntry[];
-    const processedData = processData(json);
+    const processedData = populateDataTemplate(json);
     return nestRegions(processedData);
   } catch (error) {
-    console.error('Error converting CSV to JSON:', error);
+    console.error('Error processing CSV data:', error);
     throw error;
   }
 }

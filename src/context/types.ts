@@ -1,42 +1,42 @@
 import type {
-  ChromosomeHaplotype,
+  ChromosomeHaplotypeSplit,
   ComputedData,
   ComputedDataV5Entry,
   ComputedDataV7Entry
-} from "../types/objectTypes"
+} from "../types/dataTypes"
 
 type ContextDataCommon = {
-  data: ComputedData<ChromosomeHaplotype>
+  data: ComputedData
   highlight: string
 }
 
 type ContextDataV5 = {
-  version: keyof ComputedData<ChromosomeHaplotype> & ('v5.2' | 'v5.9')
-  confidence: keyof ComputedDataV5Entry<ChromosomeHaplotype>
+  version: keyof ComputedData & ('v5.2' | 'v5.9')
+  confidence: keyof ComputedDataV5Entry<ChromosomeHaplotypeSplit>
 }
 
 type ContextDataV7 = {
-  version: keyof ComputedData<ChromosomeHaplotype> & ('v7.0')
-  confidence: keyof ComputedDataV7Entry<ChromosomeHaplotype>
+  version: keyof ComputedData & ('v7.0')
+  confidence: keyof ComputedDataV7Entry<ChromosomeHaplotypeSplit>
 }
 
 export type ContextData = ContextDataCommon & (ContextDataV5 | ContextDataV7)
 
 export type SetDataAction = {
   type: 'SET_DATA'
-  data: ComputedData<ChromosomeHaplotype>
+  data: ComputedData
 }
 
 export type SetVersionAction = {
   type: 'SET_VERSION'
-  version: keyof ComputedData<ChromosomeHaplotype>
+  version: keyof ComputedData
 }
 
 export type SetConfidenceAction = {
   type: 'SET_CONFIDENCE'
   confidence: keyof (
-    ComputedDataV5Entry<ChromosomeHaplotype> & 
-    ComputedDataV7Entry<ChromosomeHaplotype>
+    ComputedDataV5Entry<ChromosomeHaplotypeSplit> & 
+    ComputedDataV7Entry<ChromosomeHaplotypeSplit>
   )
 }
 
@@ -53,11 +53,11 @@ export type ClearDataAction = {
   type: 'CLEAR_DATA'
 }
 
-export type VersionType = keyof ComputedData<ChromosomeHaplotype>
+export type VersionType = keyof ComputedData
 export type ConfidenceType =
   keyof (
-    ComputedDataV5Entry<ChromosomeHaplotype> &
-    ComputedDataV7Entry<ChromosomeHaplotype>
+    ComputedDataV5Entry<ChromosomeHaplotypeSplit> &
+    ComputedDataV7Entry<ChromosomeHaplotypeSplit>
   )
 
 export type DataAction =

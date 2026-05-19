@@ -1,4 +1,4 @@
-import type { ChromosomeHaplotype, ComputedData, ComputedDataV5Entry, ComputedDataV7Entry } from "../types";
+import type { ChromosomeHaplotypeSplit, ComputedData, ComputedDataV5Entry, ComputedDataV7Entry } from "../types";
 import type {
     SetDataAction,
     SetVersionAction,
@@ -9,15 +9,15 @@ import type {
 } from "./types";
 
 const contextActions = {
-    setData(data: ComputedData<ChromosomeHaplotype>): SetDataAction {
+    setData(data: ComputedData): SetDataAction {
         return { type: 'SET_DATA', data };
     },
-    setVersion(version: keyof ComputedData<ChromosomeHaplotype>): SetVersionAction {
+    setVersion(version: keyof ComputedData): SetVersionAction {
         return { type: 'SET_VERSION', version };
     },
     setConfidence(confidence: keyof (
-        ComputedDataV5Entry<ChromosomeHaplotype> & 
-        ComputedDataV7Entry<ChromosomeHaplotype>
+        ComputedDataV5Entry<ChromosomeHaplotypeSplit> & 
+        ComputedDataV7Entry<ChromosomeHaplotypeSplit>
     )): SetConfidenceAction {
         return { type: 'SET_CONFIDENCE', confidence };
     },

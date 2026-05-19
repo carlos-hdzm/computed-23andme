@@ -2,7 +2,6 @@ import { useContext, useMemo } from 'react';
 import { AppContext } from '../../context/context';
 import type { ConfidenceEntry } from '../../types';
 import RegionRow from '../RegionRow/RegionRow';
-import sortSubregionsByProportion from '../../util/sortSubregions';
 import './Proportions.less';
 
 const Proportions = () => {
@@ -10,9 +9,7 @@ const Proportions = () => {
   const regions = useMemo(() => {
     if (!data || !version || !confidence) return [];
     // @ts-expect-error Different versions have different confidence types
-    const regionsObject = (data[version][confidence] as ConfidenceEntry).regions;
-    const subregions = ('world' in regionsObject) ? regionsObject.world.subregions : regionsObject;
-    return sortSubregionsByProportion(subregions!, { containsUnassigned: 'unassigned' in subregions! });
+    return (data[version][confidence] as ConfidenceEntry).regions;
   }, [data, version, confidence]);
 
   return (<section className='proportions'>
