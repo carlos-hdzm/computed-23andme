@@ -35,7 +35,7 @@ If a user doesn't want to provide their own Computed Data, or doesn't have one (
 The Computed Data file contains much more information than the region estimates and chromosome segments. It also includes Genetic Groups, Country Matches, Historical Matches, Haplogroups, among other parts of 23andMe's reports. This means that more functionality could be added to **Computed 23andMe**, along with technical improvements.
 
 As of now, the following additions/improvements are being considered, in no particular order:
-- Provide functional sample data.
+- ~~Provide functional sample data.~~
 - Add unit tests with Vitest.
 - Analyze the feasability of React 19's `use` API, along with `Suspense` for the `async` behavior (file processing).
 - Improve UI.
