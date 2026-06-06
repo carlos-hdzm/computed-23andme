@@ -13,5 +13,22 @@ export default defineConfig({
         { browser: 'chromium' },
       ],
     },
+    coverage: {
+      provider: 'v8',
+    },
+    projects: [
+      {
+        test: {
+          name: 'node',
+          include: ['src/data-processing/**/*.test.ts'],
+        },
+      },
+      {
+        test: {
+          name: 'browser',
+          include: ['src/components/**/*.test.tsx', 'src/context/**/*.test.{ts|tsx}'],
+        },
+      },
+    ],
   },
 })

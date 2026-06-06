@@ -1,0 +1,156 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`createDataTemplate should return a data template 1`] = `
+{
+  "v5.2": {
+    "50": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "60": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "70": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "80": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "90": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+  },
+  "v5.9": {
+    "50": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "60": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "70": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "80": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "90": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+  },
+  "v7.0": {
+    "50": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "60": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "70": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "80": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "90": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+    "mostLikely": {
+      "chromosomes": {
+        "autosomal": [],
+        "sex": [
+          [],
+        ],
+      },
+      "regions": {},
+    },
+  },
+}
+`;
