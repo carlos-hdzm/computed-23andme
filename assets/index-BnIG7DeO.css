@@ -1,0 +1,941 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --divider: 1px solid #000;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+}
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --divider: 1px solid #000;
+  }
+} */
+#root {
+  max-width: 100%;
+  min-height: 100svh;
+  overflow-y: hidden;
+}
+body {
+  margin: 0;
+}
+.main-view {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  --top-panel-height: 15vh;
+}
+.top-panel {
+  flex-basis: var(--top-panel-height);
+  min-height: var(--top-panel-height);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: var(--divider);
+}
+.top-panel .file-uploaded {
+  flex-basis: 30%;
+  padding: 1rem;
+}
+.top-panel .controls {
+  display: flex;
+  flex-basis: 30%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.top-panel .controls .version,
+.top-panel .controls .confidence {
+  width: 40%;
+}
+.top-panel .controls select {
+  appearance: base-select;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  width: 100%;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+  border: var(--divider);
+}
+.top-panel .controls select::picker-icon {
+  font-size: 1rem;
+}
+.top-panel .controls ::picker(select) {
+  appearance: base-select;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+  border: var(--divider);
+}
+.chromosome-viewer {
+  flex-grow: 1;
+  padding: 1rem;
+  position: relative;
+  overflow-y: auto;
+}
+.chromosome-viewer table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.chromosome-viewer table tr td {
+  padding: 0.5rem;
+}
+table tr td.chromosome-label {
+  font-weight: bold;
+  width: 3rem;
+  text-align: center;
+}
+table tr td.chromosome-segments.hap1 {
+  padding-bottom: 0.25rem;
+}
+table tr td.chromosome-segments.hap2 {
+  padding-top: 0.25rem;
+}
+.haplotype {
+  display: flex;
+  height: 20px;
+  flex-direction: row;
+  --stripe-light-color: #eee;
+  --stripe-dark-color: #bbb;
+  --stripe-light-width: 5px;
+  --stripe-dark-width: 1px;
+}
+.haplotype .arm {
+  height: 20px;
+  border-radius: 10px;
+  background: repeating-linear-gradient(135deg, var(--stripe-light-color), var(--stripe-light-color) var(--stripe-light-width), var(--stripe-dark-color) var(--stripe-light-width), var(--stripe-dark-color) calc(var(--stripe-light-width) + var(--stripe-dark-width)));
+  display: flex;
+  overflow: hidden;
+}
+.segment {
+  background-color: var(--region-color);
+  height: 100%;
+  display: flex;
+}
+.segment.dimmed {
+  background-color: transparent;
+}
+.segment.highlight {
+  z-index: 9 !important;
+}
+._v5_2_8exqc_1 ._world_8exqc_1,
+._v5_9_8exqc_2 ._world_8exqc_1 {
+  --region-color: transparent;
+}
+._v5_2_8exqc_1 ._sub-saharan_african_8exqc_5,
+._v5_9_8exqc_2 ._sub-saharan_african_8exqc_5 {
+  --region-color: #800E65;
+}
+._v5_2_8exqc_1 ._west_african_8exqc_9,
+._v5_9_8exqc_2 ._west_african_8exqc_9 {
+  --region-color: #C20064;
+}
+._v5_2_8exqc_1 ._senegambian_guinean_8exqc_13,
+._v5_9_8exqc_2 ._senegambian_guinean_8exqc_13 {
+  --region-color: #82003D;
+}
+._v5_2_8exqc_1 ._ghanaian_liberian_sierra_leonean_8exqc_17,
+._v5_9_8exqc_2 ._ghanaian_liberian_sierra_leonean_8exqc_17 {
+  --region-color: #DD0077;
+}
+._v5_2_8exqc_1 ._nigerian_8exqc_21,
+._v5_9_8exqc_2 ._nigerian_8exqc_21 {
+  --region-color: #9E0954;
+}
+._v5_2_8exqc_1 ._broadly_west_african_8exqc_25,
+._v5_9_8exqc_2 ._broadly_west_african_8exqc_25 {
+  --region-color: #C20064;
+}
+._v5_2_8exqc_1 ._northern_east_african_8exqc_29,
+._v5_9_8exqc_2 ._northern_east_african_8exqc_29 {
+  --region-color: #40014B;
+}
+._v5_2_8exqc_1 ._sudanese_8exqc_33,
+._v5_9_8exqc_2 ._sudanese_8exqc_33 {
+  --region-color: #9210A1;
+}
+._v5_2_8exqc_1 ._ethiopian_eritrean_8exqc_37,
+._v5_9_8exqc_2 ._ethiopian_eritrean_8exqc_37 {
+  --region-color: #7A0087;
+}
+._v5_2_8exqc_1 ._somali_8exqc_41,
+._v5_9_8exqc_2 ._somali_8exqc_41 {
+  --region-color: #550066;
+}
+._v5_2_8exqc_1 ._broadly_northern_east_african_8exqc_45,
+._v5_9_8exqc_2 ._broadly_northern_east_african_8exqc_45 {
+  --region-color: #40014B;
+}
+._v5_2_8exqc_1 ._congolese_southern_east_african_8exqc_49,
+._v5_9_8exqc_2 ._congolese_southern_east_african_8exqc_49 {
+  --region-color: #B9018F;
+}
+._v5_2_8exqc_1 ._angolan_congolese_8exqc_53,
+._v5_9_8exqc_2 ._angolan_congolese_8exqc_53 {
+  --region-color: #A1007B;
+}
+._v5_2_8exqc_1 ._southern_east_african_8exqc_57,
+._v5_9_8exqc_2 ._southern_east_african_8exqc_57 {
+  --region-color: #5E0048;
+}
+._v5_2_8exqc_1 ._broadly_congolese_southern_east_african_8exqc_61,
+._v5_9_8exqc_2 ._broadly_congolese_southern_east_african_8exqc_61 {
+  --region-color: #B9018F;
+}
+._v5_2_8exqc_1 ._african_hunter-gatherer_8exqc_65,
+._v5_9_8exqc_2 ._african_hunter-gatherer_8exqc_65 {
+  --region-color: #750C42;
+}
+._v5_2_8exqc_1 ._broadly_sub-saharan_african_8exqc_69,
+._v5_9_8exqc_2 ._broadly_sub-saharan_african_8exqc_69 {
+  --region-color: #800E65;
+}
+._v5_2_8exqc_1 ._east_asian_indigenous_american_8exqc_73,
+._v5_9_8exqc_2 ._east_asian_indigenous_american_8exqc_73 {
+  --region-color: #D12F11;
+}
+._v5_2_8exqc_1 ._northern_asian_8exqc_77,
+._v5_9_8exqc_2 ._northern_asian_8exqc_77 {
+  --region-color: #FF8361;
+}
+._v5_2_8exqc_1 ._siberian_8exqc_81,
+._v5_9_8exqc_2 ._siberian_8exqc_81 {
+  --region-color: #FF6E5C;
+}
+._v5_2_8exqc_1 ._manchurian_mongolian_8exqc_85,
+._v5_9_8exqc_2 ._manchurian_mongolian_8exqc_85 {
+  --region-color: #E7240C;
+}
+._v5_2_8exqc_1 ._broadly_northern_asian_8exqc_89,
+._v5_9_8exqc_2 ._broadly_northern_asian_8exqc_89 {
+  --region-color: #FF8361;
+}
+._v5_2_8exqc_1 ._indigenous_american_8exqc_93,
+._v5_9_8exqc_2 ._indigenous_american_8exqc_93 {
+  --region-color: #FADA6D;
+}
+._v5_2_8exqc_1 ._chinese_southeast_asian_8exqc_97,
+._v5_9_8exqc_2 ._chinese_southeast_asian_8exqc_97 {
+  --region-color: #EE7D52;
+}
+._v5_2_8exqc_1 ._vietnamese_8exqc_101,
+._v5_9_8exqc_2 ._vietnamese_8exqc_101 {
+  --region-color: #FF9D1C;
+}
+._v5_2_8exqc_1 ._filipino_austronesian_8exqc_105,
+._v5_9_8exqc_2 ._filipino_austronesian_8exqc_105 {
+  --region-color: #FBCD1E;
+}
+._v5_2_8exqc_1 ._indonesian_thai_khmer_myanma_8exqc_109,
+._v5_9_8exqc_2 ._indonesian_thai_khmer_myanma_8exqc_109 {
+  --region-color: #FFBA32;
+}
+._v5_2_8exqc_1 ._chinese_8exqc_97,
+._v5_9_8exqc_2 ._chinese_8exqc_97 {
+  --region-color: #CF2808;
+}
+._v5_2_8exqc_1 ._chinese_dai_8exqc_117,
+._v5_9_8exqc_2 ._chinese_dai_8exqc_117 {
+  --region-color: #FFAB7A;
+}
+._v5_2_8exqc_1 ._broadly_chinese_southeast_asian_8exqc_121,
+._v5_9_8exqc_2 ._broadly_chinese_southeast_asian_8exqc_121 {
+  --region-color: #EE7D52;
+}
+._v5_2_8exqc_1 ._japanese_korean_8exqc_125,
+._v5_9_8exqc_2 ._japanese_korean_8exqc_125 {
+  --region-color: #8E0701;
+}
+._v5_2_8exqc_1 ._japanese_8exqc_125,
+._v5_9_8exqc_2 ._japanese_8exqc_125 {
+  --region-color: #6E0102;
+}
+._v5_2_8exqc_1 ._korean_8exqc_133,
+._v5_9_8exqc_2 ._korean_8exqc_133 {
+  --region-color: #AD0D00;
+}
+._v5_2_8exqc_1 ._broadly_japanese_korean_8exqc_137,
+._v5_9_8exqc_2 ._broadly_japanese_korean_8exqc_137 {
+  --region-color: #8E0701;
+}
+._v5_2_8exqc_1 ._broadly_east_asian_indigenous_american_8exqc_141,
+._v5_9_8exqc_2 ._broadly_east_asian_indigenous_american_8exqc_141 {
+  --region-color: #D12F11;
+}
+._v5_2_8exqc_1 ._european_8exqc_145,
+._v5_9_8exqc_2 ._european_8exqc_145 {
+  --region-color: #005B98;
+}
+._v5_2_8exqc_1 ._northwestern_european_8exqc_149,
+._v5_9_8exqc_2 ._northwestern_european_8exqc_149 {
+  --region-color: #53C8ED;
+}
+._v5_2_8exqc_1 ._british_irish_8exqc_153,
+._v5_9_8exqc_2 ._british_irish_8exqc_153 {
+  --region-color: #21C7FF;
+}
+._v5_2_8exqc_1 ._finnish_8exqc_157,
+._v5_9_8exqc_2 ._finnish_8exqc_157 {
+  --region-color: #005A6A;
+}
+._v5_2_8exqc_1 ._french_german_8exqc_161,
+._v5_9_8exqc_2 ._french_german_8exqc_161 {
+  --region-color: #00B4ED;
+}
+._v5_2_8exqc_1 ._scandinavian_8exqc_165,
+._v5_9_8exqc_2 ._scandinavian_8exqc_165 {
+  --region-color: #03749D;
+}
+._v5_2_8exqc_1 ._broadly_northwestern_european_8exqc_169,
+._v5_9_8exqc_2 ._broadly_northwestern_european_8exqc_169 {
+  --region-color: #53C8ED;
+}
+._v5_2_8exqc_1 ._southern_european_8exqc_173,
+._v5_9_8exqc_2 ._southern_european_8exqc_173 {
+  --region-color: #1876D2;
+}
+._v5_2_8exqc_1 ._greek_balkan_8exqc_177,
+._v5_9_8exqc_2 ._greek_balkan_8exqc_177 {
+  --region-color: #0048A1;
+}
+._v5_2_8exqc_1 ._spanish_portuguese_8exqc_181,
+._v5_9_8exqc_2 ._spanish_portuguese_8exqc_181 {
+  --region-color: #73BAFF;
+}
+._v5_2_8exqc_1 ._italian_8exqc_185,
+._v5_9_8exqc_2 ._italian_8exqc_185 {
+  --region-color: #1867B0;
+}
+._v5_2_8exqc_1 ._sardinian_8exqc_189,
+._v5_9_8exqc_2 ._sardinian_8exqc_189 {
+  --region-color: #0D3871;
+}
+._v5_2_8exqc_1 ._broadly_southern_european_8exqc_193,
+._v5_9_8exqc_2 ._broadly_southern_european_8exqc_193 {
+  --region-color: #1876D2;
+}
+._v5_2_8exqc_1 ._eastern_european_8exqc_197,
+._v5_9_8exqc_2 ._eastern_european_8exqc_197 {
+  --region-color: #00B5B5;
+}
+._v5_2_8exqc_1 ._ashkenazi_jewish_8exqc_201,
+._v5_9_8exqc_2 ._ashkenazi_jewish_8exqc_201 {
+  --region-color: #0C8080;
+}
+._v5_2_8exqc_1 ._broadly_european_8exqc_205,
+._v5_9_8exqc_2 ._broadly_european_8exqc_205 {
+  --region-color: #005B98;
+}
+._v5_2_8exqc_1 ._western_asian_north_african_8exqc_209,
+._v5_9_8exqc_2 ._western_asian_north_african_8exqc_209 {
+  --region-color: #420B96;
+}
+._v5_2_8exqc_1 ._northern_west_asian_8exqc_213,
+._v5_9_8exqc_2 ._northern_west_asian_8exqc_213 {
+  --region-color: #5340BF;
+}
+._v5_2_8exqc_1 ._cypriot_8exqc_217,
+._v5_9_8exqc_2 ._cypriot_8exqc_217 {
+  --region-color: #A08FFF;
+}
+._v5_2_8exqc_1 ._anatolian_8exqc_221,
+._v5_9_8exqc_2 ._anatolian_8exqc_221 {
+  --region-color: #684BC9;
+}
+._v5_2_8exqc_1 ._iranian_caucasian_mesopotamian_8exqc_225,
+._v5_9_8exqc_2 ._iranian_caucasian_mesopotamian_8exqc_225 {
+  --region-color: #4A2DAC;
+}
+._v5_2_8exqc_1 ._broadly_northern_west_asian_8exqc_229,
+._v5_9_8exqc_2 ._broadly_northern_west_asian_8exqc_229 {
+  --region-color: #5340BF;
+}
+._v5_2_8exqc_1 ._arab_egyptian_levantine_8exqc_233,
+._v5_9_8exqc_2 ._arab_egyptian_levantine_8exqc_233 {
+  --region-color: #7E24DF;
+}
+._v5_2_8exqc_1 ._peninsular_arab_8exqc_237,
+._v5_9_8exqc_2 ._peninsular_arab_8exqc_237 {
+  --region-color: #310773;
+}
+._v5_2_8exqc_1 ._levantine_8exqc_241,
+._v5_9_8exqc_2 ._levantine_8exqc_241 {
+  --region-color: #4B1497;
+}
+._v5_2_8exqc_1 ._egyptian_8exqc_245,
+._v5_9_8exqc_2 ._egyptian_8exqc_245 {
+  --region-color: #813BCC;
+}
+._v5_2_8exqc_1 ._coptic_egyptian_8exqc_249,
+._v5_9_8exqc_2 ._coptic_egyptian_8exqc_249 {
+  --region-color: #A08FFF;
+}
+._v5_2_8exqc_1 ._broadly_arab_egyptian_levantine_8exqc_253,
+._v5_9_8exqc_2 ._broadly_arab_egyptian_levantine_8exqc_253 {
+  --region-color: #7E24DF;
+}
+._v5_2_8exqc_1 ._north_african_8exqc_257,
+._v5_9_8exqc_2 ._north_african_8exqc_257 {
+  --region-color: #6f3598;
+}
+._v5_2_8exqc_1 ._broadly_western_asian_north_african_8exqc_261,
+._v5_9_8exqc_2 ._broadly_western_asian_north_african_8exqc_261 {
+  --region-color: #420B96;
+}
+._v5_2_8exqc_1 ._central_south_asian_8exqc_265,
+._v5_9_8exqc_2 ._central_south_asian_8exqc_265 {
+  --region-color: #2A8506;
+}
+._v5_2_8exqc_1 ._central_asian_northern_indian_pakistani_8exqc_269,
+._v5_9_8exqc_2 ._central_asian_northern_indian_pakistani_8exqc_269 {
+  --region-color: #5DC563;
+}
+._v5_2_8exqc_1 ._central_asian_8exqc_269,
+._v5_9_8exqc_2 ._central_asian_8exqc_269 {
+  --region-color: #088757;
+}
+._v5_2_8exqc_1 ._northern_indian_pakistani_8exqc_277,
+._v5_9_8exqc_2 ._northern_indian_pakistani_8exqc_277 {
+  --region-color: #8AED9D;
+}
+._v5_2_8exqc_1 ._bengali_northeast_indian_8exqc_281,
+._v5_9_8exqc_2 ._bengali_northeast_indian_8exqc_281 {
+  --region-color: #92C746;
+}
+._v5_2_8exqc_1 ._gujarati_patidar_8exqc_285,
+._v5_9_8exqc_2 ._gujarati_patidar_8exqc_285 {
+  --region-color: #09D062;
+}
+._v5_2_8exqc_1 ._broadly_central_asian_northern_indian_pakistani_8exqc_289,
+._v5_9_8exqc_2 ._broadly_central_asian_northern_indian_pakistani_8exqc_289 {
+  --region-color: #5DC563;
+}
+._v5_2_8exqc_1 ._southern_indian_subgroup_8exqc_293,
+._v5_9_8exqc_2 ._southern_indian_subgroup_8exqc_293 {
+  --region-color: #8AD468;
+}
+._v5_2_8exqc_1 ._southern_south_asian_8exqc_297,
+._v5_9_8exqc_2 ._southern_south_asian_8exqc_297 {
+  --region-color: #275911;
+}
+._v5_2_8exqc_1 ._southern_indian_sri_lankan_8exqc_301,
+._v5_9_8exqc_2 ._southern_indian_sri_lankan_8exqc_301 {
+  --region-color: #327216;
+}
+._v5_2_8exqc_1 ._malayali_subgroup_8exqc_305,
+._v5_9_8exqc_2 ._malayali_subgroup_8exqc_305 {
+  --region-color: #194406;
+}
+._v5_2_8exqc_1 ._broadly_southern_south_asian_8exqc_309,
+._v5_9_8exqc_2 ._broadly_southern_south_asian_8exqc_309 {
+  --region-color: #275911;
+}
+._v5_2_8exqc_1 ._broadly_central_south_asian_8exqc_313,
+._v5_9_8exqc_2 ._broadly_central_south_asian_8exqc_313 {
+  --region-color: #3BA510;
+}
+._v5_2_8exqc_1 ._melanesian_8exqc_317,
+._v5_9_8exqc_2 ._melanesian_8exqc_317 {
+  --region-color: #E58900;
+}
+._v5_2_8exqc_1 ._broadly_melanesian_8exqc_321,
+._v5_9_8exqc_2 ._broadly_melanesian_8exqc_321 {
+  --region-color: #E58900;
+}
+._v5_2_8exqc_1 ._unassigned_8exqc_325,
+._v5_9_8exqc_2 ._unassigned_8exqc_325 {
+  --region-color: #C0C1C2;
+}
+._v7_0_8exqc_329 ._world_8exqc_1 {
+  --region-color: transparent;
+}
+._v7_0_8exqc_329 ._sub-saharan_african_8exqc_5 {
+  --region-color: #B580FF;
+}
+._v7_0_8exqc_329 ._west_african_8exqc_9 {
+  --region-color: #6743AD;
+}
+._v7_0_8exqc_329 ._senegambian_guinean_8exqc_13 {
+  --region-color: #6423E6;
+}
+._v7_0_8exqc_329 ._ghanaian_liberian_sierra_leonean_8exqc_17 {
+  --region-color: #7948DA;
+}
+._v7_0_8exqc_329 ._nigerian_8exqc_21 {
+  --region-color: #8653ED;
+}
+._v7_0_8exqc_329 ._broadly_west_african_8exqc_25 {
+  --region-color: #6743AD;
+}
+._v7_0_8exqc_329 ._northern_east_african_8exqc_29 {
+  --region-color: #7044AE;
+}
+._v7_0_8exqc_329 ._sudanese_8exqc_33 {
+  --region-color: #7422E5;
+}
+._v7_0_8exqc_329 ._ethiopian_eritrean_8exqc_37 {
+  --region-color: #9F6FE3;
+}
+._v7_0_8exqc_329 ._somali_8exqc_41 {
+  --region-color: #875AC7;
+}
+._v7_0_8exqc_329 ._broadly_northern_east_african_8exqc_45 {
+  --region-color: #7044AE;
+}
+._v7_0_8exqc_329 ._congolese_southern_east_african_8exqc_49 {
+  --region-color: #7944AE;
+}
+._v7_0_8exqc_329 ._angolan_congolese_8exqc_53 {
+  --region-color: #8422E5;
+}
+._v7_0_8exqc_329 ._southern_east_african_8exqc_57 {
+  --region-color: #A053ED;
+}
+._v7_0_8exqc_329 ._broadly_congolese_southern_east_african_8exqc_61 {
+  --region-color: #7944AE;
+}
+._v7_0_8exqc_329 ._african_hunter-gatherer_8exqc_65 {
+  --region-color: #8A44AF;
+}
+._v7_0_8exqc_329 ._broadly_sub-saharan_african_8exqc_69 {
+  --region-color: #D3B2FF;
+}
+._v7_0_8exqc_329 ._east_asian_8exqc_73 {
+  --region-color: #FFBF80;
+}
+._v7_0_8exqc_329 ._japanese_8exqc_125 {
+  --region-color: #ED5372;
+}
+._v7_0_8exqc_329 ._korean_8exqc_133 {
+  --region-color: #E51B1D;
+}
+._v7_0_8exqc_329 ._chinese_8exqc_97 {
+  --region-color: #AD4E44;
+}
+._v7_0_8exqc_329 ._northern_chinese_tibetan_8exqc_395 {
+  --region-color: #E52F1B;
+}
+._v7_0_8exqc_329 ._southern_chinese_taiwanese_8exqc_398 {
+  --region-color: #ED6253;
+}
+._v7_0_8exqc_329 ._southern_coastal_chinese_8exqc_401 {
+  --region-color: #DB4433;
+}
+._v7_0_8exqc_329 ._broadly_chinese_8exqc_121 {
+  --region-color: #AD4E44;
+}
+._v7_0_8exqc_329 ._chinese_dai_8exqc_117 {
+  --region-color: #DB6938;
+}
+._v7_0_8exqc_329 ._vietnamese_8exqc_101 {
+  --region-color: #DB7C38;
+}
+._v7_0_8exqc_329 ._filipino_austronesian_8exqc_105 {
+  --region-color: #E5881C;
+}
+._v7_0_8exqc_329 ._indonesian_thai_khmer_myanma_8exqc_109 {
+  --region-color: #E6A71C;
+}
+._v7_0_8exqc_329 ._northern_asian_8exqc_77 {
+  --region-color: #AD5944;
+}
+._v7_0_8exqc_329 ._manchurian_mongolian_8exqc_85 {
+  --region-color: #DD5735;
+}
+._v7_0_8exqc_329 ._siberian_8exqc_81 {
+  --region-color: #ED7253;
+}
+._v7_0_8exqc_329 ._broadly_northern_asian_8exqc_89 {
+  --region-color: #AD5944;
+}
+._v7_0_8exqc_329 ._broadly_east_asian_8exqc_141 {
+  --region-color: #FFD9B2;
+}
+._v7_0_8exqc_329 ._indigenous_american_8exqc_93 {
+  --region-color: #FF80EC;
+}
+._v7_0_8exqc_329 ._arctic_north_american_8exqc_437 {
+  --region-color: #B43BD9;
+}
+._v7_0_8exqc_329 ._western_north_american_8exqc_440 {
+  --region-color: #DB357A;
+}
+._v7_0_8exqc_329 ._north_american_8exqc_443 {
+  --region-color: #ED53AA;
+}
+._v7_0_8exqc_329 ._southern_mesoamerican_8exqc_446 {
+  --region-color: #E51BB9;
+}
+._v7_0_8exqc_329 ._central_andean_amazonian_8exqc_449 {
+  --region-color: #ED53EB;
+}
+._v7_0_8exqc_329 ._northern_andean_8exqc_452 {
+  --region-color: #C73CD9;
+}
+._v7_0_8exqc_329 ._broadly_indigenous_american_8exqc_455 {
+  --region-color: #FFB2F3;
+}
+._v7_0_8exqc_329 ._melanesian_8exqc_317 {
+  --region-color: #FFDF6B;
+}
+._v7_0_8exqc_329 ._broadly_melanesian_8exqc_321 {
+  --region-color: #FFDF6B;
+}
+._v7_0_8exqc_329 ._central_south_asian_8exqc_265 {
+  --region-color: #9CFF6B;
+}
+._v7_0_8exqc_329 ._central_asian_8exqc_269 {
+  --region-color: #E5DC1C;
+}
+._v7_0_8exqc_329 ._northern_indian_pakistani_8exqc_277 {
+  --region-color: #BDE51B;
+}
+._v7_0_8exqc_329 ._bengali_northeast_indian_8exqc_281 {
+  --region-color: #A3ED53;
+}
+._v7_0_8exqc_329 ._gujarati_patidar_8exqc_285 {
+  --region-color: #4CE51C;
+}
+._v7_0_8exqc_329 ._southern_indian_subgroup_8exqc_293 {
+  --region-color: #39C44C;
+}
+._v7_0_8exqc_329 ._southern_indian_sri_lankan_8exqc_301 {
+  --region-color: #3ED888;
+}
+._v7_0_8exqc_329 ._malayali_subgroup_8exqc_305 {
+  --region-color: #53ED9E;
+}
+._v7_0_8exqc_329 ._broadly_central_south_asian_8exqc_313 {
+  --region-color: #C2FFA3;
+}
+._v7_0_8exqc_329 ._western_asian_north_african_8exqc_209 {
+  --region-color: #9580FF;
+}
+._v7_0_8exqc_329 ._northern_west_asian_8exqc_213 {
+  --region-color: #4C43AD;
+}
+._v7_0_8exqc_329 ._cypriot_8exqc_217 {
+  --region-color: #3322E5;
+}
+._v7_0_8exqc_329 ._anatolian_8exqc_221 {
+  --region-color: #5448D9;
+}
+._v7_0_8exqc_329 ._iranian_caucasian_mesopotamian_8exqc_225 {
+  --region-color: #5F52EC;
+}
+._v7_0_8exqc_329 ._broadly_northern_west_asian_8exqc_229 {
+  --region-color: #4C43AD;
+}
+._v7_0_8exqc_329 ._arab_egyptian_levantine_8exqc_233 {
+  --region-color: #5543AD;
+}
+._v7_0_8exqc_329 ._peninsular_arab_8exqc_237 {
+  --region-color: #4422E5;
+}
+._v7_0_8exqc_329 ._levantine_8exqc_241 {
+  --region-color: #6048D9;
+}
+._v7_0_8exqc_329 ._egyptian_southern_levantine_8exqc_518 {
+  --region-color: #6D53ED;
+}
+._v7_0_8exqc_329 ._coptic_egyptian_8exqc_249 {
+  --region-color: #826FE3;
+}
+._v7_0_8exqc_329 ._broadly_arab_egyptian_levantine_8exqc_253 {
+  --region-color: #5543AD;
+}
+._v7_0_8exqc_329 ._north_african_8exqc_257 {
+  --region-color: #5E39C4;
+}
+._v7_0_8exqc_329 ._broadly_western_asian_north_african_8exqc_261 {
+  --region-color: #C0B2FF;
+}
+._v7_0_8exqc_329 ._european_8exqc_145 {
+  --region-color: #80C3FF;
+}
+._v7_0_8exqc_329 ._british_irish_8exqc_153 {
+  --region-color: #4482AD;
+}
+._v7_0_8exqc_329 ._irish_8exqc_539 {
+  --region-color: #6FB3E3;
+}
+._v7_0_8exqc_329 ._scottish_8exqc_542 {
+  --region-color: #53ADED;
+}
+._v7_0_8exqc_329 ._english_8exqc_545 {
+  --region-color: #2294E5;
+}
+._v7_0_8exqc_329 ._welsh_8exqc_548 {
+  --region-color: #3697DC;
+}
+._v7_0_8exqc_329 ._broadly_british_irish_8exqc_551 {
+  --region-color: #4482AD;
+}
+._v7_0_8exqc_329 ._western_european_8exqc_554 {
+  --region-color: #4371AD;
+}
+._v7_0_8exqc_329 ._dutch_northern_german_8exqc_557 {
+  --region-color: #5394ED;
+}
+._v7_0_8exqc_329 ._belgian_rhinelander_southern_dutch_8exqc_560 {
+  --region-color: #3975C4;
+}
+._v7_0_8exqc_329 ._french_8exqc_161 {
+  --region-color: #2275E5;
+}
+._v7_0_8exqc_329 ._swiss_southwestern_german_western_austrian_8exqc_566 {
+  --region-color: #377CD8;
+}
+._v7_0_8exqc_329 ._austrian_southern_german_8exqc_569 {
+  --region-color: #6FA1E3;
+}
+._v7_0_8exqc_329 ._broadly_western_european_8exqc_572 {
+  --region-color: #4371AD;
+}
+._v7_0_8exqc_329 ._nordic_8exqc_575 {
+  --region-color: #44ADAD;
+}
+._v7_0_8exqc_329 ._norwegian_8exqc_578 {
+  --region-color: #53ECED;
+}
+._v7_0_8exqc_329 ._swedish_8exqc_581 {
+  --region-color: #3EDCDC;
+}
+._v7_0_8exqc_329 ._danish_8exqc_584 {
+  --region-color: #6FE3E3;
+}
+._v7_0_8exqc_329 ._finnish_8exqc_157 {
+  --region-color: #39C3C4;
+}
+._v7_0_8exqc_329 ._icelandic_8exqc_590 {
+  --region-color: #22E3E5;
+}
+._v7_0_8exqc_329 ._broadly_nordic_8exqc_593 {
+  --region-color: #44ADAD;
+}
+._v7_0_8exqc_329 ._spanish_portuguese_8exqc_181 {
+  --region-color: #4352AB;
+}
+._v7_0_8exqc_329 ._portuguese_galician_8exqc_599 {
+  --region-color: #5A6BC7;
+}
+._v7_0_8exqc_329 ._aragonese_catalan_8exqc_602 {
+  --region-color: #223BE5;
+}
+._v7_0_8exqc_329 ._basque_8exqc_605 {
+  --region-color: #485DD9;
+}
+._v7_0_8exqc_329 ._canary_islander_8exqc_608 {
+  --region-color: #394FC4;
+}
+._v7_0_8exqc_329 ._andalusian_asturian_castilian_8exqc_611 {
+  --region-color: #6F82E3;
+}
+._v7_0_8exqc_329 ._broadly_spanish_portuguese_8exqc_614 {
+  --region-color: #4352AB;
+}
+._v7_0_8exqc_329 ._italian_maltese_8exqc_617 {
+  --region-color: #4364AD;
+}
+._v7_0_8exqc_329 ._northern_italian_8exqc_620 {
+  --region-color: #225AE5;
+}
+._v7_0_8exqc_329 ._southern_italian_8exqc_623 {
+  --region-color: #3365DA;
+}
+._v7_0_8exqc_329 ._sardinian_8exqc_189 {
+  --region-color: #5382ED;
+}
+._v7_0_8exqc_329 ._maltese_8exqc_629 {
+  --region-color: #6F92E3;
+}
+._v7_0_8exqc_329 ._broadly_italian_maltese_8exqc_632 {
+  --region-color: #4364AD;
+}
+._v7_0_8exqc_329 ._greek_balkan_8exqc_177 {
+  --region-color: #4447AD;
+}
+._v7_0_8exqc_329 ._bosnian_croatian_montenegrin_serbian_8exqc_638 {
+  --region-color: #2229E5;
+}
+._v7_0_8exqc_329 ._kosovar_northern_albanian_8exqc_641 {
+  --region-color: #5359ED;
+}
+._v7_0_8exqc_329 ._albanian_macedonian_8exqc_644 {
+  --region-color: #5A5CC7;
+}
+._v7_0_8exqc_329 ._greek_8exqc_177 {
+  --region-color: #474CD8;
+}
+._v7_0_8exqc_329 ._bulgarian_moldovan_romanian_8exqc_650 {
+  --region-color: #6F72E3;
+}
+._v7_0_8exqc_329 ._broadly_greek_balkan_8exqc_653 {
+  --region-color: #4447AD;
+}
+._v7_0_8exqc_329 ._central_eastern_european_8exqc_656 {
+  --region-color: #44AD95;
+}
+._v7_0_8exqc_329 ._estonian_8exqc_659 {
+  --region-color: #5AC7C6;
+}
+._v7_0_8exqc_329 ._latvian_8exqc_662 {
+  --region-color: #39C4A3;
+}
+._v7_0_8exqc_329 ._lithuanian_8exqc_665 {
+  --region-color: #59C6AE;
+}
+._v7_0_8exqc_329 ._slovenian_8exqc_668 {
+  --region-color: #6FE3C9;
+}
+._v7_0_8exqc_329 ._czech_hungarian_slovak_southern_polish_8exqc_671 {
+  --region-color: #53EDC9;
+}
+._v7_0_8exqc_329 ._belarusian_polish_ukrainian_8exqc_674 {
+  --region-color: #3DDEB8;
+}
+._v7_0_8exqc_329 ._russian_8exqc_677 {
+  --region-color: #22E5BA;
+}
+._v7_0_8exqc_329 ._broadly_central_eastern_european_8exqc_680 {
+  --region-color: #44AD95;
+}
+._v7_0_8exqc_329 ._ashkenazi_jewish_8exqc_201 {
+  --region-color: #22BFE5;
+}
+._v7_0_8exqc_329 ._broadly_european_8exqc_205 {
+  --region-color: #B3DBFF;
+}
+._v7_0_8exqc_329 ._unassigned_8exqc_325 {
+  --region-color: #DBDAD3;
+}
+.region-row.depth-0 {
+  --depth-padding-left: 0;
+  font-weight: bolder;
+}
+.region-row.depth-1 {
+  --depth-padding-left: 0;
+  font-weight: bold;
+}
+.region-row.depth-2 {
+  --depth-padding-left: 1rem;
+}
+.region-row.depth-3 {
+  --depth-padding-left: 2rem;
+}
+.region-row.depth-0 .region-name,
+.region-row.depth-1 .region-name,
+.region-row.depth-2 .region-name,
+.region-row.depth-3 .region-name {
+  padding: 0 0 0 var(--depth-padding-left);
+}
+.region-row.depth-0 .region-name div,
+.region-row.depth-1 .region-name div,
+.region-row.depth-2 .region-name div,
+.region-row.depth-3 .region-name div {
+  border-left: 5px solid var(--region-color);
+  padding-left: 0.5rem;
+}
+.region-row:hover {
+  background: #ccc;
+}
+.proportions {
+  flex-basis: 30%;
+  border-right: var(--divider);
+  padding: 1rem;
+  overflow-y: auto;
+}
+.proportions table {
+  border-collapse: collapse;
+}
+.main-panel {
+  display: flex;
+  flex-flow: row;
+  flex-grow: 1;
+  position: relative;
+  height: calc(100vh - var(--top-panel-height));
+}
+.main-panel.initial-panel,
+.main-panel.error-panel {
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+.main-panel.initial-panel .file-selector,
+.main-panel.error-panel .file-selector {
+  flex-basis: 40%;
+}
+.main-panel.initial-panel .sample-data,
+.main-panel.error-panel .sample-data {
+  flex-basis: 15%;
+}
+input.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+input.visually-hidden:is(:focus, :focus-within) + label {
+  outline: thin dotted;
+}
+.drop-zone {
+  border: var(--divider);
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.sample-data button {
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+}
