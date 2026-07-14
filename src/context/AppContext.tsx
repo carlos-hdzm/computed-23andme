@@ -1,6 +1,6 @@
 import React, { useCallback, useReducer } from "react";
 import { dataReducer } from "./reducer";
-import type { ChromosomeHaplotypeSplit, ComputedData } from "../types/dataTypes";
+import type { ComputedData } from "../types";
 import { AppContext, AppDispatchContext } from "./context";
 import contextActions from "./actions";
 import { initialData } from "./initial-data";

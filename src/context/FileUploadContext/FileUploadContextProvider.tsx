@@ -1,5 +1,5 @@
 import React, { createContext, useMemo, useState } from "react";
-import type { ChromosomeHaplotypeSplit, ComputedData } from "../../types";
+import type { ComputedData } from "../../types";
 
 type FileUploadContextValue = {
   file: File | null;

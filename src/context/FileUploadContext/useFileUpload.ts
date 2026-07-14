@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import { FileUploadContext, FileUploadDispatchContext, FileUploadPropsContext } from "./FileUploadContextProvider";
-import type { ChromosomeHaplotypeSplit, ComputedData } from "../../types";
+import type { ComputedData } from "../../types";
 
 type UseFileUploadProps<T> = {
     processData?: (csvStr: string) => Promise<T>;
