@@ -6,7 +6,7 @@
     "children": [
       {
         "name": "sub-saharan_african",
-        "label": "Sub-saharan African",
+        "label": "Sub-Saharan African",
         "depth": 1,
         "children": [
           {
@@ -87,12 +87,12 @@
           },
           {
             "name": "african_hunter-gatherer",
-            "label": "African Hunter-gatherer",
+            "label": "African Hunter-Gatherer",
             "depth": 2
           },
           {
             "name": "broadly_sub-saharan_african",
-            "label": "Broadly Sub-saharan African",
+            "label": "Broadly Sub-Saharan African",
             "depth": 2
           }
         ]
@@ -454,7 +454,7 @@
     "children": [
       {
         "name": "sub-saharan_african",
-        "label": "Sub-saharan African",
+        "label": "Sub-Saharan African",
         "depth": 1,
         "children": [
           {
@@ -535,12 +535,12 @@
           },
           {
             "name": "african_hunter-gatherer",
-            "label": "African Hunter-gatherer",
+            "label": "African Hunter-Gatherer",
             "depth": 2
           },
           {
             "name": "broadly_sub-saharan_african",
-            "label": "Broadly Sub-saharan African",
+            "label": "Broadly Sub-Saharan African",
             "depth": 2
           }
         ]
@@ -902,7 +902,7 @@
     "children": [
       {
         "name": "sub-saharan_african",
-        "label": "Sub-saharan African",
+        "label": "Sub-Saharan African",
         "depth": 1,
         "children": [
           {
@@ -983,12 +983,12 @@
           },
           {
             "name": "african_hunter-gatherer",
-            "label": "African Hunter-gatherer",
+            "label": "African Hunter-Gatherer",
             "depth": 2
           },
           {
             "name": "broadly_sub-saharan_african",
-            "label": "Broadly Sub-saharan African",
+            "label": "Broadly Sub-Saharan African",
             "depth": 2
           }
         ]
