@@ -19,6 +19,8 @@ jobs:
         run: |
           npm ci
           npm run build
+      - name: Run tests
+        run: npm test
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
