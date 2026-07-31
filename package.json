@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
-    "test:browser": "vitest --config=vitest.browser.config.ts"
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
     "classnames": "^2.5.1",

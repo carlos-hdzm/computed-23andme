@@ -1,0 +1,2427 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`regionParsing should return the nested region map 1`] = `
+{
+  "v5.2": {
+    "african_hunter-gatherer": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "African Hunter-Gatherer",
+    },
+    "anatolian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Anatolian",
+    },
+    "angolan_&_congolese": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Angolan & Congolese",
+    },
+    "arab_egyptian_&_levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Arab, Egyptian & Levantine",
+    },
+    "ashkenazi_jewish": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Ashkenazi Jewish",
+    },
+    "bengali_&_northeast_indian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Bengali & Northeast Indian",
+    },
+    "british_&_irish": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "British & Irish",
+    },
+    "broadly_arab_egyptian_&_levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Broadly Arab, Egyptian & Levantine",
+    },
+    "broadly_central_&_south_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Broadly Central & South Asian",
+    },
+    "broadly_central_asian_northern_indian_&_pakistani": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Broadly Central Asian, Northern Indian & Pakistani",
+    },
+    "broadly_chinese_&_southeast_asian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Chinese & Southeast Asian",
+    },
+    "broadly_congolese_&_southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Broadly Congolese & Southern East African",
+    },
+    "broadly_east_asian_&_indigenous_american": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Broadly East Asian & Indigenous American",
+    },
+    "broadly_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Broadly European",
+    },
+    "broadly_japanese_&_korean": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "japanese_&_korean",
+      ],
+      "depth": 3,
+      "label": "Broadly Japanese & Korean",
+    },
+    "broadly_melanesian": {
+      "ancestors": [
+        "world",
+        "melanesian",
+      ],
+      "depth": 2,
+      "label": "Broadly Melanesian",
+    },
+    "broadly_northern_asian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern Asian",
+    },
+    "broadly_northern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern East African",
+    },
+    "broadly_northern_west_asian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern West Asian",
+    },
+    "broadly_northwestern_european": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "Broadly Northwestern European",
+    },
+    "broadly_southern_european": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Broadly Southern European",
+    },
+    "broadly_southern_south_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "southern_south_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Southern South Asian",
+    },
+    "broadly_sub-saharan_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Broadly Sub-Saharan African",
+    },
+    "broadly_west_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Broadly West African",
+    },
+    "broadly_western_asian_&_north_african": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Broadly Western Asian & North African",
+    },
+    "central_&_south_asian": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Central & South Asian",
+    },
+    "central_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Central Asian",
+    },
+    "central_asian_northern_indian_&_pakistani": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Central Asian, Northern Indian & Pakistani",
+    },
+    "chinese": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Chinese",
+    },
+    "chinese_&_southeast_asian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Chinese & Southeast Asian",
+    },
+    "chinese_dai": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Chinese Dai",
+    },
+    "congolese_&_southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Congolese & Southern East African",
+    },
+    "coptic_egyptian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Coptic Egyptian",
+    },
+    "cypriot": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Cypriot",
+    },
+    "east_asian_&_indigenous_american": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "East Asian & Indigenous American",
+    },
+    "eastern_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Eastern European",
+    },
+    "egyptian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Egyptian",
+    },
+    "ethiopian_&_eritrean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Ethiopian & Eritrean",
+    },
+    "european": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "European",
+    },
+    "filipino_&_austronesian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Filipino & Austronesian",
+    },
+    "finnish": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "Finnish",
+    },
+    "french_&_german": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "French & German",
+    },
+    "ghanaian_liberian_&_sierra_leonean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Ghanaian, Liberian & Sierra Leonean",
+    },
+    "greek_&_balkan": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Greek & Balkan",
+    },
+    "gujarati_patidar": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Gujarati Patidar",
+    },
+    "indigenous_american": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Indigenous American",
+    },
+    "indonesian_thai_khmer_&_myanma": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Indonesian, Thai, Khmer & Myanma",
+    },
+    "iranian_caucasian_&_mesopotamian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Iranian, Caucasian & Mesopotamian",
+    },
+    "italian": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Italian",
+    },
+    "japanese": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "japanese_&_korean",
+      ],
+      "depth": 3,
+      "label": "Japanese",
+    },
+    "japanese_&_korean": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Japanese & Korean",
+    },
+    "korean": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "japanese_&_korean",
+      ],
+      "depth": 3,
+      "label": "Korean",
+    },
+    "levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Levantine",
+    },
+    "malayali_subgroup": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "southern_south_asian",
+      ],
+      "depth": 3,
+      "label": "Malayali Subgroup",
+    },
+    "manchurian_&_mongolian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Manchurian & Mongolian",
+    },
+    "melanesian": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Melanesian",
+    },
+    "nigerian": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Nigerian",
+    },
+    "north_african": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "North African",
+    },
+    "northern_asian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Northern Asian",
+    },
+    "northern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Northern East African",
+    },
+    "northern_indian_&_pakistani": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Northern Indian & Pakistani",
+    },
+    "northern_west_asian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Northern West Asian",
+    },
+    "northwestern_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Northwestern European",
+    },
+    "peninsular_arab": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Peninsular Arab",
+    },
+    "sardinian": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Sardinian",
+    },
+    "scandinavian": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "Scandinavian",
+    },
+    "senegambian_&_guinean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Senegambian & Guinean",
+    },
+    "siberian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Siberian",
+    },
+    "somali": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Somali",
+    },
+    "southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Southern East African",
+    },
+    "southern_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Southern European",
+    },
+    "southern_indian_&_sri_lankan": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "southern_south_asian",
+      ],
+      "depth": 3,
+      "label": "Southern Indian & Sri Lankan",
+    },
+    "southern_indian_subgroup": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Southern Indian Subgroup",
+    },
+    "southern_south_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Southern South Asian",
+    },
+    "spanish_&_portuguese": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Spanish & Portuguese",
+    },
+    "sub-saharan_african": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Sub-Saharan African",
+    },
+    "sudanese": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Sudanese",
+    },
+    "unassigned": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Unassigned",
+    },
+    "vietnamese": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Vietnamese",
+    },
+    "west_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "West African",
+    },
+    "western_asian_&_north_african": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Western Asian & North African",
+    },
+    "world": {
+      "depth": 0,
+      "label": "World",
+    },
+  },
+  "v5.9": {
+    "african_hunter-gatherer": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "African Hunter-Gatherer",
+    },
+    "anatolian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Anatolian",
+    },
+    "angolan_&_congolese": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Angolan & Congolese",
+    },
+    "arab_egyptian_&_levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Arab, Egyptian & Levantine",
+    },
+    "ashkenazi_jewish": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Ashkenazi Jewish",
+    },
+    "bengali_&_northeast_indian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Bengali & Northeast Indian",
+    },
+    "british_&_irish": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "British & Irish",
+    },
+    "broadly_arab_egyptian_&_levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Broadly Arab, Egyptian & Levantine",
+    },
+    "broadly_central_&_south_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Broadly Central & South Asian",
+    },
+    "broadly_central_asian_northern_indian_&_pakistani": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Broadly Central Asian, Northern Indian & Pakistani",
+    },
+    "broadly_chinese_&_southeast_asian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Chinese & Southeast Asian",
+    },
+    "broadly_congolese_&_southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Broadly Congolese & Southern East African",
+    },
+    "broadly_east_asian_&_indigenous_american": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Broadly East Asian & Indigenous American",
+    },
+    "broadly_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Broadly European",
+    },
+    "broadly_japanese_&_korean": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "japanese_&_korean",
+      ],
+      "depth": 3,
+      "label": "Broadly Japanese & Korean",
+    },
+    "broadly_melanesian": {
+      "ancestors": [
+        "world",
+        "melanesian",
+      ],
+      "depth": 2,
+      "label": "Broadly Melanesian",
+    },
+    "broadly_northern_asian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern Asian",
+    },
+    "broadly_northern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern East African",
+    },
+    "broadly_northern_west_asian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern West Asian",
+    },
+    "broadly_northwestern_european": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "Broadly Northwestern European",
+    },
+    "broadly_southern_european": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Broadly Southern European",
+    },
+    "broadly_southern_south_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "southern_south_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Southern South Asian",
+    },
+    "broadly_sub-saharan_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Broadly Sub-Saharan African",
+    },
+    "broadly_west_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Broadly West African",
+    },
+    "broadly_western_asian_&_north_african": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Broadly Western Asian & North African",
+    },
+    "central_&_south_asian": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Central & South Asian",
+    },
+    "central_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Central Asian",
+    },
+    "central_asian_northern_indian_&_pakistani": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Central Asian, Northern Indian & Pakistani",
+    },
+    "chinese": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Chinese",
+    },
+    "chinese_&_southeast_asian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Chinese & Southeast Asian",
+    },
+    "chinese_dai": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Chinese Dai",
+    },
+    "congolese_&_southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Congolese & Southern East African",
+    },
+    "coptic_egyptian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Coptic Egyptian",
+    },
+    "cypriot": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Cypriot",
+    },
+    "east_asian_&_indigenous_american": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "East Asian & Indigenous American",
+    },
+    "eastern_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Eastern European",
+    },
+    "egyptian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Egyptian",
+    },
+    "ethiopian_&_eritrean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Ethiopian & Eritrean",
+    },
+    "european": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "European",
+    },
+    "filipino_&_austronesian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Filipino & Austronesian",
+    },
+    "finnish": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "Finnish",
+    },
+    "french_&_german": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "French & German",
+    },
+    "ghanaian_liberian_&_sierra_leonean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Ghanaian, Liberian & Sierra Leonean",
+    },
+    "greek_&_balkan": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Greek & Balkan",
+    },
+    "gujarati_patidar": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Gujarati Patidar",
+    },
+    "indigenous_american": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Indigenous American",
+    },
+    "indonesian_thai_khmer_&_myanma": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Indonesian, Thai, Khmer & Myanma",
+    },
+    "iranian_caucasian_&_mesopotamian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Iranian, Caucasian & Mesopotamian",
+    },
+    "italian": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Italian",
+    },
+    "japanese": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "japanese_&_korean",
+      ],
+      "depth": 3,
+      "label": "Japanese",
+    },
+    "japanese_&_korean": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Japanese & Korean",
+    },
+    "korean": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "japanese_&_korean",
+      ],
+      "depth": 3,
+      "label": "Korean",
+    },
+    "levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Levantine",
+    },
+    "malayali_subgroup": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "southern_south_asian",
+      ],
+      "depth": 3,
+      "label": "Malayali Subgroup",
+    },
+    "manchurian_&_mongolian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Manchurian & Mongolian",
+    },
+    "melanesian": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Melanesian",
+    },
+    "nigerian": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Nigerian",
+    },
+    "north_african": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "North African",
+    },
+    "northern_asian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Northern Asian",
+    },
+    "northern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Northern East African",
+    },
+    "northern_indian_&_pakistani": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "central_asian_northern_indian_&_pakistani",
+      ],
+      "depth": 3,
+      "label": "Northern Indian & Pakistani",
+    },
+    "northern_west_asian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Northern West Asian",
+    },
+    "northwestern_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Northwestern European",
+    },
+    "peninsular_arab": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Peninsular Arab",
+    },
+    "sardinian": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Sardinian",
+    },
+    "scandinavian": {
+      "ancestors": [
+        "world",
+        "european",
+        "northwestern_european",
+      ],
+      "depth": 3,
+      "label": "Scandinavian",
+    },
+    "senegambian_&_guinean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Senegambian & Guinean",
+    },
+    "siberian": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Siberian",
+    },
+    "somali": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Somali",
+    },
+    "southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Southern East African",
+    },
+    "southern_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Southern European",
+    },
+    "southern_indian_&_sri_lankan": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+        "southern_south_asian",
+      ],
+      "depth": 3,
+      "label": "Southern Indian & Sri Lankan",
+    },
+    "southern_indian_subgroup": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Southern Indian Subgroup",
+    },
+    "southern_south_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Southern South Asian",
+    },
+    "spanish_&_portuguese": {
+      "ancestors": [
+        "world",
+        "european",
+        "southern_european",
+      ],
+      "depth": 3,
+      "label": "Spanish & Portuguese",
+    },
+    "sub-saharan_african": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Sub-Saharan African",
+    },
+    "sudanese": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Sudanese",
+    },
+    "unassigned": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Unassigned",
+    },
+    "vietnamese": {
+      "ancestors": [
+        "world",
+        "east_asian_&_indigenous_american",
+        "chinese_&_southeast_asian",
+      ],
+      "depth": 3,
+      "label": "Vietnamese",
+    },
+    "west_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "West African",
+    },
+    "western_asian_&_north_african": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Western Asian & North African",
+    },
+    "world": {
+      "depth": 0,
+      "label": "World",
+    },
+  },
+  "v7.0": {
+    "african_hunter-gatherer": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "African Hunter-Gatherer",
+    },
+    "albanian_&_macedonian": {
+      "ancestors": [
+        "world",
+        "european",
+        "greek_&_balkan",
+      ],
+      "depth": 3,
+      "label": "Albanian & Macedonian",
+    },
+    "anatolian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Anatolian",
+    },
+    "andalusian_asturian_&_castilian": {
+      "ancestors": [
+        "world",
+        "european",
+        "spanish_&_portuguese",
+      ],
+      "depth": 3,
+      "label": "Andalusian, Asturian & Castilian",
+    },
+    "angolan_&_congolese": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Angolan & Congolese",
+    },
+    "arab_egyptian_&_levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Arab, Egyptian & Levantine",
+    },
+    "aragonese_&_catalan": {
+      "ancestors": [
+        "world",
+        "european",
+        "spanish_&_portuguese",
+      ],
+      "depth": 3,
+      "label": "Aragonese & Catalan",
+    },
+    "arctic_north_american": {
+      "ancestors": [
+        "world",
+        "indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Arctic North American",
+    },
+    "ashkenazi_jewish": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Ashkenazi Jewish",
+    },
+    "austrian_&_southern_german": {
+      "ancestors": [
+        "world",
+        "european",
+        "western_european",
+      ],
+      "depth": 3,
+      "label": "Austrian & Southern German",
+    },
+    "basque": {
+      "ancestors": [
+        "world",
+        "european",
+        "spanish_&_portuguese",
+      ],
+      "depth": 3,
+      "label": "Basque",
+    },
+    "belarusian_polish_&_ukrainian": {
+      "ancestors": [
+        "world",
+        "european",
+        "central_&_eastern_european",
+      ],
+      "depth": 3,
+      "label": "Belarusian, Polish & Ukrainian",
+    },
+    "belgian_rhinelander_&_southern_dutch": {
+      "ancestors": [
+        "world",
+        "european",
+        "western_european",
+      ],
+      "depth": 3,
+      "label": "Belgian, Rhinelander & Southern Dutch",
+    },
+    "bengali_&_northeast_indian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Bengali & Northeast Indian",
+    },
+    "bosnian_croatian_montenegrin_&_serbian": {
+      "ancestors": [
+        "world",
+        "european",
+        "greek_&_balkan",
+      ],
+      "depth": 3,
+      "label": "Bosnian, Croatian, Montenegrin & Serbian",
+    },
+    "british_&_irish": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "British & Irish",
+    },
+    "broadly_arab_egyptian_&_levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Broadly Arab, Egyptian & Levantine",
+    },
+    "broadly_british_&_irish": {
+      "ancestors": [
+        "world",
+        "european",
+        "british_&_irish",
+      ],
+      "depth": 3,
+      "label": "Broadly British & Irish",
+    },
+    "broadly_central_&_eastern_european": {
+      "ancestors": [
+        "world",
+        "european",
+        "central_&_eastern_european",
+      ],
+      "depth": 3,
+      "label": "Broadly Central & Eastern European",
+    },
+    "broadly_central_&_south_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Broadly Central & South Asian",
+    },
+    "broadly_chinese": {
+      "ancestors": [
+        "world",
+        "east_asian",
+        "chinese",
+      ],
+      "depth": 3,
+      "label": "Broadly Chinese",
+    },
+    "broadly_congolese_&_southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Broadly Congolese & Southern East African",
+    },
+    "broadly_east_asian": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Broadly East Asian",
+    },
+    "broadly_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Broadly European",
+    },
+    "broadly_greek_&_balkan": {
+      "ancestors": [
+        "world",
+        "european",
+        "greek_&_balkan",
+      ],
+      "depth": 3,
+      "label": "Broadly Greek & Balkan",
+    },
+    "broadly_indigenous_american": {
+      "ancestors": [
+        "world",
+        "indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Broadly Indigenous American",
+    },
+    "broadly_italian_&_maltese": {
+      "ancestors": [
+        "world",
+        "european",
+        "italian_&_maltese",
+      ],
+      "depth": 3,
+      "label": "Broadly Italian & Maltese",
+    },
+    "broadly_melanesian": {
+      "ancestors": [
+        "world",
+        "melanesian",
+      ],
+      "depth": 2,
+      "label": "Broadly Melanesian",
+    },
+    "broadly_nordic": {
+      "ancestors": [
+        "world",
+        "european",
+        "nordic",
+      ],
+      "depth": 3,
+      "label": "Broadly Nordic",
+    },
+    "broadly_northern_asian": {
+      "ancestors": [
+        "world",
+        "east_asian",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern Asian",
+    },
+    "broadly_northern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern East African",
+    },
+    "broadly_northern_west_asian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Broadly Northern West Asian",
+    },
+    "broadly_spanish_&_portuguese": {
+      "ancestors": [
+        "world",
+        "european",
+        "spanish_&_portuguese",
+      ],
+      "depth": 3,
+      "label": "Broadly Spanish & Portuguese",
+    },
+    "broadly_sub-saharan_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Broadly Sub-Saharan African",
+    },
+    "broadly_west_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Broadly West African",
+    },
+    "broadly_western_asian_&_north_african": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Broadly Western Asian & North African",
+    },
+    "broadly_western_european": {
+      "ancestors": [
+        "world",
+        "european",
+        "western_european",
+      ],
+      "depth": 3,
+      "label": "Broadly Western European",
+    },
+    "bulgarian_moldovan_&_romanian": {
+      "ancestors": [
+        "world",
+        "european",
+        "greek_&_balkan",
+      ],
+      "depth": 3,
+      "label": "Bulgarian, Moldovan & Romanian",
+    },
+    "canary_islander": {
+      "ancestors": [
+        "world",
+        "european",
+        "spanish_&_portuguese",
+      ],
+      "depth": 3,
+      "label": "Canary Islander",
+    },
+    "central_&_eastern_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Central & Eastern European",
+    },
+    "central_&_south_asian": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Central & South Asian",
+    },
+    "central_andean_&_amazonian": {
+      "ancestors": [
+        "world",
+        "indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Central Andean & Amazonian",
+    },
+    "central_asian": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Central Asian",
+    },
+    "chinese": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Chinese",
+    },
+    "chinese_dai": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Chinese Dai",
+    },
+    "congolese_&_southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Congolese & Southern East African",
+    },
+    "coptic_egyptian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Coptic Egyptian",
+    },
+    "cypriot": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Cypriot",
+    },
+    "czech_hungarian_slovak_&_southern_polish": {
+      "ancestors": [
+        "world",
+        "european",
+        "central_&_eastern_european",
+      ],
+      "depth": 3,
+      "label": "Czech, Hungarian, Slovak & Southern Polish",
+    },
+    "danish": {
+      "ancestors": [
+        "world",
+        "european",
+        "nordic",
+      ],
+      "depth": 3,
+      "label": "Danish",
+    },
+    "dutch_&_northern_german": {
+      "ancestors": [
+        "world",
+        "european",
+        "western_european",
+      ],
+      "depth": 3,
+      "label": "Dutch & Northern German",
+    },
+    "east_asian": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "East Asian",
+    },
+    "egyptian_&_southern_levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Egyptian & Southern Levantine",
+    },
+    "english": {
+      "ancestors": [
+        "world",
+        "european",
+        "british_&_irish",
+      ],
+      "depth": 3,
+      "label": "English",
+    },
+    "estonian": {
+      "ancestors": [
+        "world",
+        "european",
+        "central_&_eastern_european",
+      ],
+      "depth": 3,
+      "label": "Estonian",
+    },
+    "ethiopian_&_eritrean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Ethiopian & Eritrean",
+    },
+    "european": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "European",
+    },
+    "filipino_&_austronesian": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Filipino & Austronesian",
+    },
+    "finnish": {
+      "ancestors": [
+        "world",
+        "european",
+        "nordic",
+      ],
+      "depth": 3,
+      "label": "Finnish",
+    },
+    "french": {
+      "ancestors": [
+        "world",
+        "european",
+        "western_european",
+      ],
+      "depth": 3,
+      "label": "French",
+    },
+    "ghanaian_liberian_&_sierra_leonean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Ghanaian, Liberian & Sierra Leonean",
+    },
+    "greek": {
+      "ancestors": [
+        "world",
+        "european",
+        "greek_&_balkan",
+      ],
+      "depth": 3,
+      "label": "Greek",
+    },
+    "greek_&_balkan": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Greek & Balkan",
+    },
+    "gujarati_patidar": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Gujarati Patidar",
+    },
+    "icelandic": {
+      "ancestors": [
+        "world",
+        "european",
+        "nordic",
+      ],
+      "depth": 3,
+      "label": "Icelandic",
+    },
+    "indigenous_american": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Indigenous American",
+    },
+    "indonesian_thai_khmer_&_myanma": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Indonesian, Thai, Khmer & Myanma",
+    },
+    "iranian_caucasian_&_mesopotamian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "northern_west_asian",
+      ],
+      "depth": 3,
+      "label": "Iranian, Caucasian & Mesopotamian",
+    },
+    "irish": {
+      "ancestors": [
+        "world",
+        "european",
+        "british_&_irish",
+      ],
+      "depth": 3,
+      "label": "Irish",
+    },
+    "italian_&_maltese": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Italian & Maltese",
+    },
+    "japanese": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Japanese",
+    },
+    "korean": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Korean",
+    },
+    "kosovar_&_northern_albanian": {
+      "ancestors": [
+        "world",
+        "european",
+        "greek_&_balkan",
+      ],
+      "depth": 3,
+      "label": "Kosovar & Northern Albanian",
+    },
+    "latvian": {
+      "ancestors": [
+        "world",
+        "european",
+        "central_&_eastern_european",
+      ],
+      "depth": 3,
+      "label": "Latvian",
+    },
+    "levantine": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Levantine",
+    },
+    "lithuanian": {
+      "ancestors": [
+        "world",
+        "european",
+        "central_&_eastern_european",
+      ],
+      "depth": 3,
+      "label": "Lithuanian",
+    },
+    "malayali_subgroup": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Malayali Subgroup",
+    },
+    "maltese": {
+      "ancestors": [
+        "world",
+        "european",
+        "italian_&_maltese",
+      ],
+      "depth": 3,
+      "label": "Maltese",
+    },
+    "manchurian_&_mongolian": {
+      "ancestors": [
+        "world",
+        "east_asian",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Manchurian & Mongolian",
+    },
+    "melanesian": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Melanesian",
+    },
+    "nigerian": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Nigerian",
+    },
+    "nordic": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Nordic",
+    },
+    "north_african": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "North African",
+    },
+    "north_american": {
+      "ancestors": [
+        "world",
+        "indigenous_american",
+      ],
+      "depth": 2,
+      "label": "North American",
+    },
+    "northern_andean": {
+      "ancestors": [
+        "world",
+        "indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Northern Andean",
+    },
+    "northern_asian": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Northern Asian",
+    },
+    "northern_chinese_&_tibetan": {
+      "ancestors": [
+        "world",
+        "east_asian",
+        "chinese",
+      ],
+      "depth": 3,
+      "label": "Northern Chinese & Tibetan",
+    },
+    "northern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "Northern East African",
+    },
+    "northern_indian_&_pakistani": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Northern Indian & Pakistani",
+    },
+    "northern_italian": {
+      "ancestors": [
+        "world",
+        "european",
+        "italian_&_maltese",
+      ],
+      "depth": 3,
+      "label": "Northern Italian",
+    },
+    "northern_west_asian": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+      ],
+      "depth": 2,
+      "label": "Northern West Asian",
+    },
+    "norwegian": {
+      "ancestors": [
+        "world",
+        "european",
+        "nordic",
+      ],
+      "depth": 3,
+      "label": "Norwegian",
+    },
+    "peninsular_arab": {
+      "ancestors": [
+        "world",
+        "western_asian_&_north_african",
+        "arab_egyptian_&_levantine",
+      ],
+      "depth": 3,
+      "label": "Peninsular Arab",
+    },
+    "portuguese_&_galician": {
+      "ancestors": [
+        "world",
+        "european",
+        "spanish_&_portuguese",
+      ],
+      "depth": 3,
+      "label": "Portuguese & Galician",
+    },
+    "russian": {
+      "ancestors": [
+        "world",
+        "european",
+        "central_&_eastern_european",
+      ],
+      "depth": 3,
+      "label": "Russian",
+    },
+    "sardinian": {
+      "ancestors": [
+        "world",
+        "european",
+        "italian_&_maltese",
+      ],
+      "depth": 3,
+      "label": "Sardinian",
+    },
+    "scottish": {
+      "ancestors": [
+        "world",
+        "european",
+        "british_&_irish",
+      ],
+      "depth": 3,
+      "label": "Scottish",
+    },
+    "senegambian_&_guinean": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "west_african",
+      ],
+      "depth": 3,
+      "label": "Senegambian & Guinean",
+    },
+    "siberian": {
+      "ancestors": [
+        "world",
+        "east_asian",
+        "northern_asian",
+      ],
+      "depth": 3,
+      "label": "Siberian",
+    },
+    "slovenian": {
+      "ancestors": [
+        "world",
+        "european",
+        "central_&_eastern_european",
+      ],
+      "depth": 3,
+      "label": "Slovenian",
+    },
+    "somali": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Somali",
+    },
+    "southern_chinese_&_taiwanese": {
+      "ancestors": [
+        "world",
+        "east_asian",
+        "chinese",
+      ],
+      "depth": 3,
+      "label": "Southern Chinese & Taiwanese",
+    },
+    "southern_coastal_chinese": {
+      "ancestors": [
+        "world",
+        "east_asian",
+        "chinese",
+      ],
+      "depth": 3,
+      "label": "Southern Coastal Chinese",
+    },
+    "southern_east_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "congolese_&_southern_east_african",
+      ],
+      "depth": 3,
+      "label": "Southern East African",
+    },
+    "southern_indian_&_sri_lankan": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Southern Indian & Sri Lankan",
+    },
+    "southern_indian_subgroup": {
+      "ancestors": [
+        "world",
+        "central_&_south_asian",
+      ],
+      "depth": 2,
+      "label": "Southern Indian Subgroup",
+    },
+    "southern_italian": {
+      "ancestors": [
+        "world",
+        "european",
+        "italian_&_maltese",
+      ],
+      "depth": 3,
+      "label": "Southern Italian",
+    },
+    "southern_mesoamerican": {
+      "ancestors": [
+        "world",
+        "indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Southern Mesoamerican",
+    },
+    "spanish_&_portuguese": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Spanish & Portuguese",
+    },
+    "sub-saharan_african": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Sub-Saharan African",
+    },
+    "sudanese": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+        "northern_east_african",
+      ],
+      "depth": 3,
+      "label": "Sudanese",
+    },
+    "swedish": {
+      "ancestors": [
+        "world",
+        "european",
+        "nordic",
+      ],
+      "depth": 3,
+      "label": "Swedish",
+    },
+    "swiss_southwestern_german_&_western_austrian": {
+      "ancestors": [
+        "world",
+        "european",
+        "western_european",
+      ],
+      "depth": 3,
+      "label": "Swiss, Southwestern German & Western Austrian",
+    },
+    "unassigned": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Unassigned",
+    },
+    "vietnamese": {
+      "ancestors": [
+        "world",
+        "east_asian",
+      ],
+      "depth": 2,
+      "label": "Vietnamese",
+    },
+    "welsh": {
+      "ancestors": [
+        "world",
+        "european",
+        "british_&_irish",
+      ],
+      "depth": 3,
+      "label": "Welsh",
+    },
+    "west_african": {
+      "ancestors": [
+        "world",
+        "sub-saharan_african",
+      ],
+      "depth": 2,
+      "label": "West African",
+    },
+    "western_asian_&_north_african": {
+      "ancestors": [
+        "world",
+      ],
+      "depth": 1,
+      "label": "Western Asian & North African",
+    },
+    "western_european": {
+      "ancestors": [
+        "world",
+        "european",
+      ],
+      "depth": 2,
+      "label": "Western European",
+    },
+    "western_north_american": {
+      "ancestors": [
+        "world",
+        "indigenous_american",
+      ],
+      "depth": 2,
+      "label": "Western North American",
+    },
+    "world": {
+      "depth": 0,
+      "label": "World",
+    },
+  },
+}
+`;
