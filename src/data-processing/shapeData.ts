@@ -6,7 +6,7 @@ import type {
   ChromosomeLengthObject,
   ChromosomeKey,
   ModelVersion,
-} from '../types/index.ts';
+} from '../types';
 import regionMap from './regionParsing.ts';
 import chromosomesLengthsJSON from '../../assets/json/chromosomes.json' with { type: 'json' };
 
