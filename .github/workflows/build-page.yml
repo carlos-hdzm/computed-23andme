@@ -23,8 +23,8 @@ jobs:
         run: |
           npm ci
           npm run build
-      - name: Run tests
-        run: npm test:coverage
+      - name: Run tests with coverage
+        run: npm run test:coverage
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
