@@ -143,7 +143,7 @@ describe("useFileUpload", () => {
     expect(onResolveMock).not.toHaveBeenCalled();
   });
 
-  test("reader error processing file", async () => {
+  test("reader onload error", async () => {
     const processDataMock = vi.fn().mockImplementation(() => {
       throw new Error("Reader error");
     });
@@ -179,20 +179,32 @@ describe("useFileUpload", () => {
     expect(onResolveMock).not.toHaveBeenCalled();
   });
 
-  test("reset", async () => {
-    const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
+  test("reader onerror", async () => {
+    vi.spyOn(
+      globalThis.FileReader.prototype,
+      "readAsText",
+    ).mockImplementationOnce(function (this: FileReader) {
+      this.onerror?.(new ProgressEvent("error") as ProgressEvent<FileReader>);
+    });
+
+    vi.useFakeTimers();
+
+    const processDataMock = vi.fn().mockImplementation(() => {
+      return new Promise((resolve) => {
+        setTimeout(() => resolve({} as ComputedData), 1000);
+      });
+    });
 
     const { getByText, getByTestId } =
       await renderTestComponent(processDataMock);
 
     await getByTestId("process-file").click();
-
-    await getByTestId("reset").click();
+    vi.advanceTimersByTime(500); // Advance time to simulate the reader onerror event
 
     const expectedState = {
-      isInitial: true,
+      isInitial: false,
       isPending: false,
-      error: null,
+      error: "Unknown error reading file",
       isDone: false,
       isSampleData: false,
     };
@@ -212,7 +224,82 @@ describe("useFileUpload", () => {
     await expect
       .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
       .toBeInTheDocument();
-    expect(onResolveMock).toHaveBeenCalledTimes(1); // Called only during the first processFile
+    expect(onResolveMock).not.toHaveBeenCalled();
+
+    vi.useRealTimers();
+  });
+
+  describe("reset", async () => {
+    test("reset after uploading file", async () => {
+      const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
+
+      const { getByText, getByTestId } =
+        await renderTestComponent(processDataMock);
+
+      await getByTestId("process-file").click();
+
+      await getByTestId("reset").click();
+
+      const expectedState = {
+        isInitial: true,
+        isPending: false,
+        error: null,
+        isDone: false,
+        isSampleData: false,
+      };
+
+      await expect
+        .element(getByText(`Is Initial: ${expectedState.isInitial}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Pending: ${expectedState.isPending}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Error: ${expectedState.error}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Done: ${expectedState.isDone}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
+        .toBeInTheDocument();
+      expect(onResolveMock).toHaveBeenCalledTimes(1); // Called only during the first processFile
+    });
+
+    test("reset after sample data", async () => {
+      const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
+
+      const { getByText, getByTestId } =
+        await renderTestComponent(processDataMock);
+
+      await getByTestId("sample-data").click();
+
+      await getByTestId("reset").click();
+
+      const expectedState = {
+        isInitial: true,
+        isPending: false,
+        error: null,
+        isDone: false,
+        isSampleData: false,
+      };
+
+      await expect
+        .element(getByText(`Is Initial: ${expectedState.isInitial}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Pending: ${expectedState.isPending}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Error: ${expectedState.error}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Done: ${expectedState.isDone}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
+        .toBeInTheDocument();
+    });
   });
 
   test("sample data processing", async () => {

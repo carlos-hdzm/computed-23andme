@@ -31,14 +31,16 @@ const FileUploadContext = createContext<FileUploadContextValue>({
   isSampleData: false,
 });
 const FileUploadDispatchContext = createContext<FileUploadDispatchContextValue>({
+  /* v8 ignore start -- @preserve */
   setFile: () => {},
   setIsInitial: () => {},
   setIsPending: () => {},
   setError: () => {},
   setIsDone: () => {},
   setIsSampleData: () => {},
+  /* v8 ignore end -- @preserve */
 });
-const FileUploadPropsContext = createContext<FileUploadPropsContextValue>({ onResolve: () => {} });
+const FileUploadPropsContext = createContext<FileUploadPropsContextValue>({ /* v8 ignore next -- @preserve */ onResolve: () => {} });
 
 const FileUploadContextProvider: React.FC<FileUploadContextProviderProps> = ({ children, onResolve }) => {
   const [ file, setFile] = useState<File | null>(null);

@@ -9,7 +9,7 @@ const processCSVString = async (csvStr: string) => {
     const processedData = populateDataTemplate(json);
     return nestRegions(processedData);
   } catch (error) {
-    throw new Error(`Error processing CSV data: ${error instanceof Error ? error.message : error}`);
+    throw new Error(`Error processing CSV data: ${error instanceof Error ? error.message : /* v8 ignore next -- @preserve */ error}`);
   }
 }
 

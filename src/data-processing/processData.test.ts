@@ -83,6 +83,11 @@ vi.mock(import("./regionParsing.ts"), () => ({
         depth: 1,
         label: "Region 4",
       },
+      region_1_1_1: {
+        ancestors: ["world", "region_1", "region_1_1"],
+        depth: 3,
+        label: "Region 1.1.1",
+      },
       region_4_2: {
         ancestors: ["world", "region_4"],
         depth: 2,
@@ -497,6 +502,17 @@ describe("processData", () => {
           depth: 1,
           label: "Region 4",
         },
+        region_1_1_1: {
+          cssClass: "region_1_1_1",
+          total: {
+            proportion: 0.3,
+            cm_proportion: 0.3,
+            length: 30,
+            length_cm: 30,
+          },
+          depth: 3,
+          label: "Region 1.1.1",
+        },
         region_4_2: {
           cssClass: "region_4_2",
           total: {
@@ -603,7 +619,10 @@ describe("processData", () => {
         "region_1",
         {
           ...processedDataRegions.region_1,
-          subregions: [["region_1_1", processedDataRegions.region_1_1]],
+          subregions: [["region_1_1", {
+            ...processedDataRegions.region_1_1,
+            subregions: [["region_1_1_1", processedDataRegions.region_1_1_1]],
+          }]],
         },
       ],
       [

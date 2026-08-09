@@ -30,7 +30,7 @@ const sortSubregions = (subregions: UnsortedRegionsEntry): SortedRegionsEntry =>
 }
 
 const sortRegions = (regions: UnsortedRegionsEntry): SortedRegionsEntry => {
-  const subregions = ('world' in regions) ? regions.world.subregions : regions;
+  const subregions = ('world' in regions) ? regions.world.subregions : /* v8 ignore next -- @preserve */ regions;
   const sortedRegions = sortSubregionsByProportion(subregions!, { containsUnassigned: 'unassigned' in subregions! });
   
   return sortedRegions.map(([regionName, regionEntry]) => {

@@ -40,7 +40,7 @@ const useFileUpload = <T extends ComputedData>({
               setIsDone(true);
             })
             .catch((err: Error) => {
-              setError(err || new Error("Unknown error processing data"));
+              setError(err ? err : /* v8 ignore next -- @preserve */ new Error("Unknown error processing data"));
               console.error("Error processing data:", err);
             })
             .finally(() => {
@@ -50,14 +50,17 @@ const useFileUpload = <T extends ComputedData>({
           setIsInitial(false);
           setIsPending(true);
         } catch (err) {
-          setError((err as Error) || new Error("Unknown error reading file"));
+          setError(err ? (err as Error) : /* v8 ignore next -- @preserve */ new Error("Unknown error reading file"));
+          setIsPending(false);
           console.error("Error processing file:", err);
         }
       };
       reader.onerror = (event) => {
         setError(
-          event.target?.error || new Error("Unknown error reading file"),
+          (event.target?.error as Error) || new Error("Unknown error reading file"),
         );
+        setIsPending(false);
+        setIsInitial(false);
         console.error("Error reading file:", event.target?.error);
       };
 
