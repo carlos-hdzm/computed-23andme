@@ -327,7 +327,7 @@ describe("useFileUpload", () => {
 
     test("before error", async () => {
       const processDataMock = vi.fn().mockImplementation(() => {
-        return new Promise((resolve, reject) => {
+        return new Promise((_, reject) => {
           setTimeout(() => reject(new Error("Process error")), 1000);
         });
       });
