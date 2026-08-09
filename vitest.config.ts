@@ -7,6 +7,14 @@ export default defineConfig({
   test: {
     coverage: {
       provider: "v8",
+      reporter: ["text", "json", "html"],
+      exclude: ["assets/**/*.*", "src/context/initial-data.ts", "src/context/sample-data.ts"],
+      thresholds: {
+        statements: 90,
+        branches: 70,
+        functions: 75,
+        lines: 85,
+      },
     },
     projects: [
       {
