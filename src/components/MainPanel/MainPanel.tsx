@@ -13,10 +13,7 @@ const MainPanel: React.FC = () => {
   const { version } = useContext(AppContext);
 
   const {
-    isInitial,
-    isPending,
-    error,
-    isDone,
+    state: { isInitial, isPending, error, isDone },
   } = useFileUpload();
 
   return (
@@ -34,13 +31,9 @@ const MainPanel: React.FC = () => {
           <ChromosomeViewer />
         </>
       )}
-      {isInitial && (
-        <FileSelector />
-      )}
-      {error && (
-        <div>Error processing file: {error.message}</div>
-      )}
-      { (isInitial || error) && (<SampleData />) }
+      {isInitial && <FileSelector />}
+      {error && <div>Error processing file: {error.message}</div>}
+      {(isInitial || error) && <SampleData />}
     </section>
   );
 };

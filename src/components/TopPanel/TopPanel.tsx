@@ -25,7 +25,7 @@ const TopPanel: React.FC = () => {
   const { data, version, confidence } = useContext(AppContext);
   const dispatch = useContext(AppDispatchContext);
 
-  const { reset, isSampleData, error, isDone } = useFileUpload();
+  const { reset, state: { isSampleData, error, isDone } } = useFileUpload();
 
   const handleVersionChange = useCallback(
     ({ target: { value } }: ChangeEvent<ModelVersion>) => {
