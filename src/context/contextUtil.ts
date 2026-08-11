@@ -9,12 +9,14 @@ const getDataValues = (data: ComputedData) => {
     return {
         version: selectedVersion,
         confidence: selectedConfidenceLevel,
-    }
+    };
 };
 
 const getAvailableVersions = (data: ComputedData) => {
-    return versionValues.filter((version) => version in data);
-}
+    const filteredVersions = versionValues.filter((version) => version in data);
+    if (filteredVersions.length === 0) throw new Error("No available versions found in the data.");
+    return filteredVersions;
+};
 
 export default getDataValues;
 export { getAvailableVersions };

@@ -478,5 +478,64 @@ describe("useFileUpload", () => {
         .toBeInTheDocument();
       expect(onResolveMock).not.toHaveBeenCalled();
     });
+
+    test("should not allow processing of another file", async () => {
+      const processDataMock = vi.fn().mockImplementation(() => {
+        return new Promise((resolve) => {
+          setTimeout(() => resolve({} as ComputedData), 1000);
+        });
+      });
+
+      const { getByText, getByTestId } =
+        await renderTestComponent(processDataMock);
+
+      await getByTestId("process-file").click();
+
+      const expectedState = {
+        isInitial: false,
+        isPending: true,
+        error: null,
+        isDone: false,
+        isSampleData: false,
+      };
+      await expect
+        .element(getByText(`Is Pending: ${expectedState.isPending}`))
+        .toBeInTheDocument();
+
+      vi.advanceTimersByTime(500);
+
+      await getByTestId("process-file").click();
+
+      vi.advanceTimersByTime(500);
+
+      const completeExpectedState = {
+        isInitial: false,
+        isPending: false,
+        error: null,
+        isDone: true,
+        isSampleData: false,
+      };
+
+      await expect
+        .element(getByText(`Is Initial: ${completeExpectedState.isInitial}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Pending: ${completeExpectedState.isPending}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Error: ${completeExpectedState.error}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Done: ${completeExpectedState.isDone}`))
+        .toBeInTheDocument();
+      await expect
+        .element(
+          getByText(`Is Sample Data: ${completeExpectedState.isSampleData}`),
+        )
+        .toBeInTheDocument();
+      // Even though processFile was called twice, onResolveMock should only be called once
+      // because the second call should be ignored due to isPending being true.
+      expect(onResolveMock).toHaveBeenCalledTimes(1);
+    });
   });
 });

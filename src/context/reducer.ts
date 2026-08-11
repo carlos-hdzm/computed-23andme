@@ -1,7 +1,7 @@
 import type { ContextData, DataAction } from "../types";
 import sampleContextData from "./sample-data";
 
-export const dataReducer = (state: ContextData, action: DataAction) => {
+const dataReducer = (state: ContextData, action: DataAction) => {
   switch (action.type) {
     case 'SET_DATA':
       return { ...state, data: action.data };
@@ -28,3 +28,5 @@ export const dataReducer = (state: ContextData, action: DataAction) => {
       return state;
   }
 }
+
+export default dataReducer;

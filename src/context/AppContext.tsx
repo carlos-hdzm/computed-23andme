@@ -1,9 +1,9 @@
 import React, { useCallback, useReducer } from "react";
-import { dataReducer } from "./reducer";
+import dataReducer from "./reducer";
 import type { ComputedData } from "../types";
 import { AppContext, AppDispatchContext } from "./context";
 import contextActions from "./actions";
-import { initialData } from "./initial-data";
+import initialData from "./initial-data";
 import FileUploadContextProvider from "./FileUploadContext";
 import getDataValues from "./contextUtil";
 
