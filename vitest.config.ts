@@ -8,7 +8,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      exclude: ["assets/**/*.*", "src/context/initial-data.ts", "src/context/sample-data.ts"],
+      exclude: ["assets", "src/context/context.ts"],
       thresholds: {
         statements: 90,
         branches: 70,
@@ -21,7 +21,10 @@ export default defineConfig({
         extends: true,
         test: {
           name: "node",
-          include: ["src/data-processing/**/*.test.ts"],
+          include: [
+            "src/data-processing/**/*.test.ts",
+            "src/context/**/*.test.ts",
+          ],
           environment: "node",
         },
       },
@@ -31,7 +34,7 @@ export default defineConfig({
           name: "browser",
           include: [
             "src/components/**/*.test.tsx",
-            "src/context/**/*.test.{ts,tsx}",
+            "src/context/**/*.test.tsx",
           ],
           browser: {
             enabled: true,
