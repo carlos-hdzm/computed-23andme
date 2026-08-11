@@ -16079,7 +16079,9 @@ var getDataValues = (data) => {
 	};
 };
 var getAvailableVersions = (data) => {
-	return versionValues.filter((version) => version in data);
+	const filteredVersions = versionValues.filter((version) => version in data);
+	if (filteredVersions.length === 0) throw new Error("No available versions found in the data.");
+	return filteredVersions;
 };
 //#endregion
 //#region src/context/AppContext.tsx
