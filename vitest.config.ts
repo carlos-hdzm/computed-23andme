@@ -8,7 +8,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      exclude: ["assets", "src/context/context.ts"],
+      exclude: ["assets", "src/types", "src/context/context.ts"],
       thresholds: {
         statements: 90,
         branches: 70,

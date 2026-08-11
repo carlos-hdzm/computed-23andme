@@ -4,12 +4,15 @@ import type {
   ModelVersion,
   ConfidenceLevel,
 } from '../types/index.ts';
+import { confidenceValues } from '../constants/strings.ts';
 
-const confidenceLevelsByVersion: Record<ModelVersion, string[]> = {
-  'v5.2': ['50', '60', '70', '80', '90'],
-  'v5.9': ['50', '60', '70', '80', '90'],
-  'v7.0': ['50', '60', '70', '80', '90', 'mostLikely'],
-}
+const confidenceLevelsByVersion = (() => {
+  const levelsByVersion = {} as Record<ModelVersion, string[]>;
+  for (const version in confidenceValues) {
+    levelsByVersion[version as ModelVersion] = confidenceValues[version as ModelVersion].map(String);
+  }
+  return levelsByVersion;
+})();
 
 const areConfidenceLevelsEqual = (levels1: string[], levels2: string[]) => {
   if (levels1.length !== levels2.length) return false;

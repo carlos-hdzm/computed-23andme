@@ -1,4 +1,5 @@
 import type { ChromosomeHaplotype, ChromosomeHaplotypeSplit, ChromosomesData, RegionsEntry, SortedRegionsEntry } from ".";
+import type { confidenceValues, versionValues } from "../constants/strings";
 
 export type ConfidenceEntry<
   T extends ChromosomeHaplotype = ChromosomeHaplotypeSplit,
@@ -11,7 +12,7 @@ export type ConfidenceEntry<
 export type ComputedDataV5Entry<
   T extends ChromosomeHaplotype = ChromosomeHaplotypeSplit,
   U extends RegionsEntry = SortedRegionsEntry
-> = Record<50 | 60 | 70 | 80 | 90, ConfidenceEntry<T, U>>
+> = Record<Exclude<ConfidenceLevel, "mostLikely">, ConfidenceEntry<T, U>>
 
 export type ComputedDataV7Entry<
   T extends ChromosomeHaplotype = ChromosomeHaplotypeSplit,
@@ -29,5 +30,5 @@ export type ComputedData<
   'v7.0'?: ComputedDataV7Entry<T, U>
 }
 
-export type ModelVersion = 'v5.2' | 'v5.9' | 'v7.0'
-export type ConfidenceLevel = keyof (ComputedDataV5Entry<ChromosomeHaplotype, RegionsEntry> & ComputedDataV7Entry<ChromosomeHaplotype, RegionsEntry>)
+export type ModelVersion = typeof versionValues[number]
+export type ConfidenceLevel = typeof confidenceValues[ModelVersion][number]
