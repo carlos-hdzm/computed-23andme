@@ -16178,7 +16178,7 @@ var import_classnames = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin((
 //#region src/components/TopPanel/TopPanel.tsx
 var _jsxFileName$12 = "/home/runner/work/computed-23andme/computed-23andme/src/components/TopPanel/TopPanel.tsx";
 var TopPanel = () => {
-	const $ = (0, import_compiler_runtime.c)(23);
+	const $ = (0, import_compiler_runtime.c)(24);
 	const { data, version, confidence } = (0, import_react.useContext)(AppContext);
 	const dispatch = (0, import_react.useContext)(AppDispatchContext);
 	const { reset, state: t0 } = useFileUpload();
@@ -16219,14 +16219,27 @@ var TopPanel = () => {
 	} else t3 = $[7];
 	const handleDelete = t3;
 	let t4;
-	if ($[8] !== data) {
-		t4 = getAvailableVersions(data);
-		$[8] = data;
-		$[9] = t4;
-	} else t4 = $[9];
+	bb0: {
+		if (!data || Object.keys(data).length === 0) {
+			let t5;
+			if ($[8] === Symbol.for("react.memo_cache_sentinel")) {
+				t5 = [];
+				$[8] = t5;
+			} else t5 = $[8];
+			t4 = t5;
+			break bb0;
+		}
+		let t5;
+		if ($[9] !== data) {
+			t5 = getAvailableVersions(data);
+			$[9] = data;
+			$[10] = t5;
+		} else t5 = $[10];
+		t4 = t5;
+	}
 	const availableVersions = t4;
 	let t5;
-	if ($[10] !== availableVersions || $[11] !== confidence || $[12] !== data || $[13] !== error || $[14] !== handleConfidenceChange || $[15] !== handleDelete || $[16] !== handleVersionChange || $[17] !== isDone || $[18] !== isSampleData || $[19] !== version) {
+	if ($[11] !== availableVersions || $[12] !== confidence || $[13] !== data || $[14] !== error || $[15] !== handleConfidenceChange || $[16] !== handleDelete || $[17] !== handleVersionChange || $[18] !== isDone || $[19] !== isSampleData || $[20] !== version) {
 		t5 = isDone && !error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 			className: "file-uploaded",
 			children: [isSampleData ? "Sample data loaded" : "Data uploaded", /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", {
@@ -16235,12 +16248,12 @@ var TopPanel = () => {
 				children: "Delete"
 			}, void 0, false, {
 				fileName: _jsxFileName$12,
-				lineNumber: 95,
+				lineNumber: 110,
 				columnNumber: 118
 			}, void 0)]
 		}, void 0, true, {
 			fileName: _jsxFileName$12,
-			lineNumber: 95,
+			lineNumber: 110,
 			columnNumber: 32
 		}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 			className: (0, import_classnames.default)("controls", { active: Object.keys(data).length > 0 }),
@@ -16253,12 +16266,12 @@ var TopPanel = () => {
 					children: availableVersions.map(_temp$4)
 				}, void 0, false, {
 					fileName: _jsxFileName$12,
-					lineNumber: 97,
+					lineNumber: 112,
 					columnNumber: 36
 				}, void 0)
 			}, void 0, false, {
 				fileName: _jsxFileName$12,
-				lineNumber: 97,
+				lineNumber: 112,
 				columnNumber: 11
 			}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 				className: "confidence",
@@ -16269,48 +16282,48 @@ var TopPanel = () => {
 					children: confidenceValues[version].map(_temp2)
 				}, void 0, false, {
 					fileName: _jsxFileName$12,
-					lineNumber: 97,
+					lineNumber: 112,
 					columnNumber: 179
 				}, void 0)
 			}, void 0, false, {
 				fileName: _jsxFileName$12,
-				lineNumber: 97,
+				lineNumber: 112,
 				columnNumber: 151
 			}, void 0)]
 		}, void 0, true, {
 			fileName: _jsxFileName$12,
-			lineNumber: 95,
+			lineNumber: 110,
 			columnNumber: 169
 		}, void 0)] }, void 0, true, {
 			fileName: _jsxFileName$12,
-			lineNumber: 95,
+			lineNumber: 110,
 			columnNumber: 30
 		}, void 0);
-		$[10] = availableVersions;
-		$[11] = confidence;
-		$[12] = data;
-		$[13] = error;
-		$[14] = handleConfidenceChange;
-		$[15] = handleDelete;
-		$[16] = handleVersionChange;
-		$[17] = isDone;
-		$[18] = isSampleData;
-		$[19] = version;
-		$[20] = t5;
-	} else t5 = $[20];
+		$[11] = availableVersions;
+		$[12] = confidence;
+		$[13] = data;
+		$[14] = error;
+		$[15] = handleConfidenceChange;
+		$[16] = handleDelete;
+		$[17] = handleVersionChange;
+		$[18] = isDone;
+		$[19] = isSampleData;
+		$[20] = version;
+		$[21] = t5;
+	} else t5 = $[21];
 	let t6;
-	if ($[21] !== t5) {
+	if ($[22] !== t5) {
 		t6 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
 			className: "top-panel",
 			children: t5
 		}, void 0, false, {
 			fileName: _jsxFileName$12,
-			lineNumber: 114,
+			lineNumber: 129,
 			columnNumber: 10
 		}, void 0);
-		$[21] = t5;
-		$[22] = t6;
-	} else t6 = $[22];
+		$[22] = t5;
+		$[23] = t6;
+	} else t6 = $[23];
 	return t6;
 };
 function _temp$4(version_0) {
@@ -16319,7 +16332,7 @@ function _temp$4(version_0) {
 		children: versionLabels[version_0]
 	}, version_0, false, {
 		fileName: _jsxFileName$12,
-		lineNumber: 124,
+		lineNumber: 139,
 		columnNumber: 10
 	}, this);
 }
@@ -16329,7 +16342,7 @@ function _temp2(confidence_0) {
 		children: confidenceLabels[confidence_0]
 	}, confidence_0, false, {
 		fileName: _jsxFileName$12,
-		lineNumber: 127,
+		lineNumber: 142,
 		columnNumber: 10
 	}, this);
 }
