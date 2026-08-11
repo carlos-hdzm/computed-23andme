@@ -1,3 +1,5 @@
+// Inspired by https://www.npmjs.com/package/fixed-size-array by https://github.com/mstn
+// Modified to allow re-assignment of elements, while still preventing length mutation
 type FixedLengthReadOnlyArray<N extends number, T> = {
   0: T;
   length: N;
