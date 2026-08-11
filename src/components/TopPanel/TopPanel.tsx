@@ -49,7 +49,13 @@ const TopPanel: React.FC = () => {
     dispatch(contextActions.clearData());
   }, [reset, dispatch]);
 
-  const availableVersions = useMemo(() => getAvailableVersions(data), [data]);
+  const availableVersions = useMemo(() => {
+    if (!data || Object.keys(data).length === 0) {
+      return [];
+    }
+    
+    return getAvailableVersions(data);
+  }, [data]);
 
   return (
     <section className="top-panel">
