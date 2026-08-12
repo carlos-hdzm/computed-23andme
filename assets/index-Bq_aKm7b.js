@@ -16721,7 +16721,7 @@ var Chromosome = import_react.memo((t0) => {
 	if ($[11] !== arm1 || $[12] !== centromerePos || $[13] !== firstSegmentStart) {
 		t8 = arm1 && arm1.map((segment, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomeSegment, {
 			segment,
-			parentLength: firstSegmentStart < centromerePos ? centromerePos - firstSegmentStart : centromerePos
+			parentLength: centromerePos - firstSegmentStart
 		}, index, false, {
 			fileName: _jsxFileName$10,
 			lineNumber: 86,
@@ -16770,7 +16770,7 @@ var Chromosome = import_react.memo((t0) => {
 	if ($[25] !== arm2 || $[26] !== centromerePos || $[27] !== firstSegmentStart || $[28] !== length) {
 		t13 = arm2 && arm2.map((segment_0, index_0) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomeSegment, {
 			segment: segment_0,
-			parentLength: firstSegmentStart > centromerePos ? length - centromerePos - firstSegmentStart : length - centromerePos
+			parentLength: firstSegmentStart > centromerePos ? length - firstSegmentStart : length - centromerePos
 		}, index_0, false, {
 			fileName: _jsxFileName$10,
 			lineNumber: 130,
@@ -16822,35 +16822,35 @@ var ChromosomePair = (t0) => {
 	const $ = (0, import_compiler_runtime.c)(23);
 	const { label, isSexPair, pair } = t0;
 	const rowSpan = isSexPair ? pair.length : 2;
-	const t1 = isSexPair ? "X" : label;
-	let t2;
-	if ($[0] !== rowSpan || $[1] !== t1) {
-		t2 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
+	const shouldRenderYChromosome = rowSpan === 1;
+	const chromosomeIndex = isSexPair ? "X" : label;
+	let t1;
+	if ($[0] !== chromosomeIndex || $[1] !== rowSpan) {
+		t1 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
 			rowSpan,
 			className: "chromosome-label",
-			children: t1
+			children: chromosomeIndex
 		}, void 0, false, {
 			fileName: _jsxFileName$9,
-			lineNumber: 29,
+			lineNumber: 30,
 			columnNumber: 10
 		}, void 0);
-		$[0] = rowSpan;
-		$[1] = t1;
-		$[2] = t2;
-	} else t2 = $[2];
-	let t3;
+		$[0] = chromosomeIndex;
+		$[1] = rowSpan;
+		$[2] = t1;
+	} else t1 = $[2];
+	let t2;
 	if ($[3] === Symbol.for("react.memo_cache_sentinel")) {
-		t3 = (0, import_classnames.default)("chromosome-segments", "hap1");
-		$[3] = t3;
-	} else t3 = $[3];
-	const t4 = isSexPair ? "X" : label;
-	let t5;
-	if ($[4] !== pair[0] || $[5] !== t4) {
-		t5 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
-			className: t3,
+		t2 = (0, import_classnames.default)("chromosome-segments", "hap1");
+		$[3] = t2;
+	} else t2 = $[3];
+	let t3;
+	if ($[4] !== chromosomeIndex || $[5] !== pair[0]) {
+		t3 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
+			className: t2,
 			children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Chromosome, {
 				chromosome: pair[0],
-				label: t4
+				label: chromosomeIndex
 			}, void 0, false, {
 				fileName: _jsxFileName$9,
 				lineNumber: 46,
@@ -16861,88 +16861,88 @@ var ChromosomePair = (t0) => {
 			lineNumber: 46,
 			columnNumber: 10
 		}, void 0);
-		$[4] = pair[0];
-		$[5] = t4;
-		$[6] = t5;
-	} else t5 = $[6];
-	let t6;
-	if ($[7] !== t2 || $[8] !== t5) {
-		t6 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", { children: [t2, t5] }, void 0, true, {
+		$[4] = chromosomeIndex;
+		$[5] = pair[0];
+		$[6] = t3;
+	} else t3 = $[6];
+	let t4;
+	if ($[7] !== t1 || $[8] !== t3) {
+		t4 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", { children: [t1, t3] }, void 0, true, {
 			fileName: _jsxFileName$9,
 			lineNumber: 55,
 			columnNumber: 10
 		}, void 0);
-		$[7] = t2;
-		$[8] = t5;
-		$[9] = t6;
-	} else t6 = $[9];
-	let t7;
-	if ($[10] !== rowSpan) {
-		t7 = rowSpan === 1 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
+		$[7] = t1;
+		$[8] = t3;
+		$[9] = t4;
+	} else t4 = $[9];
+	let t5;
+	if ($[10] !== shouldRenderYChromosome) {
+		t5 = shouldRenderYChromosome && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
 			className: "chromosome-label",
 			children: "Y"
 		}, void 0, false, {
 			fileName: _jsxFileName$9,
 			lineNumber: 64,
-			columnNumber: 27
+			columnNumber: 37
 		}, void 0);
-		$[10] = rowSpan;
-		$[11] = t7;
-	} else t7 = $[11];
-	let t8;
+		$[10] = shouldRenderYChromosome;
+		$[11] = t5;
+	} else t5 = $[11];
+	let t6;
 	if ($[12] === Symbol.for("react.memo_cache_sentinel")) {
-		t8 = (0, import_classnames.default)("chromosome-segments", "hap2");
-		$[12] = t8;
-	} else t8 = $[12];
-	let t9;
-	if ($[13] !== isSexPair || $[14] !== label || $[15] !== pair[1]) {
-		t9 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
-			className: t8,
-			children: isSexPair ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Chromosome, { label: "Y" }, void 0, false, {
+		t6 = (0, import_classnames.default)("chromosome-segments", "hap2");
+		$[12] = t6;
+	} else t6 = $[12];
+	let t7;
+	if ($[13] !== chromosomeIndex || $[14] !== pair[1] || $[15] !== shouldRenderYChromosome) {
+		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
+			className: t6,
+			children: shouldRenderYChromosome ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Chromosome, { label: "Y" }, void 0, false, {
 				fileName: _jsxFileName$9,
 				lineNumber: 79,
-				columnNumber: 42
+				columnNumber: 56
 			}, void 0) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Chromosome, {
 				chromosome: pair[1],
-				label
+				label: chromosomeIndex
 			}, void 0, false, {
 				fileName: _jsxFileName$9,
 				lineNumber: 79,
-				columnNumber: 69
+				columnNumber: 83
 			}, void 0)
 		}, void 0, false, {
 			fileName: _jsxFileName$9,
 			lineNumber: 79,
 			columnNumber: 10
 		}, void 0);
-		$[13] = isSexPair;
-		$[14] = label;
-		$[15] = pair[1];
-		$[16] = t9;
-	} else t9 = $[16];
-	let t10;
-	if ($[17] !== t7 || $[18] !== t9) {
-		t10 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", { children: [t7, t9] }, void 0, true, {
+		$[13] = chromosomeIndex;
+		$[14] = pair[1];
+		$[15] = shouldRenderYChromosome;
+		$[16] = t7;
+	} else t7 = $[16];
+	let t8;
+	if ($[17] !== t5 || $[18] !== t7) {
+		t8 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", { children: [t5, t7] }, void 0, true, {
 			fileName: _jsxFileName$9,
 			lineNumber: 89,
-			columnNumber: 11
+			columnNumber: 10
 		}, void 0);
-		$[17] = t7;
-		$[18] = t9;
-		$[19] = t10;
-	} else t10 = $[19];
-	let t11;
-	if ($[20] !== t10 || $[21] !== t6) {
-		t11 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [t6, t10] }, void 0, true, {
+		$[17] = t5;
+		$[18] = t7;
+		$[19] = t8;
+	} else t8 = $[19];
+	let t9;
+	if ($[20] !== t4 || $[21] !== t8) {
+		t9 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [t4, t8] }, void 0, true, {
 			fileName: _jsxFileName$9,
 			lineNumber: 98,
-			columnNumber: 11
+			columnNumber: 10
 		}, void 0);
-		$[20] = t10;
-		$[21] = t6;
-		$[22] = t11;
-	} else t11 = $[22];
-	return t11;
+		$[20] = t4;
+		$[21] = t8;
+		$[22] = t9;
+	} else t9 = $[22];
+	return t9;
 };
 //#endregion
 //#region src/components/ChromosomeViewer/ChromosomeViewer.tsx
@@ -22143,30 +22143,11 @@ var sortSubregionsByProportion = (subregions, { containsUnassigned = false, cont
 };
 //#endregion
 //#region src/data-processing/validateProcessedData.ts
-var confidenceLevelsByVersion = {
-	"v5.2": [
-		"50",
-		"60",
-		"70",
-		"80",
-		"90"
-	],
-	"v5.9": [
-		"50",
-		"60",
-		"70",
-		"80",
-		"90"
-	],
-	"v7.0": [
-		"50",
-		"60",
-		"70",
-		"80",
-		"90",
-		"mostLikely"
-	]
-};
+var confidenceLevelsByVersion = (() => {
+	const levelsByVersion = {};
+	for (const version in confidenceValues) levelsByVersion[version] = confidenceValues[version].map(String);
+	return levelsByVersion;
+})();
 var areConfidenceLevelsEqual = (levels1, levels2) => {
 	if (levels1.length !== levels2.length) return false;
 	const sortedLevels1 = levels1.toSorted();
