@@ -8,7 +8,13 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      exclude: ["assets", "src/types", "src/context/context.ts"],
+      exclude: [
+        "./App.tsx",
+        "./main.tsx",
+        "assets",
+        "src/types",
+        "src/context/context.ts",
+      ],
       thresholds: {
         statements: 90,
         branches: 70,
@@ -38,11 +44,14 @@ export default defineConfig({
           ],
           browser: {
             enabled: true,
-            provider: process.env.NODE_ENV === "CI" ? playwright({
-              launchOptions: {
-                channel: "chrome",
-              },
-            }) : playwright(),
+            provider:
+              process.env.NODE_ENV === "CI"
+                ? playwright({
+                    launchOptions: {
+                      channel: "chrome",
+                    },
+                  })
+                : playwright(),
             // https://vitest.dev/config/browser/playwright
             instances: [{ browser: "chromium" }],
             headless: true,

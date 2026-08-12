@@ -4,7 +4,7 @@ import './Chromosome.less';
 import chromosomesLengthsJSON from '../../../assets/json/chromosomes.json';
 import ChromosomeSegment from "../ChromosomeSegment/ChromosomeSegment";
 
-type ChromosomeProps = {
+export type ChromosomeProps = {
   chromosome?: ChromosomeHaplotypeSplit
   label: number | 'X' | 'Y'
 }

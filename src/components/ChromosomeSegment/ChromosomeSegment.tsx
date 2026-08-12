@@ -1,11 +1,11 @@
+import { useContext } from "react";
 import classNames from "classnames";
 import type { ChromosomeSegment as ChromosomeSegmentType } from "../../types";
+import { AppContext } from "../../context/context";
 import './ChromosomeSegment.less'
 import regionsStyles from '../../styles/regions.module.less';
-import { useContext } from "react";
-import { AppContext } from "../../context/context";
 
-type ChromosomeSegmentProps = {
+export type ChromosomeSegmentProps = {
   segment: ChromosomeSegmentType
   parentLength: number
 }

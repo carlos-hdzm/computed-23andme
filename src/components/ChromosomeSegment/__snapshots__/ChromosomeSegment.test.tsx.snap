@@ -1,0 +1,75 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChromosomeSegment component > renders correctly with given chromosome data 1`] = `
+<div>
+  <div
+    class="segment class1"
+    style="flex-basis: 100%; z-index: 1;"
+  >
+    <div
+      class="segment class1-1"
+      style="flex-basis: 50%; z-index: 2;"
+    >
+      <div
+        class="segment"
+        style="flex-basis: 80%; z-index: 3;"
+      />
+      <div
+        class="segment"
+        style="flex-basis: 20%; z-index: 3;"
+      />
+    </div>
+    <div
+      class="segment class1-2"
+      style="flex-basis: 30%; z-index: 2;"
+    />
+    <div
+      class="segment class1-3"
+      style="flex-basis: 20%; z-index: 2;"
+    >
+      <div
+        class="segment"
+        style="flex-basis: 50%; z-index: 3;"
+      />
+      <div
+        class="segment"
+        style="flex-basis: 25%; z-index: 3;"
+      />
+      <div
+        class="segment"
+        style="flex-basis: 25%; z-index: 3;"
+      >
+        <div
+          class="segment"
+          style="flex-basis: 100%; z-index: 4;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ChromosomeSegment component > renders correctly with given chromosome data and highlighted CSS class 1`] = `
+<div>
+  <div
+    class="segment class1 dimmed"
+    style="flex-basis: 100%; z-index: 1;"
+  >
+    <div
+      class="segment class1-1 highlight"
+      style="flex-basis: 50%; z-index: 2;"
+    />
+    <div
+      class="segment class1-2 dimmed"
+      style="flex-basis: 30%; z-index: 2;"
+    />
+    <div
+      class="segment class1-3 dimmed"
+      style="flex-basis: 20%; z-index: 2;"
+    />
+  </div>
+  <button
+    data-testid="dispatch-highlight"
+  />
+</div>
+`;

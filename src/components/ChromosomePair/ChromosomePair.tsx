@@ -16,7 +16,7 @@ type SexChromosomePairProps = {
   pair: [ChromosomeHaplotypeSplit] | [ChromosomeHaplotypeSplit, ChromosomeHaplotypeSplit]
 }
 
-type ChromosomePairProps = AutosomalChromosomePairProps | SexChromosomePairProps
+export type ChromosomePairProps = AutosomalChromosomePairProps | SexChromosomePairProps
 
 const ChromosomePair: React.FC<ChromosomePairProps> = ({ label, isSexPair, pair }) => {
   const rowSpan = isSexPair ? pair.length : 2;
