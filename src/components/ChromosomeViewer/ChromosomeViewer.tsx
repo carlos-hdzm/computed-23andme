@@ -20,7 +20,7 @@ const ChromosomeViewer = () => {
             <ChromosomePair key={index} label={index + 1} isSexPair={false} pair={chromosomePair} />
           ))
         }
-        <ChromosomePair isSexPair={true} pair={chromosomes.sex} />
+        {chromosomes.sex.length > 0 && <ChromosomePair isSexPair={true} pair={chromosomes.sex} />}
       </tbody>
     </table>
   </section>);
