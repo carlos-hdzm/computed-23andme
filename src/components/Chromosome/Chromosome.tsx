@@ -35,7 +35,7 @@ const Chromosome: React.FC<ChromosomeProps> = React.memo(({ chromosome, label })
         <ChromosomeSegment
           key={index}
           segment={segment}
-          parentLength={(firstSegmentStart < centromerePos) ? (centromerePos - firstSegmentStart) : centromerePos}
+          parentLength={centromerePos - firstSegmentStart}
         />
       ))}
     </div>
@@ -47,7 +47,7 @@ const Chromosome: React.FC<ChromosomeProps> = React.memo(({ chromosome, label })
         <ChromosomeSegment
           key={index}
           segment={segment}
-          parentLength={(firstSegmentStart > centromerePos) ? ((length - centromerePos) - firstSegmentStart) : (length - centromerePos)}
+          parentLength={(firstSegmentStart > centromerePos) ? (length - firstSegmentStart) : (length - centromerePos)}
         />
       ))}
     </div>
