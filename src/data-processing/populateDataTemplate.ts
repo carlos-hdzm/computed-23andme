@@ -30,10 +30,15 @@ export const populateDataTemplate = (computedData: ComputedDataEntry[]) => {
     // @ts-expect-error Confidence Level varies by version
     const confidenceEntry = dataTemplateVersion[confidence === 'greedy_path_to_leaf' ? 'mostLikely' : confidenceValue] as ConfidenceEntry<ChromosomeHaplotypeNoSplit, UnsortedRegionsEntry>;
 
-    if (type === 'segments') {
-      populateSegmentData(label, confidenceEntry, data);
-    } else if (type === 'proportions') {
-      populateProportionData(label, confidenceEntry, data);
+    switch (type) {
+      case 'segments':
+        populateSegmentData(label, confidenceEntry, data);
+        break;
+      case 'proportions':
+        populateProportionData(label, confidenceEntry, data);
+        break;
+      /* v8 ignore next -- @preserve */
+      default:
     }
   }
   

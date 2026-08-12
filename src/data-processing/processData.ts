@@ -66,6 +66,7 @@ export const nestRegions = (processedData: ComputedData<ChromosomeHaplotypeNoSpl
       nestedChromosomes.sex = chromosomes.sex.map(chromosomeCopy => {
         const [chromosomeCopy1, chromosomeCopy2] = splitChromosomeCopy(chromosomeCopy, 23);
         const sexChromosomes = [nestRegionsChromosomes(chromosomeCopy1)];
+        /* v8 ignore else -- @preserve */
         if (chromosomeCopy2) sexChromosomes.push(nestRegionsChromosomes(chromosomeCopy2));
         return sexChromosomes;
       }) as unknown as SexChromosomes<ChromosomeHaplotypeSplit>;

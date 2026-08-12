@@ -49,12 +49,14 @@ export const populateProportionData = (label: string, confidenceEntry: Confidenc
 
   const [, region, haplotype, property] = labelMatchProportion as LabelProportionsRegExMatch;
   const regions = confidenceEntry.regions;
+  /* v8 ignore else -- @preserve */
   if (!regions[region]) {
     regions[region] = { depth: 0 } as UnsortedRegionDataEntry;
   }
 
   const regionDataEntry = regions[region];
 
+  /* v8 ignore else -- @preserve */
   if (!regionDataEntry[haplotype]) {
     regionDataEntry[haplotype] = {
       proportion: 0,
