@@ -34,7 +34,7 @@ const chromosomeSegmentMockFn = vi.fn(
 vi.mock(import("../ChromosomeSegment/ChromosomeSegment"), () => ({
   default: ({ segment, parentLength }: ChromosomeSegmentProps) => {
     chromosomeSegmentMockFn({ segment, parentLength });
-    return <div>Segment</div>;
+    return <span>Segment</span>;
   },
 }));
 

@@ -11,12 +11,18 @@ const chromosomeMockFn = vi.fn(({ chromosome, label }: ChromosomeProps) => {
 vi.mock(import("../Chromosome/Chromosome"), () => ({
   default: ({ chromosome, label }: ChromosomeProps) => {
     chromosomeMockFn({ chromosome, label });
-    return <div>Chromosome</div>;
+    return <span>Chromosome</span>;
   },
 }));
 
 const renderComponent = async (props: ChromosomePairProps) => {
-  return await render(<ChromosomePair {...props} />);
+  return await render(
+    <table>
+      <tbody>
+        <ChromosomePair {...props} />
+      </tbody>
+    </table>,
+  );
 };
 
 describe("Chromosome component", () => {
@@ -60,8 +66,8 @@ describe("Chromosome component", () => {
       ];
 
       const { getByText } = await renderComponent({
-          isSexPair: true,
-          pair: chromosomeData,
+        isSexPair: true,
+        pair: chromosomeData,
       });
 
       await expect.poll(() => getByText("Chromosome")).toHaveLength(2);
@@ -86,8 +92,8 @@ describe("Chromosome component", () => {
       ];
 
       const { getByText } = await renderComponent({
-          isSexPair: true,
-          pair: chromosomeData,
+        isSexPair: true,
+        pair: chromosomeData,
       });
 
       await expect.poll(() => getByText("Chromosome")).toHaveLength(2);
