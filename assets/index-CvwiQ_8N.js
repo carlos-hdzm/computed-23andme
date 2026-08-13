@@ -22365,6 +22365,7 @@ var SampleData = () => {
 		t1 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 			className: "sample-data",
 			children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("button", {
+				"data-testid": "use-sample-data-button",
 				onClick: handleUseSampleData,
 				children: "Use sample data to get started"
 			}, void 0, false, {
