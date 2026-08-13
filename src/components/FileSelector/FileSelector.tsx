@@ -10,7 +10,7 @@ const FileSelector: React.FC = React.memo(() => {
 
   const handleFileUpload = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (!file) return;
+    if (!file || file.type !== 'text/csv') return;
 
     processFile(file);
   }, [processFile]);
