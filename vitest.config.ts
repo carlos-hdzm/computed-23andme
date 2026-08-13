@@ -14,6 +14,7 @@ export default defineConfig({
         "assets",
         "src/types",
         "src/context/context.ts",
+        "src/components/MainView/MainView.tsx",
       ],
       thresholds: {
         statements: 90,

@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import { useCallback, useContext, type FC, type MouseEventHandler } from "react";
 import classNames from "classnames";
 import type { SortedRegionDataEntry, SortedRegionsEntry } from "../../types";
 import './RegionRow.less';
@@ -6,14 +6,14 @@ import regionsStyles from '../../styles/regions.module.less';
 import { AppDispatchContext } from "../../context/context";
 import contextActions from "../../context/actions";
 
-type RegionRowProps = {
-  regionName: string
+export type RegionRowProps = {
+  regionName?: string
   regionEntry: SortedRegionDataEntry
 }
 
-type MouseOverEvent = React.MouseEventHandler<HTMLTableRowElement>
+type MouseOverEvent = MouseEventHandler<HTMLTableRowElement>
 
-const RegionRow: React.FC<RegionRowProps> = ({ regionEntry }) => {
+const RegionRow: FC<RegionRowProps> = ({ regionEntry }) => {
   const dispatch = useContext(AppDispatchContext);
   const { depth, total: { proportion }, subregions, cssClass, label } = regionEntry;
 

@@ -15,7 +15,7 @@ const SampleData: React.FC = () => {
 
   return (
     <div className="sample-data">
-      <button onClick={handleUseSampleData}>Use sample data to get started</button>
+      <button data-testid="use-sample-data-button" onClick={handleUseSampleData}>Use sample data to get started</button>
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import { useContext, useMemo } from 'react';
 import { AppContext } from '../../context/context';
-import type { ConfidenceEntry } from '../../types';
+import type { ConfidenceEntry, SortedRegionsEntry } from '../../types';
 import RegionRow from '../RegionRow/RegionRow';
 import './Proportions.less';
 
 const Proportions = () => {
   const { data, version, confidence } = useContext(AppContext);
   const regions = useMemo(() => {
-    if (!data || !version || !confidence) return [];
+    if (!data || !version || !confidence) return [] as SortedRegionsEntry;
     // @ts-expect-error Different versions have different confidence types
     return (data[version][confidence] as ConfidenceEntry).regions;
   }, [data, version, confidence]);

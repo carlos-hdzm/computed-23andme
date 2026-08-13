@@ -1,0 +1,154 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RegionRow component > renders correctly with given region entry 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr
+        class="region-row depth-1"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          100.00%
+        </td>
+      </tr>
+      <tr
+        class="region-row depth-2"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1.1
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          60.00%
+        </td>
+      </tr>
+      <tr
+        class="region-row depth-3"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1.1.1
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          45.26%
+        </td>
+      </tr>
+      <tr
+        class="region-row depth-3"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1.1.2
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          14.74%
+        </td>
+      </tr>
+      <tr
+        class="region-row depth-2"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1.2
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          35.00%
+        </td>
+      </tr>
+      <tr
+        class="region-row depth-3"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1.2.1
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          25.00%
+        </td>
+      </tr>
+      <tr
+        class="region-row depth-3"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1.2.2
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          7.78%
+        </td>
+      </tr>
+      <tr
+        class="region-row depth-3"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1.2.3
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          2.22%
+        </td>
+      </tr>
+      <tr
+        class="region-row depth-2"
+      >
+        <td
+          class="region-name"
+        >
+          <div>
+            Region 1.3
+          </div>
+        </td>
+        <td
+          class="region-proportion"
+        >
+          5.00%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
