@@ -16975,13 +16975,13 @@ var ChromosomeViewer = () => {
 	} else t1 = $[2];
 	let t2;
 	if ($[3] !== chromosomes.sex) {
-		t2 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomePair, {
+		t2 = chromosomes.sex.length > 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomePair, {
 			isSexPair: true,
 			pair: chromosomes.sex
 		}, void 0, false, {
 			fileName: _jsxFileName$8,
 			lineNumber: 43,
-			columnNumber: 10
+			columnNumber: 40
 		}, void 0);
 		$[3] = chromosomes.sex;
 		$[4] = t2;
@@ -20452,8 +20452,10 @@ var populateProportionData = (label, confidenceEntry, data) => {
 	if (!labelMatchProportion) return;
 	const [, region, haplotype, property] = labelMatchProportion;
 	const regions = confidenceEntry.regions;
+	/* v8 ignore else -- @preserve */
 	if (!regions[region]) regions[region] = { depth: 0 };
 	const regionDataEntry = regions[region];
+	/* v8 ignore else -- @preserve */
 	if (!regionDataEntry[haplotype]) regionDataEntry[haplotype] = {
 		proportion: 0,
 		cm_proportion: 0,
@@ -20477,8 +20479,16 @@ var populateDataTemplate = (computedData) => {
 		if (!nameMatch) continue;
 		const [, version, v2, type, confidence, confidenceValue] = nameMatch;
 		const confidenceEntry = dataTemplate[versionSmootherMap[v2 ? `${version}${v2}` : version]][confidence === "greedy_path_to_leaf" ? "mostLikely" : confidenceValue];
-		if (type === "segments") populateSegmentData(label, confidenceEntry, data);
-		else if (type === "proportions") populateProportionData(label, confidenceEntry, data);
+		switch (type) {
+			case "segments":
+				populateSegmentData(label, confidenceEntry, data);
+				break;
+			case "proportions":
+				populateProportionData(label, confidenceEntry, data);
+				break;
+			/* v8 ignore next -- @preserve */
+			default:
+		}
 	}
 	return dataTemplate;
 };
@@ -22167,15 +22177,18 @@ var isDataInvalid = (versionErrorObject) => {
 var validateAndCleanUpEntries = (processedData) => {
 	const errorObject = {};
 	for (const version in processedData) {
+		/* v8 ignore else -- @preserve */
 		if (!(version in errorObject)) errorObject[version] = {};
 		const versionErrorObject = errorObject[version];
 		const processedDataVersion = processedData[version];
 		if (!areConfidenceLevelsEqual(Object.keys(processedDataVersion), confidenceLevelsByVersion[version])) versionErrorObject.missingConfidenceEntry = true;
 		else for (const confidence in processedDataVersion) {
+			/* v8 ignore else -- @preserve */
 			if (!(confidence in versionErrorObject)) versionErrorObject[confidence] = {};
 			const confidenceErrorObject = versionErrorObject[confidence];
 			const confidenceEntry = processedDataVersion[confidence];
 			if (confidenceEntry.regions && confidenceEntry.regions.length === 0) confidenceErrorObject.emptyRegionData = true;
+			/* v8 ignore else -- @preserve */
 			if (confidenceEntry.chromosomes) {
 				const { autosomal, sex } = confidenceEntry.chromosomes;
 				if (autosomal && autosomal.length === 0 && sex && sex.flat(Infinity).length === 0) confidenceErrorObject.emptyChromosomeData = true;
@@ -22220,6 +22233,7 @@ var nestRegions = (processedData) => {
 			nestedChromosomes.sex = chromosomes.sex.map((chromosomeCopy) => {
 				const [chromosomeCopy1, chromosomeCopy2] = splitChromosomeCopy(chromosomeCopy, 23);
 				const sexChromosomes = [nestRegionsChromosomes(chromosomeCopy1)];
+				/* v8 ignore else -- @preserve */
 				if (chromosomeCopy2) sexChromosomes.push(nestRegionsChromosomes(chromosomeCopy2));
 				return sexChromosomes;
 			});
@@ -22253,7 +22267,7 @@ var FileSelector = import_react.memo(() => {
 	if ($[1] !== processFile) {
 		t1 = (event) => {
 			const file = event.target.files?.[0];
-			if (!file) return;
+			if (!file || file.type !== "text/csv") return;
 			processFile(file);
 		};
 		$[1] = processFile;
