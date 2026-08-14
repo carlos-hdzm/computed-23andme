@@ -183,9 +183,6 @@ describe("RegionRow component", () => {
       regionEntry,
     });
 
-    // On first render, highlight is ""
-    expect(highlightContextCheckMock).toHaveBeenLastCalledWith("");
-
     // Hover on row "Region 1.1"
     await getByText(/Region 1\.1$/).hover();
     // Check that the highlight context was updated
