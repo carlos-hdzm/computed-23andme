@@ -2,6 +2,11 @@
 
 ***This project is not affiliated with 23andMe or TTAM.***
 
+<div align="center">
+
+<img width="360" alt="Computed 23andMe Logo" src="./assets/images/logo.svg" />
+</div>
+
 ## Background
 When testing with 23andMe, users get a view of their estimated ancestry regions as percentages, and on another section, a chromosome painter showing which chromosome sections were labeled as what region. There is a confidence selector which represents the confidence threshold for region assignment as per 23andMe's algorithm.
 
@@ -36,7 +41,7 @@ The Computed Data file contains much more information than the region estimates 
 
 As of now, the following additions/improvements are being considered, in no particular order:
 - ~~Provide functional sample data.~~
-- Add unit tests with Vitest.
+- ~~Add unit tests with Vitest.~~
 - Analyze the feasability of React 19's `use` API, along with `Suspense` for the `async` behavior (file processing).
 - Improve UI.
 - Look for and implement performance improvements.
