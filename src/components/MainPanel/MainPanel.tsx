@@ -18,6 +18,7 @@ const MainPanel: React.FC = () => {
 
   return (
     <section
+      data-testid="main-panel"
       className={classNames("main-panel", {
         [regionStyles[version.replace(".", "_")]]: version && isDone,
         "initial-panel": isInitial,

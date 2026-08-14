@@ -58,7 +58,7 @@ const TopPanel: React.FC = () => {
   }, [data]);
 
   return (
-    <section className="top-panel">
+    <section className="top-panel" data-testid="top-panel">
       {isDone && !error && (
         <>
           <div className="file-uploaded">
@@ -68,12 +68,14 @@ const TopPanel: React.FC = () => {
             </a>
           </div>
           <div
+            data-testid="controls"
             className={classNames("controls", {
               active: Object.keys(data).length > 0,
             })}
           >
             <div className="version">
               <select
+                data-testid="version-select"
                 name="version"
                 value={version}
                 onChange={handleVersionChange}
@@ -87,6 +89,7 @@ const TopPanel: React.FC = () => {
             </div>
             <div className="confidence">
               <select
+                data-testid="confidence-select"
                 name="confidence"
                 value={confidence}
                 onChange={handleConfidenceChange}
