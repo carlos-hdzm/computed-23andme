@@ -16256,10 +16256,12 @@ var TopPanel = () => {
 			lineNumber: 110,
 			columnNumber: 32
 		}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+			"data-testid": "controls",
 			className: (0, import_classnames.default)("controls", { active: Object.keys(data).length > 0 }),
 			children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 				className: "version",
 				children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("select", {
+					"data-testid": "version-select",
 					name: "version",
 					value: version,
 					onChange: handleVersionChange,
@@ -16276,19 +16278,20 @@ var TopPanel = () => {
 			}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 				className: "confidence",
 				children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("select", {
+					"data-testid": "confidence-select",
 					name: "confidence",
 					value: confidence,
 					onChange: handleConfidenceChange,
-					children: confidenceValues[version].map(_temp2)
+					children: version && confidenceValues[version].map(_temp2)
 				}, void 0, false, {
 					fileName: _jsxFileName$12,
 					lineNumber: 112,
-					columnNumber: 179
+					columnNumber: 208
 				}, void 0)
 			}, void 0, false, {
 				fileName: _jsxFileName$12,
 				lineNumber: 112,
-				columnNumber: 151
+				columnNumber: 180
 			}, void 0)]
 		}, void 0, true, {
 			fileName: _jsxFileName$12,
@@ -16315,6 +16318,7 @@ var TopPanel = () => {
 	if ($[22] !== t5) {
 		t6 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
 			className: "top-panel",
+			"data-testid": "top-panel",
 			children: t5
 		}, void 0, false, {
 			fileName: _jsxFileName$12,
@@ -22392,95 +22396,97 @@ var MainPanel = () => {
 	const { state: t0 } = useFileUpload();
 	const { isInitial, isPending, error, isDone } = t0;
 	const t1 = regions_module_default[version.replace(".", "_")];
-	const t2 = !!error;
-	let t3;
-	if ($[0] !== isDone || $[1] !== isInitial || $[2] !== isPending || $[3] !== t1 || $[4] !== t2) {
-		t3 = (0, import_classnames.default)("main-panel", {
-			[t1]: isDone,
+	const t2 = version && isDone;
+	const t3 = !!error;
+	let t4;
+	if ($[0] !== isInitial || $[1] !== isPending || $[2] !== t1 || $[3] !== t2 || $[4] !== t3) {
+		t4 = (0, import_classnames.default)("main-panel", {
+			[t1]: t2,
 			"initial-panel": isInitial,
-			"error-panel": t2,
+			"error-panel": t3,
 			"pending-panel": isPending
 		});
-		$[0] = isDone;
-		$[1] = isInitial;
-		$[2] = isPending;
-		$[3] = t1;
-		$[4] = t2;
-		$[5] = t3;
-	} else t3 = $[5];
-	let t4;
+		$[0] = isInitial;
+		$[1] = isPending;
+		$[2] = t1;
+		$[3] = t2;
+		$[4] = t3;
+		$[5] = t4;
+	} else t4 = $[5];
+	let t5;
 	if ($[6] !== error || $[7] !== isDone) {
-		t4 = isDone && !error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Proportions, {}, void 0, false, {
+		t5 = isDone && !error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Proportions, {}, void 0, false, {
 			fileName: _jsxFileName$3,
-			lineNumber: 47,
+			lineNumber: 48,
 			columnNumber: 32
 		}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomeViewer, {}, void 0, false, {
 			fileName: _jsxFileName$3,
-			lineNumber: 47,
+			lineNumber: 48,
 			columnNumber: 47
 		}, void 0)] }, void 0, true, {
 			fileName: _jsxFileName$3,
-			lineNumber: 47,
+			lineNumber: 48,
 			columnNumber: 30
 		}, void 0);
 		$[6] = error;
 		$[7] = isDone;
-		$[8] = t4;
-	} else t4 = $[8];
-	let t5;
+		$[8] = t5;
+	} else t5 = $[8];
+	let t6;
 	if ($[9] !== isInitial) {
-		t5 = isInitial && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(FileSelector, {}, void 0, false, {
+		t6 = isInitial && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(FileSelector, {}, void 0, false, {
 			fileName: _jsxFileName$3,
-			lineNumber: 56,
+			lineNumber: 57,
 			columnNumber: 23
 		}, void 0);
 		$[9] = isInitial;
-		$[10] = t5;
-	} else t5 = $[10];
-	let t6;
+		$[10] = t6;
+	} else t6 = $[10];
+	let t7;
 	if ($[11] !== error) {
-		t6 = error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: ["Error processing file: ", error.message] }, void 0, true, {
+		t7 = error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: ["Error processing file: ", error.message] }, void 0, true, {
 			fileName: _jsxFileName$3,
-			lineNumber: 64,
+			lineNumber: 65,
 			columnNumber: 19
 		}, void 0);
 		$[11] = error;
-		$[12] = t6;
-	} else t6 = $[12];
-	let t7;
+		$[12] = t7;
+	} else t7 = $[12];
+	let t8;
 	if ($[13] !== error || $[14] !== isInitial) {
-		t7 = (isInitial || error) && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(SampleData, {}, void 0, false, {
+		t8 = (isInitial || error) && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(SampleData, {}, void 0, false, {
 			fileName: _jsxFileName$3,
-			lineNumber: 72,
+			lineNumber: 73,
 			columnNumber: 34
 		}, void 0);
 		$[13] = error;
 		$[14] = isInitial;
-		$[15] = t7;
-	} else t7 = $[15];
-	let t8;
-	if ($[16] !== t3 || $[17] !== t4 || $[18] !== t5 || $[19] !== t6 || $[20] !== t7) {
-		t8 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
-			className: t3,
+		$[15] = t8;
+	} else t8 = $[15];
+	let t9;
+	if ($[16] !== t4 || $[17] !== t5 || $[18] !== t6 || $[19] !== t7 || $[20] !== t8) {
+		t9 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
+			"data-testid": "main-panel",
+			className: t4,
 			children: [
-				t4,
 				t5,
 				t6,
-				t7
+				t7,
+				t8
 			]
 		}, void 0, true, {
 			fileName: _jsxFileName$3,
-			lineNumber: 81,
+			lineNumber: 82,
 			columnNumber: 10
 		}, void 0);
-		$[16] = t3;
-		$[17] = t4;
-		$[18] = t5;
-		$[19] = t6;
-		$[20] = t7;
-		$[21] = t8;
-	} else t8 = $[21];
-	return t8;
+		$[16] = t4;
+		$[17] = t5;
+		$[18] = t6;
+		$[19] = t7;
+		$[20] = t8;
+		$[21] = t9;
+	} else t9 = $[21];
+	return t9;
 };
 //#endregion
 //#region src/components/MainView/MainView.tsx
