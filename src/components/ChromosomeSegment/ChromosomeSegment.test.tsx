@@ -174,22 +174,18 @@ describe("ChromosomeSegment component", () => {
       ],
     } as ChromosomeSegmentType;
 
-    const { container, getByTestId } = await renderComponentWithDispatch({
-      segment: chromosomeData,
-      parentLength: 100,
-    });
+    const { container, getByTestId, getByClassName } =
+      await renderComponentWithDispatch({
+        segment: chromosomeData,
+        parentLength: 100,
+      });
 
     await getByTestId("dispatch-highlight").click();
 
-    const class1Elem = container.getElementsByClassName("class1")[0];
-    const class1_1Elem = container.getElementsByClassName("class1-1")[0];
-    const class1_2Elem = container.getElementsByClassName("class1-2")[0];
-    const class1_3Elem = container.getElementsByClassName("class1-3")[0];
-
-    expect(class1Elem.classList).toContain("dimmed");
-    expect(class1_1Elem.classList).toContain("highlight");
-    expect(class1_2Elem.classList).toContain("dimmed");
-    expect(class1_3Elem.classList).toContain("dimmed");
+    await expect.element(getByClassName("class1")).toHaveClass("dimmed");
+    await expect.element(getByClassName("class1-1")).toHaveClass("highlight");
+    await expect.element(getByClassName("class1-2")).toHaveClass("dimmed");
+    await expect.element(getByClassName("class1-3")).toHaveClass("dimmed");
     expect(container).toMatchSnapshot();
   });
 });

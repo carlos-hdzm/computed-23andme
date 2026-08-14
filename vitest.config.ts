@@ -43,6 +43,7 @@ export default defineConfig({
             "src/components/**/*.test.tsx",
             "src/context/**/*.test.tsx",
           ],
+          setupFiles: ['src/vitest-setup.ts'],
           browser: {
             enabled: true,
             provider:
