@@ -91,7 +91,7 @@ const TopPanel: React.FC = () => {
                 value={confidence}
                 onChange={handleConfidenceChange}
               >
-                {confidenceValues[version].map((confidence) => (
+                {version && confidenceValues[version].map((confidence) => (
                   <option key={confidence} value={confidence}>
                     {confidenceLabels[confidence]}
                   </option>

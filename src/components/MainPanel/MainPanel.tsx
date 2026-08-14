@@ -19,7 +19,7 @@ const MainPanel: React.FC = () => {
   return (
     <section
       className={classNames("main-panel", {
-        [regionStyles[version.replace(".", "_")]]: isDone,
+        [regionStyles[version.replace(".", "_")]]: version && isDone,
         "initial-panel": isInitial,
         "error-panel": !!error,
         "pending-panel": isPending,
