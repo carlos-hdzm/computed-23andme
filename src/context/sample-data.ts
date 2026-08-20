@@ -3,7 +3,7 @@ import sampleData from '../../assets/json/sample-data.json' with { type: 'json' 
 
 const sampleContextData: ContextData = {
   version: 'v7.0',
-  confidence: 50,
+  confidence: 'mostLikely',
   data: sampleData as unknown as ComputedData,
   highlight: '',
 }

@@ -5,7 +5,7 @@ import sampleData from "../../assets/json/sample-data.json" with { type: "json" 
 test("sampleContextData returns the correct sample data structure", () => {
   expect(sampleContextData).toEqual({
     version: "v7.0",
-    confidence: 50,
+    confidence: "mostLikely",
     data: sampleData,
     highlight: "",
   });
