@@ -302,38 +302,80 @@ describe("useFileUpload", () => {
     });
   });
 
-  test("sample data processing", async () => {
-    const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
+  describe("sample data processing", () => {
+    test("set sample data", async () => {
+      const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
 
-    const { getByText, getByTestId } =
-      await renderTestComponent(processDataMock);
+      const { getByText, getByTestId } =
+        await renderTestComponent(processDataMock);
 
-    await getByTestId("sample-data").click();
+      await getByTestId("sample-data").click();
 
-    const expectedState = {
-      isInitial: false,
-      isPending: false,
-      error: null,
-      isDone: true,
-      isSampleData: true,
-    };
+      const expectedState = {
+        isInitial: false,
+        isPending: false,
+        error: null,
+        isDone: true,
+        isSampleData: true,
+      };
 
-    await expect
-      .element(getByText(`Is Initial: ${expectedState.isInitial}`))
-      .toBeInTheDocument();
-    await expect
-      .element(getByText(`Is Pending: ${expectedState.isPending}`))
-      .toBeInTheDocument();
-    await expect
-      .element(getByText(`Error: ${expectedState.error}`))
-      .toBeInTheDocument();
-    await expect
-      .element(getByText(`Is Done: ${expectedState.isDone}`))
-      .toBeInTheDocument();
-    await expect
-      .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
-      .toBeInTheDocument();
-    expect(onResolveMock).not.toHaveBeenCalled();
+      await expect
+        .element(getByText(`Is Initial: ${expectedState.isInitial}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Pending: ${expectedState.isPending}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Error: ${expectedState.error}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Done: ${expectedState.isDone}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
+        .toBeInTheDocument();
+      expect(onResolveMock).not.toHaveBeenCalled();
+    });
+
+    test("set sample data after error", async () => {
+      const processDataMock = vi
+        .fn()
+        .mockRejectedValue(new Error("Test error"));
+
+      const { getByText, getByTestId } =
+        await renderTestComponent(processDataMock);
+
+      // Trigger error state with file processing
+      await getByTestId("process-file").click();
+
+      // Use sample data while in error state
+      await getByTestId("sample-data").click();
+
+      const expectedState = {
+        isInitial: false,
+        isPending: false,
+        error: null,
+        isDone: true,
+        isSampleData: true,
+      };
+
+      await expect
+        .element(getByText(`Is Initial: ${expectedState.isInitial}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Pending: ${expectedState.isPending}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Error: ${expectedState.error}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Done: ${expectedState.isDone}`))
+        .toBeInTheDocument();
+      await expect
+        .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
+        .toBeInTheDocument();
+      expect(onResolveMock).not.toHaveBeenCalled();
+    });
   });
 
   describe("pending state", () => {

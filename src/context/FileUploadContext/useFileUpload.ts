@@ -100,7 +100,8 @@ const useFileUpload = <T extends ComputedData>({
     setIsInitial(false);
     setIsPending(false);
     setIsSampleData(true);
-  }, [setIsInitial, setIsPending, setIsDone, setIsSampleData]);
+    if (error) setError(null);
+  }, [setIsInitial, setIsPending, setIsDone, setIsSampleData, error, setError]);
 
   return {
     processFile,
