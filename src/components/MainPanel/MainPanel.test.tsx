@@ -136,7 +136,7 @@ describe("MainPanel", () => {
     const { getByText, getByTestId } = await renderComponent();
 
     await expect
-      .element(getByText("Error processing file: Data error"))
+      .element(getByText("Error processing file. Please try again or use sample data."))
       .toBeInTheDocument();
     await expect.element(getByText("SampleData")).toBeInTheDocument();
     await expect

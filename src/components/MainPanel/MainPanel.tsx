@@ -6,6 +6,7 @@ import regionStyles from "../../styles/regions.module.less";
 import "./MainPanel.less";
 import { AppContext } from "../../context/context";
 import FileSelector from "../FileSelector/FileSelector";
+import FileError from "../FileError/FileError";
 import SampleData from "../SampleData/SampleData";
 import { useFileUpload } from "../../context/FileUploadContext";
 
@@ -33,7 +34,7 @@ const MainPanel: React.FC = () => {
         </>
       )}
       {isInitial && <FileSelector />}
-      {error && <div>Error processing file: {error.message}</div>}
+      {error && <FileError />}
       {(isInitial || error) && <SampleData />}
     </section>
   );

@@ -1,0 +1,29 @@
+.file-error {
+    color: var(--divider-error-color);
+    border: var(--divider-error);
+    border-radius: 8px;
+    background: var(--error-color);
+    font-weight: bold;
+    line-height: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+
+    a {
+        color: var(--divider-error-color);
+
+        &:hover,
+        &:focus {
+            padding-inline: 0.5rem;
+            background: var(--divider-error-color);
+            color: var(--error-color);
+            border-radius: 4px;
+        }
+    }
+}
