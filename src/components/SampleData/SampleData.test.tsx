@@ -35,7 +35,7 @@ describe("SampleData", () => {
       .toBeInTheDocument();
   });
 
-  test("should set sample data on click or the button", async () => {
+  test("should set sample data on click of the button", async () => {
     const setSampleDataActionSpy = vi.spyOn(contextActions, "setSampleData");
 
     const { getByText, getByTestId } = await renderComponent();

@@ -1,7 +1,26 @@
 .sample-data {
     button {
-        width: 100%;
+        appearance: none;
+        color: var(--text-1);
+        border: var(--divider-info);
+        border-radius: 8px;
+        background: var(--info-color);
+        font-weight: bold;
+        line-height: 1.5rem;
         padding: 1rem;
+        text-align: center;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        &:hover,
+        &:focus {
+            background: var(--divider-info-color);
+            outline: var(--divider-info);
+            color: var(--text-2);
+        }
     }
 }
