@@ -98,16 +98,20 @@ describe("TopPanel", () => {
   });
 
   test("renders correctly on initial render (no data - no content)", async () => {
-    const { getByTestId } = await renderComponent();
-
-    await expect.element(getByTestId("top-panel")).toBeEmptyDOMElement();
+    const { getByText, getByTestId } = await renderComponent();
+    
+    await expect.element(getByTestId("action-panel")).not.toBeInTheDocument();
+    await expect.element(getByText("Computed")).toBeInTheDocument();
+    await expect.element(getByText("23andMe")).toBeInTheDocument();
   });
 
   test("renders correctly in error state (no content)", async () => {
     mockUseFileUploadState({ error: new Error("Data error") });
-    const { getByTestId } = await renderComponent();
+    const { getByText, getByTestId } = await renderComponent();
 
-    await expect.element(getByTestId("top-panel")).toBeEmptyDOMElement();
+    await expect.element(getByTestId("action-panel")).not.toBeInTheDocument();
+    await expect.element(getByText("Computed")).toBeInTheDocument();
+    await expect.element(getByText("23andMe")).toBeInTheDocument();
   });
 
   describe("renders correctly with data", () => {
@@ -118,9 +122,9 @@ describe("TopPanel", () => {
       // Load mock data
       await getByTestId("dispatch-btn").click();
 
-      await expect.element(getByTestId("top-panel")).not.toBeEmptyDOMElement();
-      await expect.element(getByText("Sample data loaded")).toBeInTheDocument();
-      await expect.element(getByText("Delete")).toBeInTheDocument();
+    await expect.element(getByTestId("action-panel")).toBeInTheDocument();
+      await expect.element(getByText("You're viewing sample data.")).toBeInTheDocument();
+      await expect.element(getByText("Reset")).toBeInTheDocument();
       await expect.element(getByTestId("version-select")).toBeInTheDocument();
       await expect
         .element(getByTestId("confidence-select"))
@@ -135,9 +139,9 @@ describe("TopPanel", () => {
       // Load mock data
       await getByTestId("dispatch-btn").click();
 
-      await expect.element(getByTestId("top-panel")).not.toBeEmptyDOMElement();
-      await expect.element(getByText("Data uploaded")).toBeInTheDocument();
-      await expect.element(getByText("Delete")).toBeInTheDocument();
+    await expect.element(getByTestId("action-panel")).toBeInTheDocument();
+      await expect.element(getByText("You're viewing your uploaded data.")).toBeInTheDocument();
+      await expect.element(getByText("Reset")).toBeInTheDocument();
       await expect.element(getByTestId("version-select")).toBeInTheDocument();
       await expect
         .element(getByTestId("confidence-select"))
@@ -335,7 +339,7 @@ describe("TopPanel", () => {
     });
   });
 
-  test("handles delete", async () => {
+  test("handles reset", async () => {
     mockUseFileUploadState({ isDone: true });
     const clearDataSpy = vi.spyOn(contextActions, "clearData");
     const { getByTestId, getByText } = await renderComponent({ data });
@@ -344,7 +348,7 @@ describe("TopPanel", () => {
     await getByTestId("dispatch-btn").click();
 
     // Delete data
-    await getByText("Delete").click();
+    await getByText("Reset").click();
 
     expect(resetMock).toHaveBeenCalled();
     expect(clearDataSpy).toHaveBeenCalled();

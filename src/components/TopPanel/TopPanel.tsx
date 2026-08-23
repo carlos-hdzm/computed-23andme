@@ -59,12 +59,17 @@ const TopPanel: React.FC = () => {
 
   return (
     <section className="top-panel" data-testid="top-panel">
+      <div className="logo-container">
+        <h1>Computed<br />23andMe</h1>
+      </div>
       {isDone && !error && (
-        <>
+        <div className="action-panel" data-testid="action-panel">
           <div className="file-uploaded">
-            {isSampleData ? "Sample data loaded" : "Data uploaded"}
+            <span>
+              You're viewing {isSampleData ? "sample" : "your uploaded"} data.
+            </span>
             <a href="#" onClick={handleDelete}>
-              Delete
+              Reset
             </a>
           </div>
           <div
@@ -102,7 +107,7 @@ const TopPanel: React.FC = () => {
               </select>
             </div>
           </div>
-        </>
+        </div>
       )}
     </section>
   );
