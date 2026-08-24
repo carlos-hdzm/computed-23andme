@@ -17,7 +17,7 @@ const Proportions: React.FC<ProportionsProps> = ({ panelHidden = false }) => {
     return (data[version][confidence] as ConfidenceEntry).regions;
   }, [data, version, confidence]);
 
-  return (<section className={classNames('proportions', { 'panel-hidden': panelHidden })}>
+  return (<section data-testid="proportions-panel" className={classNames('proportions', { 'panel-hidden': panelHidden })}>
     <table>
       <thead>
         <tr tabIndex={0}>

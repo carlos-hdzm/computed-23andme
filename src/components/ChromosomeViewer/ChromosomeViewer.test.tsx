@@ -115,6 +115,20 @@ describe("ChromosomeViewer", () => {
     await expect.element(getByText("ChromosomePair")).not.toBeInTheDocument();
   });
 
+  describe("should handle panelHidden prop", () => {
+    test("when panelHidden = false (default)", async () => {
+      const { getByTestId } = await render(<ChromosomeViewer />);
+
+      await expect.element(getByTestId("chromosome-viewer-panel")).toHaveClass("chromosome-viewer", { exact: true });
+    });
+
+    test("when panelHidden = true", async () => {
+      const { getByTestId } = await render(<ChromosomeViewer panelHidden={true} />);
+
+      await expect.element(getByTestId("chromosome-viewer-panel")).toHaveClass("chromosome-viewer", "panel-hidden", { exact: true });
+    });
+  });
+
   describe("should handle context change", () => {
     test("case 1: genetic male", async () => {
       const { getByText, getByTestId } = await renderComponent();

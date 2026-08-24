@@ -107,6 +107,20 @@ describe("ChromosomeViewer", () => {
     await expect.element(getByText("RegionRow")).not.toBeInTheDocument();
   });
 
+  describe("should handle panelHidden prop", () => {
+    test("when panelHidden = false (default)", async () => {
+      const { getByTestId } = await render(<Proportions />);
+
+      await expect.element(getByTestId("proportions-panel")).toHaveClass("proportions", { exact: true });
+    });
+
+    test("when panelHidden = true", async () => {
+      const { getByTestId } = await render(<Proportions panelHidden={true} />);
+
+      await expect.element(getByTestId("proportions-panel")).toHaveClass("proportions", "panel-hidden", { exact: true });
+    });
+  });
+
   describe("should handle context change", () => {
     test("case 1: v5.2, 50% confidence level", async () => {
       const { getByText, getByTestId } = await renderComponent();

@@ -17,7 +17,7 @@ const ChromosomeViewer: React.FC<ChromosomeViewerProps> = ({ panelHidden = false
     return (data[version][confidence] as ConfidenceEntry).chromosomes as ChromosomesData<ChromosomeHaplotypeSplit>;
   }, [data, version, confidence]);
 
-  return (<section className={classNames('chromosome-viewer', { 'panel-hidden': panelHidden })}>
+  return (<section data-testid="chromosome-viewer-panel" className={classNames('chromosome-viewer', { 'panel-hidden': panelHidden })}>
     <table>
       <tbody>
         {
