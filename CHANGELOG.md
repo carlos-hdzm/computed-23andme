@@ -4,6 +4,7 @@
 
 ### Added
 
+- Added privacy disclaimer about file processing
 - Accessibility improvements:
   - "Skip to main content" link
   - Improved color contrast
