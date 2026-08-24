@@ -386,12 +386,19 @@ describe("TopPanel", () => {
 
         // Load mock data
         await getByTestId("dispatch-btn").click();
+        
+        const toggle = getByTestId("main-view-toggle");
+        await expect.element(toggle).toHaveAccessibleName("Toggle Main View, currently displaying regions panel.");
+        await expect.element(getByTestId("main-view-status")).toBeEmptyDOMElement();
 
         await expect
-          .element(getByTestId("main-view-toggle"))
+          .element(toggle)
           .toBeInTheDocument();
-        await getByTestId("main-view-toggle").click();
+        await toggle.click();
         expect(setMainPanelViewMock).toHaveBeenCalledWith("chromosomes");
+        // Assert accessibility actions
+        await expect.element(toggle).toHaveAccessibleName("Toggle Main View, currently displaying chromosomes panel.");
+        await expect.element(getByTestId("main-view-status")).toHaveTextContent("Now displaying chromosomes panel.");
       });
 
       test("starting with chromosomes", async () => {
@@ -400,12 +407,19 @@ describe("TopPanel", () => {
 
         // Load mock data
         await getByTestId("dispatch-btn").click();
+        
+        const toggle = getByTestId("main-view-toggle");
+        await expect.element(toggle).toHaveAccessibleName("Toggle Main View, currently displaying chromosomes panel.");
+        await expect.element(getByTestId("main-view-status")).toBeEmptyDOMElement();
 
         await expect
-          .element(getByTestId("main-view-toggle"))
+          .element(toggle)
           .toBeInTheDocument();
-        await getByTestId("main-view-toggle").click();
+        await toggle.click();
         expect(setMainPanelViewMock).toHaveBeenCalledWith("regions");
+        // Assert accessibility actions
+        await expect.element(toggle).toHaveAccessibleName("Toggle Main View, currently displaying regions panel.");
+        await expect.element(getByTestId("main-view-status")).toHaveTextContent("Now displaying regions panel.");
       });
     });
 

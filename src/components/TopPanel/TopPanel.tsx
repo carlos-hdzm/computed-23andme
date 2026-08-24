@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useMemo } from "react";
+import React, { useCallback, useContext, useMemo, useRef } from "react";
 import classNames from "classnames";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { AppContext, AppDispatchContext } from "../../context/context";
@@ -38,6 +38,8 @@ const TopPanel: React.FC<TopPanelProps> = ({
   const { data, version, confidence } = useContext(AppContext);
   const dispatch = useContext(AppDispatchContext);
   const isMobile = useMediaQuery("screen and (max-width: 767px)");
+  const toggleButton = useRef<HTMLButtonElement>(null);
+  const mainViewToggleStatus = useRef<HTMLSpanElement>(null);
 
   const {
     reset,
@@ -75,15 +77,12 @@ const TopPanel: React.FC<TopPanelProps> = ({
   }, [data]);
 
   const handleMainViewToggle = useCallback(() => {
-    switch (mainPanelView) {
-      case "regions":
-        setMainPanelView("chromosomes");
-        break;
-      case "chromosomes":
-        setMainPanelView("regions");
-        break;
-      /* v8 ignore next -- @preserve */
-      default:
+    const newPanel = mainPanelView === "regions" ? "chromosomes" : "regions";
+    setMainPanelView(newPanel);
+    /* v8 ignore else -- @preserve */
+    if (mainViewToggleStatus.current && toggleButton.current) {
+      mainViewToggleStatus.current.textContent = `Now displaying ${newPanel} panel.`
+      toggleButton.current.ariaLabel = `Toggle Main View, currently displaying ${newPanel} panel.`
     }
   }, [mainPanelView, setMainPanelView]);
 
@@ -147,8 +146,9 @@ const TopPanel: React.FC<TopPanelProps> = ({
               <button
                 id="main-view-toggle"
                 data-testid="main-view-toggle"
-                aria-label="Toggle Main View"
+                aria-label={`Toggle Main View, currently displaying ${mainPanelView} panel.`}
                 tabIndex={0}
+                ref={toggleButton}
                 onClick={handleMainViewToggle}
               >
                 <span
@@ -169,10 +169,12 @@ const TopPanel: React.FC<TopPanelProps> = ({
                 </span>
               </button>
               <span
+                data-testid="main-view-status"
                 id="main-view-status"
                 className="visually-hidden"
                 aria-live="polite"
                 aria-atomic="true"
+                ref={mainViewToggleStatus}
               ></span>
             </>
           )}
