@@ -1,10 +1,15 @@
 import { useContext, useMemo } from 'react';
+import classNames from 'classnames';
 import { AppContext } from '../../context/context';
 import type { ConfidenceEntry, SortedRegionsEntry } from '../../types';
 import RegionRow from '../RegionRow/RegionRow';
 import './Proportions.less';
 
-const Proportions = () => {
+export type ProportionsProps = {
+  panelHidden?: boolean
+}
+
+const Proportions: React.FC<ProportionsProps> = ({ panelHidden = false }) => {
   const { data, version, confidence } = useContext(AppContext);
   const regions = useMemo(() => {
     if (!data || !version || !confidence) return [] as SortedRegionsEntry;
@@ -12,10 +17,10 @@ const Proportions = () => {
     return (data[version][confidence] as ConfidenceEntry).regions;
   }, [data, version, confidence]);
 
-  return (<section className='proportions'>
+  return (<section className={classNames('proportions', { 'panel-hidden': panelHidden })}>
     <table>
       <thead>
-        <tr>
+        <tr tabIndex={0}>
           <th>World</th>
           <th>100%</th>
         </tr>

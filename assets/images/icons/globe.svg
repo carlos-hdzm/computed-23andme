@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 6.3499999 6.35"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <path
+       style="fill:none;stroke:#1b1b1b;stroke-width:0.396875;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 1.243779 5.0763694 c 1.2825961 -0.6286892 2.4694444 -0.6286892 3.7041666 0"
+       id="path9"
+       transform="translate(0.07913769,-0.31386941)" />
+    <path
+       style="fill:none;stroke:#1b1b1b;stroke-width:0.396875;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 0.7146123 3.4888694 h 4.7625"
+       id="path7"
+       transform="translate(0.07913769,-0.31386941)" />
+    <path
+       style="fill:none;stroke:#1b1b1b;stroke-width:0.396875;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 1.243779 1.9013694 c 1.2825961 0.6286892 2.4694444 0.6286892 3.7041666 0"
+       id="path5"
+       transform="translate(0.07913769,-0.31386941)" />
+    <path
+       style="fill:none;stroke:#1b1b1b;stroke-width:0.396875;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 3.0958483 1.1076194 c 1.8032016 1.5875 1.8032016 3.175 0 4.7625"
+       id="path11"
+       transform="translate(0.07913769,-0.31386941)" />
+    <path
+       style="fill:none;stroke:#1b1b1b;stroke-width:0.396875;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 3.0958483 1.1076194 v 4.7625"
+       id="path6"
+       transform="translate(0.07913769,-0.31386941)" />
+    <path
+       style="fill:none;stroke:#1b1b1b;stroke-width:0.396875;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 3.0958483 1.1076194 c -1.8032016 1.5875 -1.8032016 3.175 0 4.7625"
+       id="path10"
+       transform="translate(0.07913769,-0.31386941)" />
+    <circle
+       style="fill:none;stroke:#1b1b1b;stroke-width:0.396875;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1"
+       cx="3.175"
+       cy="3.175"
+       r="2.3812499" />
+  </g>
+</svg>

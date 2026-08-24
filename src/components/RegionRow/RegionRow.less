@@ -1,4 +1,8 @@
 .region-row {
+  cursor: pointer;
+  --region-border-width: 5px;
+  --depth-padding-step: 1rem;
+
   &.depth-0 {
     --depth-padding-left: 0;
     font-weight: bolder;
@@ -10,11 +14,11 @@
   }
 
   &.depth-2 {
-    --depth-padding-left: 1rem;
+    --depth-padding-left: var(--depth-padding-step);
   }
 
   &.depth-3 {
-    --depth-padding-left: 2rem;
+    --depth-padding-left: calc(2 * var(--depth-padding-step));
   }
 
   &.depth-0,
@@ -25,8 +29,29 @@
       padding: 0 0 0 var(--depth-padding-left);
 
       div {
-        border-left: 5px solid var(--region-color);
-        padding-left: 0.5rem;
+        border-left: var(--region-border-width) solid var(--region-color);
+        padding: 0.25rem 0 0.25rem 0.5rem;
+      }
+    }
+
+    .region-proportion {
+      width: fit-content;
+    }
+  }
+
+  &.depth-1:has(+ .depth-2),
+  &.depth-2:has(+ .depth-3) {
+    .region-name div {
+      position: relative;
+
+      &::after {
+        content: '';
+        width: calc(1rem + var(--region-border-width));
+        height: 2px;
+        background: var(--region-color);
+        position: absolute;
+        bottom: 0;
+        left: calc(-1 * var(--region-border-width));
       }
     }
   }

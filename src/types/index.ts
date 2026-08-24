@@ -6,3 +6,4 @@ export * from './regExTypes';
 export * from './regionTypes';
 export * from './chromosomeTypes';
 export * from './regionMapTypes';
+export * from './ui-types';

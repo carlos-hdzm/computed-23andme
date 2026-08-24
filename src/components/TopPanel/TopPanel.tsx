@@ -1,9 +1,14 @@
 import React, { useCallback, useContext, useMemo } from "react";
 import classNames from "classnames";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import { AppContext, AppDispatchContext } from "../../context/context";
 import contextActions from "../../context/actions";
 import "./TopPanel.less";
-import type { ConfidenceLevel, ModelVersion } from "../../types";
+import type {
+  ConfidenceLevel,
+  MainPanelViewType,
+  ModelVersion,
+} from "../../types";
 import {
   confidenceLabels,
   confidenceValues,
@@ -11,6 +16,11 @@ import {
 } from "../../constants/strings";
 import { useFileUpload } from "../../context/FileUploadContext";
 import { getAvailableVersions } from "../../context/contextUtil";
+
+export type TopPanelProps = {
+  mainPanelView: MainPanelViewType;
+  setMainPanelView: React.Dispatch<React.SetStateAction<MainPanelViewType>>;
+};
 
 type ChangeEvent<Type> = React.ChangeEvent<
   HTMLSelectElement,
@@ -21,11 +31,18 @@ type ChangeEvent<Type> = React.ChangeEvent<
   };
 };
 
-const TopPanel: React.FC = () => {
+const TopPanel: React.FC<TopPanelProps> = ({
+  mainPanelView,
+  setMainPanelView,
+}) => {
   const { data, version, confidence } = useContext(AppContext);
   const dispatch = useContext(AppDispatchContext);
+  const isMobile = useMediaQuery("screen and (max-width: 767px)");
 
-  const { reset, state: { isSampleData, error, isDone } } = useFileUpload();
+  const {
+    reset,
+    state: { isSampleData, error, isDone },
+  } = useFileUpload();
 
   const handleVersionChange = useCallback(
     ({ target: { value } }: ChangeEvent<ModelVersion>) => {
@@ -53,14 +70,31 @@ const TopPanel: React.FC = () => {
     if (!data || Object.keys(data).length === 0) {
       return [];
     }
-    
+
     return getAvailableVersions(data);
   }, [data]);
+
+  const handleMainViewToggle = useCallback(() => {
+    switch (mainPanelView) {
+      case "regions":
+        setMainPanelView("chromosomes");
+        break;
+      case "chromosomes":
+        setMainPanelView("regions");
+        break;
+      /* v8 ignore next -- @preserve */
+      default:
+    }
+  }, [mainPanelView, setMainPanelView]);
 
   return (
     <section className="top-panel" data-testid="top-panel">
       <div className="logo-container">
-        <h1>Computed<br />23andMe</h1>
+        <h1>
+          Computed
+          <br />
+          23andMe
+        </h1>
       </div>
       {isDone && !error && (
         <div className="action-panel" data-testid="action-panel">
@@ -99,14 +133,49 @@ const TopPanel: React.FC = () => {
                 value={confidence}
                 onChange={handleConfidenceChange}
               >
-                {version && confidenceValues[version].map((confidence) => (
-                  <option key={confidence} value={confidence}>
-                    {confidenceLabels[confidence]}
-                  </option>
-                ))}
+                {version &&
+                  confidenceValues[version].map((confidence) => (
+                    <option key={confidence} value={confidence}>
+                      {confidenceLabels[confidence]}
+                    </option>
+                  ))}
               </select>
             </div>
           </div>
+          {isMobile && (
+            <>
+              <button
+                id="main-view-toggle"
+                data-testid="main-view-toggle"
+                aria-label="Toggle Main View"
+                tabIndex={0}
+                onClick={handleMainViewToggle}
+              >
+                <span
+                  id="main-view-regions"
+                  className={classNames("main-view-button", {
+                    active: mainPanelView === "regions",
+                  })}
+                >
+                  Regions
+                </span>
+                <span
+                  id="main-view-chromosomes"
+                  className={classNames("main-view-button", {
+                    active: mainPanelView === "chromosomes",
+                  })}
+                >
+                  Chromosomes
+                </span>
+              </button>
+              <span
+                id="main-view-status"
+                className="visually-hidden"
+                aria-live="polite"
+                aria-atomic="true"
+              ></span>
+            </>
+          )}
         </div>
       )}
     </section>

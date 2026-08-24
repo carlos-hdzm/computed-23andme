@@ -54,7 +54,7 @@ const TestComponentWithDispatch = () => {
 
   return (
     <>
-      <MainPanel />
+      <MainPanel mainPanelView="regions" />
       <button data-testid="dispatch-1" onClick={dispatch1} />
       <button data-testid="dispatch-2" onClick={dispatch2} />
       <button data-testid="dispatch-3" onClick={dispatch3} />

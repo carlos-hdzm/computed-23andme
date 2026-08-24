@@ -1,13 +1,26 @@
-import React from 'react';
-import './MainView.less';
-import TopPanel from '../TopPanel/TopPanel';
-import MainPanel from '../MainPanel/MainPanel';
+import React, { useState } from "react";
+import "./MainView.less";
+import TopPanel from "../TopPanel/TopPanel";
+import MainPanel from "../MainPanel/MainPanel";
+import type { MainPanelViewType } from "../../types";
+import Footer from "../Footer/Footer";
 
 const MainView: React.FC = React.memo(() => {
-  return (<main className='main-view'>
-    <TopPanel />
-    <MainPanel />
-  </main>);
+  const [mainPanelView, setMainPanelView] =
+    useState<MainPanelViewType>("regions");
+
+  return (
+    <>
+      <main className="main-view">
+        <TopPanel
+          mainPanelView={mainPanelView}
+          setMainPanelView={setMainPanelView}
+        />
+        <MainPanel mainPanelView={mainPanelView} />
+      </main>
+      <Footer />
+    </>
+  );
 });
 
 export default MainView;

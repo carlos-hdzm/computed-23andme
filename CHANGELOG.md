@@ -1,0 +1,8 @@
+# Change Log
+
+## 1.0.0 - August 23, 2026 - Initial release
+
+### Added
+
+- Main features, such as Computed Data file upload and use of sample data, are supported.
+- With data populated, the user can see the regions in their ethnicity estimates in a table, as well as the chromosome painting showing where in their chromosomes those regions lie.

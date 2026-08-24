@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import "./constants.less";
+@import "./styles/constants.less";
 
 * {
   box-sizing: border-box;
@@ -34,6 +34,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  button {
+    appearance: none;
+    font-family: var(--sans);
+    font: 16px/16px var(--sans);
+    letter-spacing: 0.18px;
+  }
 }
 
 /* @media @dark-mode {
@@ -42,9 +49,14 @@
 } */
 
 #root {
+  width: 100%;
   max-width: 100%;
+  height: 100svh;
   min-height: 100svh;
-  overflow-y: hidden;
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 body {

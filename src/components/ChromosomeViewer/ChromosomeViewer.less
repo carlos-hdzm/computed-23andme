@@ -1,8 +1,12 @@
+@import "../../styles/constants.less";
+
 .chromosome-viewer {
-  flex-grow: 1;
   padding: 1rem;
   position: relative;
-  overflow-y: auto;
+
+  @media @desktop {
+    flex: 1 1 auto;
+  }
 
   table {
     border-collapse: collapse;
@@ -10,7 +14,15 @@
 
     tr {
       td {
-        padding: 0.5rem;
+        padding: 0.5rem 0;
+      }
+
+      &:first-of-type td {
+        padding-top: 0;
+      }
+
+      &:last-of-type td {
+        padding-bottom: 0;
       }
     }
   }

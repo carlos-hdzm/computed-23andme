@@ -1,10 +1,15 @@
 import { useContext, useMemo } from 'react';
+import classNames from 'classnames';
 import './ChromosomeViewer.less'
 import { AppContext } from '../../context/context';
 import type { ChromosomeHaplotypeSplit, ChromosomesData, ConfidenceEntry } from '../../types';
 import ChromosomePair from '../ChromosomePair/ChromosomePair';
 
-const ChromosomeViewer = () => {
+export type ChromosomeViewerProps = {
+  panelHidden?: boolean
+}
+
+const ChromosomeViewer: React.FC<ChromosomeViewerProps> = ({ panelHidden = false }) => {
   const { data, version, confidence } = useContext(AppContext);
   const chromosomes: ChromosomesData<ChromosomeHaplotypeSplit> = useMemo(() => {
     if (!data || !version || !confidence) return { autosomal: [], sex: [] } as unknown as ChromosomesData<ChromosomeHaplotypeSplit>;
@@ -12,7 +17,7 @@ const ChromosomeViewer = () => {
     return (data[version][confidence] as ConfidenceEntry).chromosomes as ChromosomesData<ChromosomeHaplotypeSplit>;
   }, [data, version, confidence]);
 
-  return (<section className='chromosome-viewer'>
+  return (<section className={classNames('chromosome-viewer', { 'panel-hidden': panelHidden })}>
     <table>
       <tbody>
         {

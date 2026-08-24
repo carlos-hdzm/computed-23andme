@@ -42,7 +42,7 @@ The Computed Data file contains much more information than the region estimates 
 As of now, the following additions/improvements are being considered, in no particular order:
 - ~~Provide functional sample data.~~
 - ~~Add unit tests with Vitest.~~
+- ~~Improve UI.~~
 - Analyze the feasability of React 19's `use` API, along with `Suspense` for the `async` behavior (file processing).
-- Improve UI.
 - Look for and implement performance improvements.
 - Historical Matches analysis (chromosome segment location, for example).

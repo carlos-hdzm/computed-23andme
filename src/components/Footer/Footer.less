@@ -1,0 +1,53 @@
+@import "../../styles/constants.less";
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: var(--divider);
+    padding: 0.5rem 1rem;
+
+    @media @desktop {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem 3rem;
+    }
+
+    #copyright {
+        margin: 0;
+    }
+
+    #footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        justify-content: flex-start;
+
+        @media @desktop {
+            justify-content: flex-end;
+        }
+
+        a {
+            color: var(--text-1);
+            font-size: 1rem;
+
+            &:has(> img),
+            &:has(> svg) {
+                text-decoration: none;
+
+                span {
+                    text-decoration: underline;
+                }
+            }
+
+            img,
+            svg {
+                width: 18px;
+                vertical-align: middle;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}

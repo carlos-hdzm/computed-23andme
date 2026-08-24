@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { describe, test, expect, vi, beforeEach } from "vitest";
+import { page } from "vitest/browser";
 import { render } from "vitest-browser-react";
 import AppContextProvider from "../../context/AppContext";
 import { AppDispatchContext } from "../../context/context";
@@ -10,7 +11,15 @@ import type { ComputedData } from "../../types";
 
 vi.mock(import("../../context/FileUploadContext"), { spy: true });
 
-const TestComponentWithDispatch = ({ data }: { data?: ComputedData }) => {
+const setMainPanelViewMock = vi.fn();
+
+const TestComponentWithDispatch = ({
+  data,
+  mainPanelView = "regions",
+}: {
+  data?: ComputedData;
+  mainPanelView?: "regions" | "chromosomes";
+}) => {
   const dispatch = useContext(AppDispatchContext);
 
   const dispatchData = () => {
@@ -23,13 +32,20 @@ const TestComponentWithDispatch = ({ data }: { data?: ComputedData }) => {
 
   return (
     <>
-      <TopPanel />
+      <TopPanel
+        mainPanelView={mainPanelView}
+        setMainPanelView={setMainPanelViewMock}
+      />
       <button data-testid="dispatch-btn" onClick={dispatchData} />
     </>
   );
 };
 
-const renderComponent = async (props: { data?: ComputedData } = {}) => {
+const renderComponent = async (
+  props: { data?: ComputedData; mainPanelView?: "regions" | "chromosomes" } = {
+    mainPanelView: "regions",
+  },
+) => {
   return await render(
     <AppContextProvider>
       <TestComponentWithDispatch {...props} />
@@ -99,7 +115,7 @@ describe("TopPanel", () => {
 
   test("renders correctly on initial render (no data - no content)", async () => {
     const { getByText, getByTestId } = await renderComponent();
-    
+
     await expect.element(getByTestId("action-panel")).not.toBeInTheDocument();
     await expect.element(getByText("Computed")).toBeInTheDocument();
     await expect.element(getByText("23andMe")).toBeInTheDocument();
@@ -122,8 +138,10 @@ describe("TopPanel", () => {
       // Load mock data
       await getByTestId("dispatch-btn").click();
 
-    await expect.element(getByTestId("action-panel")).toBeInTheDocument();
-      await expect.element(getByText("You're viewing sample data.")).toBeInTheDocument();
+      await expect.element(getByTestId("action-panel")).toBeInTheDocument();
+      await expect
+        .element(getByText("You're viewing sample data."))
+        .toBeInTheDocument();
       await expect.element(getByText("Reset")).toBeInTheDocument();
       await expect.element(getByTestId("version-select")).toBeInTheDocument();
       await expect
@@ -139,8 +157,10 @@ describe("TopPanel", () => {
       // Load mock data
       await getByTestId("dispatch-btn").click();
 
-    await expect.element(getByTestId("action-panel")).toBeInTheDocument();
-      await expect.element(getByText("You're viewing your uploaded data.")).toBeInTheDocument();
+      await expect.element(getByTestId("action-panel")).toBeInTheDocument();
+      await expect
+        .element(getByText("You're viewing your uploaded data."))
+        .toBeInTheDocument();
       await expect.element(getByText("Reset")).toBeInTheDocument();
       await expect.element(getByTestId("version-select")).toBeInTheDocument();
       await expect
@@ -352,5 +372,54 @@ describe("TopPanel", () => {
 
     expect(resetMock).toHaveBeenCalled();
     expect(clearDataSpy).toHaveBeenCalled();
+  });
+
+  describe("handles MainView toggle", () => {
+    beforeEach(() => {
+      setMainPanelViewMock.mockClear();
+    });
+
+    describe("renders button on mobile", () => {
+      test("starting with regions", async () => {
+        mockUseFileUploadState({ isDone: true });
+        const { getByTestId } = await renderComponent({ data });
+
+        // Load mock data
+        await getByTestId("dispatch-btn").click();
+
+        await expect
+          .element(getByTestId("main-view-toggle"))
+          .toBeInTheDocument();
+        await getByTestId("main-view-toggle").click();
+        expect(setMainPanelViewMock).toHaveBeenCalledWith("chromosomes");
+      });
+
+      test("starting with chromosomes", async () => {
+        mockUseFileUploadState({ isDone: true });
+        const { getByTestId } = await renderComponent({ data, mainPanelView: "chromosomes" });
+
+        // Load mock data
+        await getByTestId("dispatch-btn").click();
+
+        await expect
+          .element(getByTestId("main-view-toggle"))
+          .toBeInTheDocument();
+        await getByTestId("main-view-toggle").click();
+        expect(setMainPanelViewMock).toHaveBeenCalledWith("regions");
+      });
+    });
+
+    test("does not render button on desktop", async () => {
+      await page.viewport(1080, 800);
+      mockUseFileUploadState({ isDone: true });
+      const { getByTestId } = await renderComponent({ data });
+
+      // Load mock data
+      await getByTestId("dispatch-btn").click();
+
+      await expect
+        .element(getByTestId("main-view-toggle"))
+        .not.toBeInTheDocument();
+    });
   });
 });

@@ -30,6 +30,7 @@ const RegionRow: FC<RegionRowProps> = ({ regionEntry }) => {
       className={classNames('region-row', `depth-${depth}`, regionsStyles[cssClass])}
       onMouseOver={handleRowMouseOver}
       onMouseOut={handleRowMouseOut}
+      tabIndex={0}
     >
       <td className='region-name'>
         <div>{label}</div>

@@ -1,14 +1,20 @@
+@import "../../styles/constants.less";
+
 .haplotype {
   display: flex;
-  height: 20px;
+  height: 16px;
   flex-direction: row;
   --stripe-light-color: #eee;
   --stripe-dark-color: #bbb;
   --stripe-light-width: 5px;
   --stripe-dark-width: 1px;
 
-  .arm {
+  @media @desktop {
     height: 20px;
+  }
+
+  .arm {
+    height: 100%;
     border-radius: 10px;
     background: repeating-linear-gradient(135deg,
         var(--stripe-light-color),

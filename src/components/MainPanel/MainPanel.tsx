@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import ChromosomeViewer from "../ChromosomeViewer/ChromosomeViewer";
 import Proportions from "../Proportions/Proportions";
 import classNames from "classnames";
@@ -9,9 +10,15 @@ import FileSelector from "../FileSelector/FileSelector";
 import FileError from "../FileError/FileError";
 import SampleData from "../SampleData/SampleData";
 import { useFileUpload } from "../../context/FileUploadContext";
+import type { MainPanelViewType } from "../../types";
 
-const MainPanel: React.FC = () => {
+export type MainPanelProps = {
+  mainPanelView: MainPanelViewType
+}
+
+const MainPanel: React.FC<MainPanelProps> = ({ mainPanelView }) => {
   const { version } = useContext(AppContext);
+  const isMobile = useMediaQuery("screen and (max-width: 767px)");
 
   const {
     state: { isInitial, isPending, error, isDone },
@@ -29,8 +36,8 @@ const MainPanel: React.FC = () => {
     >
       {isDone && !error && (
         <>
-          <Proportions />
-          <ChromosomeViewer />
+          <Proportions panelHidden={!(!isMobile || mainPanelView === "regions")} />
+          <ChromosomeViewer panelHidden={!(!isMobile || mainPanelView === "chromosomes")} />
         </>
       )}
       {isInitial && <FileSelector />}

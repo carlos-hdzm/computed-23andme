@@ -6,6 +6,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
     <tbody>
       <tr
         class="region-row depth-1"
+        tabindex="0"
       >
         <td
           class="region-name"
@@ -22,6 +23,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
       </tr>
       <tr
         class="region-row depth-2"
+        tabindex="0"
       >
         <td
           class="region-name"
@@ -38,6 +40,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
       </tr>
       <tr
         class="region-row depth-3"
+        tabindex="0"
       >
         <td
           class="region-name"
@@ -54,6 +57,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
       </tr>
       <tr
         class="region-row depth-3"
+        tabindex="0"
       >
         <td
           class="region-name"
@@ -70,6 +74,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
       </tr>
       <tr
         class="region-row depth-2"
+        tabindex="0"
       >
         <td
           class="region-name"
@@ -86,6 +91,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
       </tr>
       <tr
         class="region-row depth-3"
+        tabindex="0"
       >
         <td
           class="region-name"
@@ -102,6 +108,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
       </tr>
       <tr
         class="region-row depth-3"
+        tabindex="0"
       >
         <td
           class="region-name"
@@ -118,6 +125,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
       </tr>
       <tr
         class="region-row depth-3"
+        tabindex="0"
       >
         <td
           class="region-name"
@@ -134,6 +142,7 @@ exports[`RegionRow component > renders correctly with given region entry 1`] = `
       </tr>
       <tr
         class="region-row depth-2"
+        tabindex="0"
       >
         <td
           class="region-name"
