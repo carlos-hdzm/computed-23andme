@@ -21,11 +21,12 @@ describe("FileSelector", () => {
   });
 
   test("renders correctly", async () => {
-    const { getByLabelText, getByText } = await render(<FileSelector />);
+    const { getByLabelText, getByText, getByTestId } = await render(<FileSelector />);
 
     const labelText = "Click to upload or drop your Computed Data (CSV) file.";
     await expect.element(getByText(labelText)).toBeInTheDocument();
     await expect.element(getByLabelText(labelText)).toBeInTheDocument();
+    await expect.element(getByTestId("privacy")).toBeInTheDocument();
   });
 
   describe("accepts CSV files", () => {

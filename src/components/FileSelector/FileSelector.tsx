@@ -45,8 +45,9 @@ const FileSelector: React.FC = React.memo(() => {
       onDragEnter={handleDrag}
       onDrop={handleDrop}
     >
-      Click to upload or drop your Computed Data (CSV) file.
+      <span>Click to upload or drop your Computed Data (CSV) file.</span>
     </label>
+    <p id="privacy" data-testid="privacy">Your file is processed locally in your browser and is never uploaded to a server.</p>
   </div>);
 });
 

@@ -23,7 +23,7 @@ Without making any judgment on the accuracy of the unsmoothed Computed Data, it 
 
 The project uses TypeScript, and the UI is a React application using Vite. For state management, React Context is used across the application.
 
-The CSV file is parsed with [`csvtojson`](https://www.npmjs.com/package/csvtojson), and the resulting JSON is consumable by the application. The data is never stored, only being processed locally.
+The CSV file is parsed with [`csvtojson`](https://www.npmjs.com/package/csvtojson), and the resulting JSON is consumable by the application. The data is processed locally in the user's browser.
 
 The data from the JSON is processed in layers:
 1. The relevant sections (region percentage estimates and chromosome sections) are extracted.
