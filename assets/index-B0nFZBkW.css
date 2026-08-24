@@ -74,14 +74,14 @@
 :root {
   --bg: #fff;
   --text-1: #1b1b1b;
-  --text-2: #d9d9d9;
+  --text-2: #ebebeb;
   --divider-color: #000;
   --hl-color: #cbf4d9;
-  --divider-hl-color: #34a559;
-  --error-color: #fec8c8;
-  --divider-error-color: #ce0000;
+  --divider-hl-color: #095923;
+  --error-color: #ffdede;
+  --divider-error-color: #9a0303;
   --info-color: #b4bff0;
-  --divider-info-color: #4666f1;
+  --divider-info-color: #0c31d0;
   --divider: 1px solid var(--divider-color);
   --divider-dashed: 1px dashed var(--divider-color);
   --divider-hl: 1px solid var(--divider-hl-color);
@@ -103,6 +103,17 @@
   font-family: var(--sans);
   font: 16px/16px var(--sans);
   letter-spacing: 0.18px;
+}
+:root .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 /* @media @dark-mode {
   :root {
@@ -167,17 +178,18 @@ body {
   padding-left: 8rem;
 }
 .top-panel .action-panel {
-  padding-inline: 1rem;
-  padding-bottom: 0.5rem;
+  padding: 0 1rem 1rem;
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
+  align-items: center;
 }
 @media screen and (min-width: 768px) {
   .top-panel .action-panel {
     flex-grow: 1;
     justify-content: center;
     gap: 1rem;
+    padding: 1rem;
   }
 }
 .top-panel .action-panel .file-uploaded {
@@ -1176,7 +1188,12 @@ table tr td.chromosome-segments.hap2 {
     display: none;
   }
 }
-input.visually-hidden {
+.file-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.file-selector input.visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -1185,13 +1202,13 @@ input.visually-hidden {
   white-space: nowrap;
   width: 1px;
 }
-input.visually-hidden:is(:focus, :focus-within) + label {
+.file-selector input.visually-hidden:is(:focus, :focus-within) + label {
   background: var(--hl-color);
   border: var(--divider-hl);
   outline: var(--divider-hl);
   color: var(--divider-hl-color);
 }
-.drop-zone {
+.file-selector .drop-zone {
   border: var(--divider-dashed);
   border-radius: 8px;
   font-weight: bold;
@@ -1205,11 +1222,16 @@ input.visually-hidden:is(:focus, :focus-within) + label {
   width: 100%;
   height: 100%;
 }
-.drop-zone:hover {
+.file-selector .drop-zone:hover {
   background: var(--hl-color);
   border: var(--divider-hl);
   outline: var(--divider-hl);
   color: var(--divider-hl-color);
+}
+.file-selector #privacy {
+  margin: 0;
+  font-style: italic;
+  text-align: center;
 }
 .file-error {
   color: var(--divider-error-color);
@@ -1307,4 +1329,18 @@ footer #footer-links a svg {
   width: 18px;
   vertical-align: middle;
   margin-right: 0.5rem;
+}
+#skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  padding: 0.5rem;
+  background-color: var(--info-color);
+  color: var(--text-1);
+  opacity: 0;
+}
+#skip-link:focus {
+  left: 0;
+  opacity: 1;
 }

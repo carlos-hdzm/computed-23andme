@@ -16202,6 +16202,8 @@ var TopPanel = (t0) => {
 	const { data, version, confidence } = (0, import_react.useContext)(AppContext);
 	const dispatch = (0, import_react.useContext)(AppDispatchContext);
 	const isMobile = useMediaQuery("screen and (max-width: 767px)");
+	const toggleButton = (0, import_react.useRef)(null);
+	const mainViewToggleStatus = (0, import_react.useRef)(null);
 	const { reset, state: t1 } = useFileUpload();
 	const { isSampleData, error, isDone } = t1;
 	let t2;
@@ -16262,14 +16264,11 @@ var TopPanel = (t0) => {
 	let t6;
 	if ($[11] !== mainPanelView || $[12] !== setMainPanelView) {
 		t6 = () => {
-			bb20: switch (mainPanelView) {
-				case "regions":
-					setMainPanelView("chromosomes");
-					break bb20;
-				case "chromosomes":
-					setMainPanelView("regions");
-					break bb20;
-				default:
+			const newPanel = mainPanelView === "regions" ? "chromosomes" : "regions";
+			setMainPanelView(newPanel);
+			if (mainViewToggleStatus.current && toggleButton.current) {
+				mainViewToggleStatus.current.textContent = `Now displaying ${newPanel} panel.`;
+				toggleButton.current.ariaLabel = `Toggle Main View, currently displaying ${newPanel} panel.`;
 			}
 		};
 		$[11] = mainPanelView;
@@ -16285,18 +16284,18 @@ var TopPanel = (t0) => {
 				"Computed",
 				/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("br", {}, void 0, false, {
 					fileName: _jsxFileName$14,
-					lineNumber: 144,
+					lineNumber: 139,
 					columnNumber: 54
 				}, void 0),
 				"23andMe"
 			] }, void 0, true, {
 				fileName: _jsxFileName$14,
-				lineNumber: 144,
+				lineNumber: 139,
 				columnNumber: 42
 			}, void 0)
 		}, void 0, false, {
 			fileName: _jsxFileName$14,
-			lineNumber: 144,
+			lineNumber: 139,
 			columnNumber: 10
 		}, void 0);
 		$[14] = t7;
@@ -16315,7 +16314,7 @@ var TopPanel = (t0) => {
 						" data."
 					] }, void 0, true, {
 						fileName: _jsxFileName$14,
-						lineNumber: 151,
+						lineNumber: 146,
 						columnNumber: 118
 					}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", {
 						href: "#",
@@ -16323,12 +16322,12 @@ var TopPanel = (t0) => {
 						children: "Reset"
 					}, void 0, false, {
 						fileName: _jsxFileName$14,
-						lineNumber: 151,
+						lineNumber: 146,
 						columnNumber: 195
 					}, void 0)]
 				}, void 0, true, {
 					fileName: _jsxFileName$14,
-					lineNumber: 151,
+					lineNumber: 146,
 					columnNumber: 87
 				}, void 0),
 				/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
@@ -16344,12 +16343,12 @@ var TopPanel = (t0) => {
 							children: availableVersions.map(_temp$4)
 						}, void 0, false, {
 							fileName: _jsxFileName$14,
-							lineNumber: 153,
+							lineNumber: 148,
 							columnNumber: 36
 						}, void 0)
 					}, void 0, false, {
 						fileName: _jsxFileName$14,
-						lineNumber: 153,
+						lineNumber: 148,
 						columnNumber: 11
 					}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 						className: "confidence",
@@ -16361,24 +16360,25 @@ var TopPanel = (t0) => {
 							children: version && confidenceValues[version].map(_temp2)
 						}, void 0, false, {
 							fileName: _jsxFileName$14,
-							lineNumber: 153,
+							lineNumber: 148,
 							columnNumber: 208
 						}, void 0)
 					}, void 0, false, {
 						fileName: _jsxFileName$14,
-						lineNumber: 153,
+						lineNumber: 148,
 						columnNumber: 180
 					}, void 0)]
 				}, void 0, true, {
 					fileName: _jsxFileName$14,
-					lineNumber: 151,
+					lineNumber: 146,
 					columnNumber: 245
 				}, void 0),
 				isMobile && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("button", {
 					id: "main-view-toggle",
 					"data-testid": "main-view-toggle",
-					"aria-label": "Toggle Main View",
+					"aria-label": `Toggle Main View, currently displaying ${mainPanelView} panel.`,
 					tabIndex: 0,
+					ref: toggleButton,
 					onClick: handleMainViewToggle,
 					children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", {
 						id: "main-view-regions",
@@ -16386,39 +16386,41 @@ var TopPanel = (t0) => {
 						children: "Regions"
 					}, void 0, false, {
 						fileName: _jsxFileName$14,
-						lineNumber: 153,
-						columnNumber: 540
+						lineNumber: 148,
+						columnNumber: 607
 					}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", {
 						id: "main-view-chromosomes",
 						className: (0, import_classnames.default)("main-view-button", { active: mainPanelView === "chromosomes" }),
 						children: "Chromosomes"
 					}, void 0, false, {
 						fileName: _jsxFileName$14,
-						lineNumber: 155,
+						lineNumber: 150,
 						columnNumber: 29
 					}, void 0)]
 				}, void 0, true, {
 					fileName: _jsxFileName$14,
-					lineNumber: 153,
+					lineNumber: 148,
 					columnNumber: 405
 				}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", {
+					"data-testid": "main-view-status",
 					id: "main-view-status",
 					className: "visually-hidden",
 					"aria-live": "polite",
-					"aria-atomic": "true"
+					"aria-atomic": "true",
+					ref: mainViewToggleStatus
 				}, void 0, false, {
 					fileName: _jsxFileName$14,
-					lineNumber: 157,
+					lineNumber: 152,
 					columnNumber: 42
 				}, void 0)] }, void 0, true, {
 					fileName: _jsxFileName$14,
-					lineNumber: 153,
+					lineNumber: 148,
 					columnNumber: 403
 				}, void 0)
 			]
 		}, void 0, true, {
 			fileName: _jsxFileName$14,
-			lineNumber: 151,
+			lineNumber: 146,
 			columnNumber: 30
 		}, void 0);
 		$[15] = availableVersions;
@@ -16444,7 +16446,7 @@ var TopPanel = (t0) => {
 			children: [t7, t8]
 		}, void 0, true, {
 			fileName: _jsxFileName$14,
-			lineNumber: 177,
+			lineNumber: 172,
 			columnNumber: 10
 		}, void 0);
 		$[29] = t8;
@@ -16458,7 +16460,7 @@ function _temp$4(version_0) {
 		children: versionLabels[version_0]
 	}, version_0, false, {
 		fileName: _jsxFileName$14,
-		lineNumber: 187,
+		lineNumber: 182,
 		columnNumber: 10
 	}, this);
 }
@@ -16468,7 +16470,7 @@ function _temp2(confidence_0) {
 		children: confidenceLabels[confidence_0]
 	}, confidence_0, false, {
 		fileName: _jsxFileName$14,
-		lineNumber: 190,
+		lineNumber: 185,
 		columnNumber: 10
 	}, this);
 }
@@ -17138,6 +17140,7 @@ var ChromosomeViewer = (t0) => {
 	let t7;
 	if ($[10] !== t3 || $[11] !== t6) {
 		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
+			"data-testid": "chromosome-viewer-panel",
 			className: t3,
 			children: t6
 		}, void 0, false, {
@@ -17362,6 +17365,7 @@ var Proportions = (t0) => {
 	let t7;
 	if ($[8] !== t3 || $[9] !== t6) {
 		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
+			"data-testid": "proportions-panel",
 			className: t3,
 			children: t6
 		}, void 0, false, {
@@ -22416,7 +22420,7 @@ var processCSVString = async (csvStr) => {
 //#region src/components/FileSelector/FileSelector.tsx
 var _jsxFileName$7 = "/home/runner/work/computed-23andme/computed-23andme/src/components/FileSelector/FileSelector.tsx";
 var FileSelector = import_react.memo(() => {
-	const $ = (0, import_compiler_runtime.c)(12);
+	const $ = (0, import_compiler_runtime.c)(14);
 	let t0;
 	if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
 		t0 = { processData: processCSVString };
@@ -22466,37 +22470,63 @@ var FileSelector = import_react.memo(() => {
 		$[6] = t3;
 	} else t3 = $[6];
 	let t4;
-	if ($[7] !== handleDrop) {
-		t4 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("label", {
+	if ($[7] === Symbol.for("react.memo_cache_sentinel")) {
+		t4 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { children: "Click to upload or drop your Computed Data (CSV) file." }, void 0, false, {
+			fileName: _jsxFileName$7,
+			lineNumber: 63,
+			columnNumber: 10
+		}, void 0);
+		$[7] = t4;
+	} else t4 = $[7];
+	let t5;
+	if ($[8] !== handleDrop) {
+		t5 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("label", {
 			htmlFor: "file-input",
 			className: "drop-zone",
 			onDragOver: handleDrag,
 			onDragEnter: handleDrag,
 			onDrop: handleDrop,
-			children: "Click to upload or drop your Computed Data (CSV) file."
+			children: t4
 		}, void 0, false, {
 			fileName: _jsxFileName$7,
-			lineNumber: 63,
+			lineNumber: 70,
 			columnNumber: 10
 		}, void 0);
-		$[7] = handleDrop;
-		$[8] = t4;
-	} else t4 = $[8];
-	let t5;
-	if ($[9] !== t3 || $[10] !== t4) {
-		t5 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+		$[8] = handleDrop;
+		$[9] = t5;
+	} else t5 = $[9];
+	let t6;
+	if ($[10] === Symbol.for("react.memo_cache_sentinel")) {
+		t6 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", {
+			id: "privacy",
+			"data-testid": "privacy",
+			children: "Your file is processed locally in your browser and is never uploaded to a server."
+		}, void 0, false, {
+			fileName: _jsxFileName$7,
+			lineNumber: 78,
+			columnNumber: 10
+		}, void 0);
+		$[10] = t6;
+	} else t6 = $[10];
+	let t7;
+	if ($[11] !== t3 || $[12] !== t5) {
+		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 			className: "file-selector",
-			children: [t3, t4]
+			children: [
+				t3,
+				t5,
+				t6
+			]
 		}, void 0, true, {
 			fileName: _jsxFileName$7,
-			lineNumber: 71,
+			lineNumber: 85,
 			columnNumber: 10
 		}, void 0);
-		$[9] = t3;
-		$[10] = t4;
-		$[11] = t5;
-	} else t5 = $[11];
-	return t5;
+		$[11] = t3;
+		$[12] = t5;
+		$[13] = t7;
+	} else t7 = $[13];
+	return t7;
 });
 function _temp(event_0) {
 	event_0.stopPropagation();
@@ -22673,6 +22703,7 @@ var MainPanel = (t0) => {
 	let t10;
 	if ($[18] !== t5 || $[19] !== t6 || $[20] !== t7 || $[21] !== t8 || $[22] !== t9) {
 		t10 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
+			id: "main-panel",
 			"data-testid": "main-panel",
 			className: t5,
 			children: [
@@ -22840,21 +22871,39 @@ var MainView = import_react.memo(() => {
 //#region src/App.tsx
 var _jsxFileName$1 = "/home/runner/work/computed-23andme/computed-23andme/src/App.tsx";
 function App() {
-	const $ = (0, import_compiler_runtime.c)(1);
+	const $ = (0, import_compiler_runtime.c)(2);
 	let t0;
 	if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
-		t0 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(AppContextProvider, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(MainView, {}, void 0, false, {
-			fileName: _jsxFileName$1,
-			lineNumber: 9,
-			columnNumber: 30
-		}, this) }, void 0, false, {
+		t0 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", {
+			href: "#main-panel",
+			"aria-hidden": "true",
+			id: "skip-link",
+			children: "Skip to main content"
+		}, void 0, false, {
 			fileName: _jsxFileName$1,
 			lineNumber: 9,
 			columnNumber: 10
 		}, this);
 		$[0] = t0;
 	} else t0 = $[0];
-	return t0;
+	let t1;
+	if ($[1] === Symbol.for("react.memo_cache_sentinel")) {
+		t1 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [t0, /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(AppContextProvider, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(MainView, {}, void 0, false, {
+			fileName: _jsxFileName$1,
+			lineNumber: 16,
+			columnNumber: 36
+		}, this) }, void 0, false, {
+			fileName: _jsxFileName$1,
+			lineNumber: 16,
+			columnNumber: 16
+		}, this)] }, void 0, true, {
+			fileName: _jsxFileName$1,
+			lineNumber: 16,
+			columnNumber: 10
+		}, this);
+		$[1] = t1;
+	} else t1 = $[1];
+	return t1;
 }
 //#endregion
 //#region src/main.tsx
