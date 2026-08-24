@@ -46,3 +46,6 @@ As of now, the following additions/improvements are being considered, in no part
 - Analyze the feasability of React 19's `use` API, along with `Suspense` for the `async` behavior (file processing).
 - Look for and implement performance improvements.
 - Historical Matches analysis (chromosome segment location, for example).
+
+## Links
+- CHANGELOG: [CHANGELOG.md](./CHANGELOG.md)
