@@ -15833,7 +15833,7 @@ var require_react_jsx_dev_runtime_development = /* @__PURE__ */ __commonJSMin(((
 var import_jsx_dev_runtime = (/* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_react_jsx_dev_runtime_development();
 })))();
-var _jsxFileName$15 = "/home/runner/work/computed-23andme/computed-23andme/src/context/FileUploadContext/FileUploadContextProvider.tsx";
+var _jsxFileName$16 = "/home/runner/work/computed-23andme/computed-23andme/src/context/FileUploadContext/FileUploadContextProvider.tsx";
 var FileUploadContext = (0, import_react.createContext)({
 	file: null,
 	isInitial: true,
@@ -15908,12 +15908,12 @@ var FileUploadContextProvider = (t0) => {
 				value: contextValue,
 				children
 			}, void 0, false, {
-				fileName: _jsxFileName$15,
+				fileName: _jsxFileName$16,
 				lineNumber: 100,
 				columnNumber: 66
 			}, void 0)
 		}, void 0, false, {
-			fileName: _jsxFileName$15,
+			fileName: _jsxFileName$16,
 			lineNumber: 100,
 			columnNumber: 10
 		}, void 0);
@@ -15927,7 +15927,7 @@ var FileUploadContextProvider = (t0) => {
 			value: t3,
 			children: t4
 		}, void 0, false, {
-			fileName: _jsxFileName$15,
+			fileName: _jsxFileName$16,
 			lineNumber: 109,
 			columnNumber: 10
 		}, void 0);
@@ -16088,7 +16088,7 @@ var getAvailableVersions = (data) => {
 };
 //#endregion
 //#region src/context/AppContext.tsx
-var _jsxFileName$14 = "/home/runner/work/computed-23andme/computed-23andme/src/context/AppContext.tsx";
+var _jsxFileName$15 = "/home/runner/work/computed-23andme/computed-23andme/src/context/AppContext.tsx";
 var AppContextProvider = (t0) => {
 	const $ = (0, import_compiler_runtime.c)(4);
 	const { children } = t0;
@@ -16115,17 +16115,17 @@ var AppContextProvider = (t0) => {
 					value: contextValue,
 					children
 				}, void 0, false, {
-					fileName: _jsxFileName$14,
+					fileName: _jsxFileName$15,
 					lineNumber: 40,
 					columnNumber: 95
 				}, void 0)
 			}, void 0, false, {
-				fileName: _jsxFileName$14,
+				fileName: _jsxFileName$15,
 				lineNumber: 40,
 				columnNumber: 58
 			}, void 0)
 		}, void 0, false, {
-			fileName: _jsxFileName$14,
+			fileName: _jsxFileName$15,
 			lineNumber: 40,
 			columnNumber: 10
 		}, void 0);
@@ -16141,7 +16141,7 @@ Licensed under the MIT License (MIT), see
 http://jedwatson.github.io/classnames
 */
 //#endregion
-//#region src/components/TopPanel/TopPanel.less
+//#region node_modules/@uidotdev/usehooks/index.js
 var import_classnames = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
 	(function() {
 		"use strict";
@@ -16177,205 +16177,288 @@ var import_classnames = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin((
 		else window.classNames = classNames;
 	})();
 })))(), 1);
+function useMediaQuery(query) {
+	const subscribe = import_react.useCallback((callback) => {
+		const matchMedia = window.matchMedia(query);
+		matchMedia.addEventListener("change", callback);
+		return () => {
+			matchMedia.removeEventListener("change", callback);
+		};
+	}, [query]);
+	const getSnapshot = () => {
+		return window.matchMedia(query).matches;
+	};
+	const getServerSnapshot = () => {
+		throw Error("useMediaQuery is a client-only hook");
+	};
+	return import_react.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+}
 //#endregion
 //#region src/components/TopPanel/TopPanel.tsx
-var _jsxFileName$13 = "/home/runner/work/computed-23andme/computed-23andme/src/components/TopPanel/TopPanel.tsx";
-var TopPanel = () => {
-	const $ = (0, import_compiler_runtime.c)(25);
+var _jsxFileName$14 = "/home/runner/work/computed-23andme/computed-23andme/src/components/TopPanel/TopPanel.tsx";
+var TopPanel = (t0) => {
+	const $ = (0, import_compiler_runtime.c)(31);
+	const { mainPanelView, setMainPanelView } = t0;
 	const { data, version, confidence } = (0, import_react.useContext)(AppContext);
 	const dispatch = (0, import_react.useContext)(AppDispatchContext);
-	const { reset, state: t0 } = useFileUpload();
-	const { isSampleData, error, isDone } = t0;
-	let t1;
+	const isMobile = useMediaQuery("screen and (max-width: 767px)");
+	const { reset, state: t1 } = useFileUpload();
+	const { isSampleData, error, isDone } = t1;
+	let t2;
 	if ($[0] !== confidence || $[1] !== dispatch) {
-		t1 = (t2) => {
-			const { target: t3 } = t2;
-			const { value } = t3;
+		t2 = (t3) => {
+			const { target: t4 } = t3;
+			const { value } = t4;
 			if (value !== "v7.0" && confidence === "mostLikely") dispatch(contextActions.setConfidence(50));
 			dispatch(contextActions.setVersion(value));
 		};
 		$[0] = confidence;
 		$[1] = dispatch;
-		$[2] = t1;
-	} else t1 = $[2];
-	const handleVersionChange = t1;
-	let t2;
+		$[2] = t2;
+	} else t2 = $[2];
+	const handleVersionChange = t2;
+	let t3;
 	if ($[3] !== dispatch) {
-		t2 = (t3) => {
-			const { target: t4 } = t3;
-			const { value: value_0 } = t4;
+		t3 = (t4) => {
+			const { target: t5 } = t4;
+			const { value: value_0 } = t5;
 			dispatch(contextActions.setConfidence(value_0));
 		};
 		$[3] = dispatch;
-		$[4] = t2;
-	} else t2 = $[4];
-	const handleConfidenceChange = t2;
-	let t3;
+		$[4] = t3;
+	} else t3 = $[4];
+	const handleConfidenceChange = t3;
+	let t4;
 	if ($[5] !== dispatch || $[6] !== reset) {
-		t3 = () => {
+		t4 = () => {
 			reset();
 			dispatch(contextActions.clearData());
 		};
 		$[5] = dispatch;
 		$[6] = reset;
-		$[7] = t3;
-	} else t3 = $[7];
-	const handleDelete = t3;
-	let t4;
+		$[7] = t4;
+	} else t4 = $[7];
+	const handleDelete = t4;
+	let t5;
 	bb0: {
 		if (!data || Object.keys(data).length === 0) {
-			let t5;
+			let t6;
 			if ($[8] === Symbol.for("react.memo_cache_sentinel")) {
-				t5 = [];
-				$[8] = t5;
-			} else t5 = $[8];
-			t4 = t5;
+				t6 = [];
+				$[8] = t6;
+			} else t6 = $[8];
+			t5 = t6;
 			break bb0;
 		}
-		let t5;
+		let t6;
 		if ($[9] !== data) {
-			t5 = getAvailableVersions(data);
+			t6 = getAvailableVersions(data);
 			$[9] = data;
-			$[10] = t5;
-		} else t5 = $[10];
-		t4 = t5;
+			$[10] = t6;
+		} else t6 = $[10];
+		t5 = t6;
 	}
-	const availableVersions = t4;
-	let t5;
-	if ($[11] === Symbol.for("react.memo_cache_sentinel")) {
-		t5 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+	const availableVersions = t5;
+	let t6;
+	if ($[11] !== mainPanelView || $[12] !== setMainPanelView) {
+		t6 = () => {
+			bb20: switch (mainPanelView) {
+				case "regions":
+					setMainPanelView("chromosomes");
+					break bb20;
+				case "chromosomes":
+					setMainPanelView("regions");
+					break bb20;
+				default:
+			}
+		};
+		$[11] = mainPanelView;
+		$[12] = setMainPanelView;
+		$[13] = t6;
+	} else t6 = $[13];
+	const handleMainViewToggle = t6;
+	let t7;
+	if ($[14] === Symbol.for("react.memo_cache_sentinel")) {
+		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 			className: "logo-container",
 			children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", { children: [
 				"Computed",
 				/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("br", {}, void 0, false, {
-					fileName: _jsxFileName$13,
-					lineNumber: 110,
+					fileName: _jsxFileName$14,
+					lineNumber: 144,
 					columnNumber: 54
 				}, void 0),
 				"23andMe"
 			] }, void 0, true, {
-				fileName: _jsxFileName$13,
-				lineNumber: 110,
+				fileName: _jsxFileName$14,
+				lineNumber: 144,
 				columnNumber: 42
 			}, void 0)
 		}, void 0, false, {
-			fileName: _jsxFileName$13,
-			lineNumber: 110,
+			fileName: _jsxFileName$14,
+			lineNumber: 144,
 			columnNumber: 10
 		}, void 0);
-		$[11] = t5;
-	} else t5 = $[11];
-	let t6;
-	if ($[12] !== availableVersions || $[13] !== confidence || $[14] !== data || $[15] !== error || $[16] !== handleConfidenceChange || $[17] !== handleDelete || $[18] !== handleVersionChange || $[19] !== isDone || $[20] !== isSampleData || $[21] !== version) {
-		t6 = isDone && !error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+		$[14] = t7;
+	} else t7 = $[14];
+	let t8;
+	if ($[15] !== availableVersions || $[16] !== confidence || $[17] !== data || $[18] !== error || $[19] !== handleConfidenceChange || $[20] !== handleDelete || $[21] !== handleMainViewToggle || $[22] !== handleVersionChange || $[23] !== isDone || $[24] !== isMobile || $[25] !== isSampleData || $[26] !== mainPanelView || $[27] !== version) {
+		t8 = isDone && !error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
 			className: "action-panel",
 			"data-testid": "action-panel",
-			children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
-				className: "file-uploaded",
-				children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { children: [
-					"You're viewing ",
-					isSampleData ? "sample" : "your uploaded",
-					" data."
-				] }, void 0, true, {
-					fileName: _jsxFileName$13,
-					lineNumber: 117,
-					columnNumber: 118
-				}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", {
-					href: "#",
-					onClick: handleDelete,
-					children: "Reset"
-				}, void 0, false, {
-					fileName: _jsxFileName$13,
-					lineNumber: 117,
-					columnNumber: 195
-				}, void 0)]
-			}, void 0, true, {
-				fileName: _jsxFileName$13,
-				lineNumber: 117,
-				columnNumber: 87
-			}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
-				"data-testid": "controls",
-				className: (0, import_classnames.default)("controls", { active: Object.keys(data).length > 0 }),
-				children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
-					className: "version",
-					children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("select", {
-						"data-testid": "version-select",
-						name: "version",
-						value: version,
-						onChange: handleVersionChange,
-						children: availableVersions.map(_temp$4)
+			children: [
+				/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+					className: "file-uploaded",
+					children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { children: [
+						"You're viewing ",
+						isSampleData ? "sample" : "your uploaded",
+						" data."
+					] }, void 0, true, {
+						fileName: _jsxFileName$14,
+						lineNumber: 151,
+						columnNumber: 118
+					}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", {
+						href: "#",
+						onClick: handleDelete,
+						children: "Reset"
 					}, void 0, false, {
-						fileName: _jsxFileName$13,
-						lineNumber: 119,
-						columnNumber: 36
-					}, void 0)
-				}, void 0, false, {
-					fileName: _jsxFileName$13,
-					lineNumber: 119,
-					columnNumber: 11
-				}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
-					className: "confidence",
-					children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("select", {
-						"data-testid": "confidence-select",
-						name: "confidence",
-						value: confidence,
-						onChange: handleConfidenceChange,
-						children: version && confidenceValues[version].map(_temp2)
+						fileName: _jsxFileName$14,
+						lineNumber: 151,
+						columnNumber: 195
+					}, void 0)]
+				}, void 0, true, {
+					fileName: _jsxFileName$14,
+					lineNumber: 151,
+					columnNumber: 87
+				}, void 0),
+				/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+					"data-testid": "controls",
+					className: (0, import_classnames.default)("controls", { active: Object.keys(data).length > 0 }),
+					children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+						className: "version",
+						children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("select", {
+							"data-testid": "version-select",
+							name: "version",
+							value: version,
+							onChange: handleVersionChange,
+							children: availableVersions.map(_temp$4)
+						}, void 0, false, {
+							fileName: _jsxFileName$14,
+							lineNumber: 153,
+							columnNumber: 36
+						}, void 0)
 					}, void 0, false, {
-						fileName: _jsxFileName$13,
-						lineNumber: 119,
-						columnNumber: 208
-					}, void 0)
+						fileName: _jsxFileName$14,
+						lineNumber: 153,
+						columnNumber: 11
+					}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+						className: "confidence",
+						children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("select", {
+							"data-testid": "confidence-select",
+							name: "confidence",
+							value: confidence,
+							onChange: handleConfidenceChange,
+							children: version && confidenceValues[version].map(_temp2)
+						}, void 0, false, {
+							fileName: _jsxFileName$14,
+							lineNumber: 153,
+							columnNumber: 208
+						}, void 0)
+					}, void 0, false, {
+						fileName: _jsxFileName$14,
+						lineNumber: 153,
+						columnNumber: 180
+					}, void 0)]
+				}, void 0, true, {
+					fileName: _jsxFileName$14,
+					lineNumber: 151,
+					columnNumber: 245
+				}, void 0),
+				isMobile && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("button", {
+					id: "main-view-toggle",
+					"data-testid": "main-view-toggle",
+					"aria-label": "Toggle Main View",
+					tabIndex: 0,
+					onClick: handleMainViewToggle,
+					children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", {
+						id: "main-view-regions",
+						className: (0, import_classnames.default)("main-view-button", { active: mainPanelView === "regions" }),
+						children: "Regions"
+					}, void 0, false, {
+						fileName: _jsxFileName$14,
+						lineNumber: 153,
+						columnNumber: 540
+					}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", {
+						id: "main-view-chromosomes",
+						className: (0, import_classnames.default)("main-view-button", { active: mainPanelView === "chromosomes" }),
+						children: "Chromosomes"
+					}, void 0, false, {
+						fileName: _jsxFileName$14,
+						lineNumber: 155,
+						columnNumber: 29
+					}, void 0)]
+				}, void 0, true, {
+					fileName: _jsxFileName$14,
+					lineNumber: 153,
+					columnNumber: 405
+				}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", {
+					id: "main-view-status",
+					className: "visually-hidden",
+					"aria-live": "polite",
+					"aria-atomic": "true"
 				}, void 0, false, {
-					fileName: _jsxFileName$13,
-					lineNumber: 119,
-					columnNumber: 180
-				}, void 0)]
-			}, void 0, true, {
-				fileName: _jsxFileName$13,
-				lineNumber: 117,
-				columnNumber: 245
-			}, void 0)]
+					fileName: _jsxFileName$14,
+					lineNumber: 157,
+					columnNumber: 42
+				}, void 0)] }, void 0, true, {
+					fileName: _jsxFileName$14,
+					lineNumber: 153,
+					columnNumber: 403
+				}, void 0)
+			]
 		}, void 0, true, {
-			fileName: _jsxFileName$13,
-			lineNumber: 117,
+			fileName: _jsxFileName$14,
+			lineNumber: 151,
 			columnNumber: 30
 		}, void 0);
-		$[12] = availableVersions;
-		$[13] = confidence;
-		$[14] = data;
-		$[15] = error;
-		$[16] = handleConfidenceChange;
-		$[17] = handleDelete;
-		$[18] = handleVersionChange;
-		$[19] = isDone;
-		$[20] = isSampleData;
-		$[21] = version;
-		$[22] = t6;
-	} else t6 = $[22];
-	let t7;
-	if ($[23] !== t6) {
-		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
+		$[15] = availableVersions;
+		$[16] = confidence;
+		$[17] = data;
+		$[18] = error;
+		$[19] = handleConfidenceChange;
+		$[20] = handleDelete;
+		$[21] = handleMainViewToggle;
+		$[22] = handleVersionChange;
+		$[23] = isDone;
+		$[24] = isMobile;
+		$[25] = isSampleData;
+		$[26] = mainPanelView;
+		$[27] = version;
+		$[28] = t8;
+	} else t8 = $[28];
+	let t9;
+	if ($[29] !== t8) {
+		t9 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
 			className: "top-panel",
 			"data-testid": "top-panel",
-			children: [t5, t6]
+			children: [t7, t8]
 		}, void 0, true, {
-			fileName: _jsxFileName$13,
-			lineNumber: 136,
+			fileName: _jsxFileName$14,
+			lineNumber: 177,
 			columnNumber: 10
 		}, void 0);
-		$[23] = t6;
-		$[24] = t7;
-	} else t7 = $[24];
-	return t7;
+		$[29] = t8;
+		$[30] = t9;
+	} else t9 = $[30];
+	return t9;
 };
 function _temp$4(version_0) {
 	return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("option", {
 		value: version_0,
 		children: versionLabels[version_0]
 	}, version_0, false, {
-		fileName: _jsxFileName$13,
-		lineNumber: 146,
+		fileName: _jsxFileName$14,
+		lineNumber: 187,
 		columnNumber: 10
 	}, this);
 }
@@ -16384,8 +16467,8 @@ function _temp2(confidence_0) {
 		value: confidence_0,
 		children: confidenceLabels[confidence_0]
 	}, confidence_0, false, {
-		fileName: _jsxFileName$13,
-		lineNumber: 149,
+		fileName: _jsxFileName$14,
+		lineNumber: 190,
 		columnNumber: 10
 	}, this);
 }
@@ -16638,7 +16721,7 @@ var regions_module_default = {
 };
 //#endregion
 //#region src/components/ChromosomeSegment/ChromosomeSegment.tsx
-var _jsxFileName$12 = "/home/runner/work/computed-23andme/computed-23andme/src/components/ChromosomeSegment/ChromosomeSegment.tsx";
+var _jsxFileName$13 = "/home/runner/work/computed-23andme/computed-23andme/src/components/ChromosomeSegment/ChromosomeSegment.tsx";
 var ChromosomeSegment = (t0) => {
 	const $ = (0, import_compiler_runtime.c)(15);
 	const { segment, parentLength } = t0;
@@ -16676,7 +16759,7 @@ var ChromosomeSegment = (t0) => {
 			segment: subsegment,
 			parentLength: end - start
 		}, index, false, {
-			fileName: _jsxFileName$12,
+			fileName: _jsxFileName$13,
 			lineNumber: 60,
 			columnNumber: 64
 		}, void 0));
@@ -16692,7 +16775,7 @@ var ChromosomeSegment = (t0) => {
 			style: t4,
 			children: t5
 		}, void 0, false, {
-			fileName: _jsxFileName$12,
+			fileName: _jsxFileName$13,
 			lineNumber: 70,
 			columnNumber: 10
 		}, void 0);
@@ -16705,7 +16788,7 @@ var ChromosomeSegment = (t0) => {
 };
 //#endregion
 //#region src/components/Chromosome/Chromosome.tsx
-var _jsxFileName$11 = "/home/runner/work/computed-23andme/computed-23andme/src/components/Chromosome/Chromosome.tsx";
+var _jsxFileName$12 = "/home/runner/work/computed-23andme/computed-23andme/src/components/Chromosome/Chromosome.tsx";
 var longestLength = chromosomes_default["1"].length;
 var Chromosome = import_react.memo((t0) => {
 	const $ = (0, import_compiler_runtime.c)(37);
@@ -16766,7 +16849,7 @@ var Chromosome = import_react.memo((t0) => {
 			segment,
 			parentLength: centromerePos - firstSegmentStart
 		}, index, false, {
-			fileName: _jsxFileName$11,
+			fileName: _jsxFileName$12,
 			lineNumber: 86,
 			columnNumber: 47
 		}, void 0));
@@ -16782,7 +16865,7 @@ var Chromosome = import_react.memo((t0) => {
 			style: t7,
 			children: t8
 		}, void 0, false, {
-			fileName: _jsxFileName$11,
+			fileName: _jsxFileName$12,
 			lineNumber: 96,
 			columnNumber: 10
 		}, void 0);
@@ -16815,7 +16898,7 @@ var Chromosome = import_react.memo((t0) => {
 			segment: segment_0,
 			parentLength: firstSegmentStart > centromerePos ? length - firstSegmentStart : length - centromerePos
 		}, index_0, false, {
-			fileName: _jsxFileName$11,
+			fileName: _jsxFileName$12,
 			lineNumber: 130,
 			columnNumber: 52
 		}, void 0));
@@ -16832,7 +16915,7 @@ var Chromosome = import_react.memo((t0) => {
 			style: t12,
 			children: t13
 		}, void 0, false, {
-			fileName: _jsxFileName$11,
+			fileName: _jsxFileName$12,
 			lineNumber: 141,
 			columnNumber: 11
 		}, void 0);
@@ -16847,7 +16930,7 @@ var Chromosome = import_react.memo((t0) => {
 			style: t4,
 			children: [t9, t14]
 		}, void 0, true, {
-			fileName: _jsxFileName$11,
+			fileName: _jsxFileName$12,
 			lineNumber: 150,
 			columnNumber: 11
 		}, void 0);
@@ -16860,7 +16943,7 @@ var Chromosome = import_react.memo((t0) => {
 });
 //#endregion
 //#region src/components/ChromosomePair/ChromosomePair.tsx
-var _jsxFileName$10 = "/home/runner/work/computed-23andme/computed-23andme/src/components/ChromosomePair/ChromosomePair.tsx";
+var _jsxFileName$11 = "/home/runner/work/computed-23andme/computed-23andme/src/components/ChromosomePair/ChromosomePair.tsx";
 var ChromosomePair = (t0) => {
 	const $ = (0, import_compiler_runtime.c)(23);
 	const { label, isSexPair, pair } = t0;
@@ -16874,7 +16957,7 @@ var ChromosomePair = (t0) => {
 			className: "chromosome-label",
 			children: chromosomeIndex
 		}, void 0, false, {
-			fileName: _jsxFileName$10,
+			fileName: _jsxFileName$11,
 			lineNumber: 30,
 			columnNumber: 10
 		}, void 0);
@@ -16895,12 +16978,12 @@ var ChromosomePair = (t0) => {
 				chromosome: pair[0],
 				label: chromosomeIndex
 			}, void 0, false, {
-				fileName: _jsxFileName$10,
+				fileName: _jsxFileName$11,
 				lineNumber: 46,
 				columnNumber: 29
 			}, void 0)
 		}, void 0, false, {
-			fileName: _jsxFileName$10,
+			fileName: _jsxFileName$11,
 			lineNumber: 46,
 			columnNumber: 10
 		}, void 0);
@@ -16911,7 +16994,7 @@ var ChromosomePair = (t0) => {
 	let t4;
 	if ($[7] !== t1 || $[8] !== t3) {
 		t4 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", { children: [t1, t3] }, void 0, true, {
-			fileName: _jsxFileName$10,
+			fileName: _jsxFileName$11,
 			lineNumber: 55,
 			columnNumber: 10
 		}, void 0);
@@ -16925,7 +17008,7 @@ var ChromosomePair = (t0) => {
 			className: "chromosome-label",
 			children: "Y"
 		}, void 0, false, {
-			fileName: _jsxFileName$10,
+			fileName: _jsxFileName$11,
 			lineNumber: 64,
 			columnNumber: 37
 		}, void 0);
@@ -16942,19 +17025,19 @@ var ChromosomePair = (t0) => {
 		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
 			className: t6,
 			children: shouldRenderYChromosome ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Chromosome, { label: "Y" }, void 0, false, {
-				fileName: _jsxFileName$10,
+				fileName: _jsxFileName$11,
 				lineNumber: 79,
 				columnNumber: 56
 			}, void 0) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Chromosome, {
 				chromosome: pair[1],
 				label: chromosomeIndex
 			}, void 0, false, {
-				fileName: _jsxFileName$10,
+				fileName: _jsxFileName$11,
 				lineNumber: 79,
 				columnNumber: 83
 			}, void 0)
 		}, void 0, false, {
-			fileName: _jsxFileName$10,
+			fileName: _jsxFileName$11,
 			lineNumber: 79,
 			columnNumber: 10
 		}, void 0);
@@ -16966,7 +17049,7 @@ var ChromosomePair = (t0) => {
 	let t8;
 	if ($[17] !== t5 || $[18] !== t7) {
 		t8 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", { children: [t5, t7] }, void 0, true, {
-			fileName: _jsxFileName$10,
+			fileName: _jsxFileName$11,
 			lineNumber: 89,
 			columnNumber: 10
 		}, void 0);
@@ -16977,7 +17060,7 @@ var ChromosomePair = (t0) => {
 	let t9;
 	if ($[20] !== t4 || $[21] !== t8) {
 		t9 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [t4, t8] }, void 0, true, {
-			fileName: _jsxFileName$10,
+			fileName: _jsxFileName$11,
 			lineNumber: 98,
 			columnNumber: 10
 		}, void 0);
@@ -16989,69 +17072,84 @@ var ChromosomePair = (t0) => {
 };
 //#endregion
 //#region src/components/ChromosomeViewer/ChromosomeViewer.tsx
-var _jsxFileName$9 = "/home/runner/work/computed-23andme/computed-23andme/src/components/ChromosomeViewer/ChromosomeViewer.tsx";
-var ChromosomeViewer = () => {
-	const $ = (0, import_compiler_runtime.c)(8);
+var _jsxFileName$10 = "/home/runner/work/computed-23andme/computed-23andme/src/components/ChromosomeViewer/ChromosomeViewer.tsx";
+var ChromosomeViewer = (t0) => {
+	const $ = (0, import_compiler_runtime.c)(13);
+	const { panelHidden: t1 } = t0;
+	const panelHidden = t1 === void 0 ? false : t1;
 	const { data, version, confidence } = (0, import_react.useContext)(AppContext);
-	let t0;
+	let t2;
 	bb0: {
 		if (!data || !version || !confidence) {
-			let t1;
+			let t3;
 			if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
-				t1 = {
+				t3 = {
 					autosomal: [],
 					sex: []
 				};
-				$[0] = t1;
-			} else t1 = $[0];
-			t0 = t1;
+				$[0] = t3;
+			} else t3 = $[0];
+			t2 = t3;
 			break bb0;
 		}
-		t0 = data[version][confidence].chromosomes;
+		t2 = data[version][confidence].chromosomes;
 	}
-	const chromosomes = t0;
-	let t1;
-	if ($[1] !== chromosomes.autosomal) {
-		t1 = chromosomes.autosomal.map(_temp$3);
-		$[1] = chromosomes.autosomal;
-		$[2] = t1;
-	} else t1 = $[2];
-	let t2;
-	if ($[3] !== chromosomes.sex) {
-		t2 = chromosomes.sex.length > 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomePair, {
+	const chromosomes = t2;
+	let t3;
+	if ($[1] !== panelHidden) {
+		t3 = (0, import_classnames.default)("chromosome-viewer", { "panel-hidden": panelHidden });
+		$[1] = panelHidden;
+		$[2] = t3;
+	} else t3 = $[2];
+	let t4;
+	if ($[3] !== chromosomes.autosomal) {
+		t4 = chromosomes.autosomal.map(_temp$3);
+		$[3] = chromosomes.autosomal;
+		$[4] = t4;
+	} else t4 = $[4];
+	let t5;
+	if ($[5] !== chromosomes.sex) {
+		t5 = chromosomes.sex.length > 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomePair, {
 			isSexPair: true,
 			pair: chromosomes.sex
 		}, void 0, false, {
-			fileName: _jsxFileName$9,
-			lineNumber: 43,
+			fileName: _jsxFileName$10,
+			lineNumber: 61,
 			columnNumber: 40
 		}, void 0);
-		$[3] = chromosomes.sex;
-		$[4] = t2;
-	} else t2 = $[4];
-	let t3;
-	if ($[5] !== t1 || $[6] !== t2) {
-		t3 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
-			className: "chromosome-viewer",
-			children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("table", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tbody", { children: [t1, t2] }, void 0, true, {
-				fileName: _jsxFileName$9,
-				lineNumber: 51,
-				columnNumber: 56
-			}, void 0) }, void 0, false, {
-				fileName: _jsxFileName$9,
-				lineNumber: 51,
-				columnNumber: 49
-			}, void 0)
-		}, void 0, false, {
-			fileName: _jsxFileName$9,
-			lineNumber: 51,
+		$[5] = chromosomes.sex;
+		$[6] = t5;
+	} else t5 = $[6];
+	let t6;
+	if ($[7] !== t4 || $[8] !== t5) {
+		t6 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("table", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tbody", { children: [t4, t5] }, void 0, true, {
+			fileName: _jsxFileName$10,
+			lineNumber: 69,
+			columnNumber: 17
+		}, void 0) }, void 0, false, {
+			fileName: _jsxFileName$10,
+			lineNumber: 69,
 			columnNumber: 10
 		}, void 0);
-		$[5] = t1;
-		$[6] = t2;
-		$[7] = t3;
-	} else t3 = $[7];
-	return t3;
+		$[7] = t4;
+		$[8] = t5;
+		$[9] = t6;
+	} else t6 = $[9];
+	let t7;
+	if ($[10] !== t3 || $[11] !== t6) {
+		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
+			className: t3,
+			children: t6
+		}, void 0, false, {
+			fileName: _jsxFileName$10,
+			lineNumber: 78,
+			columnNumber: 10
+		}, void 0);
+		$[10] = t3;
+		$[11] = t6;
+		$[12] = t7;
+	} else t7 = $[12];
+	return t7;
 };
 function _temp$3(chromosomePair, index) {
 	return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomePair, {
@@ -17059,14 +17157,14 @@ function _temp$3(chromosomePair, index) {
 		isSexPair: false,
 		pair: chromosomePair
 	}, index, false, {
-		fileName: _jsxFileName$9,
-		lineNumber: 62,
+		fileName: _jsxFileName$10,
+		lineNumber: 89,
 		columnNumber: 10
 	}, this);
 }
 //#endregion
 //#region src/components/RegionRow/RegionRow.tsx
-var _jsxFileName$8 = "/home/runner/work/computed-23andme/computed-23andme/src/components/RegionRow/RegionRow.tsx";
+var _jsxFileName$9 = "/home/runner/work/computed-23andme/computed-23andme/src/components/RegionRow/RegionRow.tsx";
 var RegionRow = (t0) => {
 	const $ = (0, import_compiler_runtime.c)(25);
 	const { regionEntry } = t0;
@@ -17106,12 +17204,12 @@ var RegionRow = (t0) => {
 		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("td", {
 			className: "region-name",
 			children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: label }, void 0, false, {
-				fileName: _jsxFileName$8,
+				fileName: _jsxFileName$9,
 				lineNumber: 66,
 				columnNumber: 38
 			}, void 0)
 		}, void 0, false, {
-			fileName: _jsxFileName$8,
+			fileName: _jsxFileName$9,
 			lineNumber: 66,
 			columnNumber: 10
 		}, void 0);
@@ -17132,7 +17230,7 @@ var RegionRow = (t0) => {
 			className: "region-proportion",
 			children: t10
 		}, void 0, false, {
-			fileName: _jsxFileName$8,
+			fileName: _jsxFileName$9,
 			lineNumber: 84,
 			columnNumber: 11
 		}, void 0);
@@ -17145,9 +17243,10 @@ var RegionRow = (t0) => {
 			className: t6,
 			onMouseOver: handleRowMouseOver,
 			onMouseOut: handleRowMouseOut,
+			tabIndex: 0,
 			children: [t7, t11]
 		}, void 0, true, {
-			fileName: _jsxFileName$8,
+			fileName: _jsxFileName$9,
 			lineNumber: 92,
 			columnNumber: 11
 		}, void 0);
@@ -17167,7 +17266,7 @@ var RegionRow = (t0) => {
 	let t14;
 	if ($[22] !== t12 || $[23] !== t13) {
 		t14 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [t12, t13] }, void 0, true, {
-			fileName: _jsxFileName$8,
+			fileName: _jsxFileName$9,
 			lineNumber: 112,
 			columnNumber: 11
 		}, void 0);
@@ -17183,80 +17282,98 @@ function _temp$2(t0) {
 		regionName: subregionName,
 		regionEntry: subregionEntry
 	}, subregionName, false, {
-		fileName: _jsxFileName$8,
+		fileName: _jsxFileName$9,
 		lineNumber: 124,
 		columnNumber: 10
 	}, this);
 }
 //#endregion
 //#region src/components/Proportions/Proportions.tsx
-var _jsxFileName$7 = "/home/runner/work/computed-23andme/computed-23andme/src/components/Proportions/Proportions.tsx";
-var Proportions = () => {
-	const $ = (0, import_compiler_runtime.c)(6);
+var _jsxFileName$8 = "/home/runner/work/computed-23andme/computed-23andme/src/components/Proportions/Proportions.tsx";
+var Proportions = (t0) => {
+	const $ = (0, import_compiler_runtime.c)(11);
+	const { panelHidden: t1 } = t0;
+	const panelHidden = t1 === void 0 ? false : t1;
 	const { data, version, confidence } = (0, import_react.useContext)(AppContext);
-	let t0;
+	let t2;
 	bb0: {
 		if (!data || !version || !confidence) {
-			let t1;
+			let t3;
 			if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
-				t1 = [];
-				$[0] = t1;
-			} else t1 = $[0];
-			t0 = t1;
+				t3 = [];
+				$[0] = t3;
+			} else t3 = $[0];
+			t2 = t3;
 			break bb0;
 		}
-		t0 = data[version][confidence].regions;
+		t2 = data[version][confidence].regions;
 	}
-	const regions = t0;
-	let t1;
-	if ($[1] === Symbol.for("react.memo_cache_sentinel")) {
-		t1 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("thead", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", { children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("th", { children: "World" }, void 0, false, {
-			fileName: _jsxFileName$7,
-			lineNumber: 32,
-			columnNumber: 21
-		}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("th", { children: "100%" }, void 0, false, {
-			fileName: _jsxFileName$7,
-			lineNumber: 32,
-			columnNumber: 35
-		}, void 0)] }, void 0, true, {
-			fileName: _jsxFileName$7,
-			lineNumber: 32,
+	const regions = t2;
+	let t3;
+	if ($[1] !== panelHidden) {
+		t3 = (0, import_classnames.default)("proportions", { "panel-hidden": panelHidden });
+		$[1] = panelHidden;
+		$[2] = t3;
+	} else t3 = $[2];
+	let t4;
+	if ($[3] === Symbol.for("react.memo_cache_sentinel")) {
+		t4 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("thead", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tr", {
+			tabIndex: 0,
+			children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("th", { children: "World" }, void 0, false, {
+				fileName: _jsxFileName$8,
+				lineNumber: 50,
+				columnNumber: 34
+			}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("th", { children: "100%" }, void 0, false, {
+				fileName: _jsxFileName$8,
+				lineNumber: 50,
+				columnNumber: 48
+			}, void 0)]
+		}, void 0, true, {
+			fileName: _jsxFileName$8,
+			lineNumber: 50,
 			columnNumber: 17
 		}, void 0) }, void 0, false, {
-			fileName: _jsxFileName$7,
-			lineNumber: 32,
+			fileName: _jsxFileName$8,
+			lineNumber: 50,
 			columnNumber: 10
 		}, void 0);
-		$[1] = t1;
-	} else t1 = $[1];
-	let t2;
-	if ($[2] !== regions) {
-		t2 = regions.map(_temp$1);
-		$[2] = regions;
-		$[3] = t2;
-	} else t2 = $[3];
-	let t3;
-	if ($[4] !== t2) {
-		t3 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
-			className: "proportions",
-			children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("table", { children: [t1, /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tbody", { children: t2 }, void 0, false, {
-				fileName: _jsxFileName$7,
-				lineNumber: 47,
-				columnNumber: 54
-			}, void 0)] }, void 0, true, {
-				fileName: _jsxFileName$7,
-				lineNumber: 47,
-				columnNumber: 43
-			}, void 0)
+		$[3] = t4;
+	} else t4 = $[3];
+	let t5;
+	if ($[4] !== regions) {
+		t5 = regions.map(_temp$1);
+		$[4] = regions;
+		$[5] = t5;
+	} else t5 = $[5];
+	let t6;
+	if ($[6] !== t5) {
+		t6 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("table", { children: [t4, /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("tbody", { children: t5 }, void 0, false, {
+			fileName: _jsxFileName$8,
+			lineNumber: 65,
+			columnNumber: 21
+		}, void 0)] }, void 0, true, {
+			fileName: _jsxFileName$8,
+			lineNumber: 65,
+			columnNumber: 10
+		}, void 0);
+		$[6] = t5;
+		$[7] = t6;
+	} else t6 = $[7];
+	let t7;
+	if ($[8] !== t3 || $[9] !== t6) {
+		t7 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
+			className: t3,
+			children: t6
 		}, void 0, false, {
-			fileName: _jsxFileName$7,
-			lineNumber: 47,
+			fileName: _jsxFileName$8,
+			lineNumber: 73,
 			columnNumber: 10
 		}, void 0);
-		$[4] = t2;
-		$[5] = t3;
-	} else t3 = $[5];
-	return t3;
+		$[8] = t3;
+		$[9] = t6;
+		$[10] = t7;
+	} else t7 = $[10];
+	return t7;
 };
 function _temp$1(t0) {
 	const [regionName, regionEntry] = t0;
@@ -17264,8 +17381,8 @@ function _temp$1(t0) {
 		regionName,
 		regionEntry
 	}, regionName, false, {
-		fileName: _jsxFileName$7,
-		lineNumber: 58,
+		fileName: _jsxFileName$8,
+		lineNumber: 85,
 		columnNumber: 10
 	}, this);
 }
@@ -22297,7 +22414,7 @@ var processCSVString = async (csvStr) => {
 };
 //#endregion
 //#region src/components/FileSelector/FileSelector.tsx
-var _jsxFileName$6 = "/home/runner/work/computed-23andme/computed-23andme/src/components/FileSelector/FileSelector.tsx";
+var _jsxFileName$7 = "/home/runner/work/computed-23andme/computed-23andme/src/components/FileSelector/FileSelector.tsx";
 var FileSelector = import_react.memo(() => {
 	const $ = (0, import_compiler_runtime.c)(12);
 	let t0;
@@ -22341,7 +22458,7 @@ var FileSelector = import_react.memo(() => {
 			className: "visually-hidden",
 			onChange: handleFileUpload
 		}, void 0, false, {
-			fileName: _jsxFileName$6,
+			fileName: _jsxFileName$7,
 			lineNumber: 55,
 			columnNumber: 10
 		}, void 0);
@@ -22358,7 +22475,7 @@ var FileSelector = import_react.memo(() => {
 			onDrop: handleDrop,
 			children: "Click to upload or drop your Computed Data (CSV) file."
 		}, void 0, false, {
-			fileName: _jsxFileName$6,
+			fileName: _jsxFileName$7,
 			lineNumber: 63,
 			columnNumber: 10
 		}, void 0);
@@ -22371,7 +22488,7 @@ var FileSelector = import_react.memo(() => {
 			className: "file-selector",
 			children: [t3, t4]
 		}, void 0, true, {
-			fileName: _jsxFileName$6,
+			fileName: _jsxFileName$7,
 			lineNumber: 71,
 			columnNumber: 10
 		}, void 0);
@@ -22387,7 +22504,7 @@ function _temp(event_0) {
 }
 //#endregion
 //#region src/components/FileError/FileError.tsx
-var _jsxFileName$5 = "/home/runner/work/computed-23andme/computed-23andme/src/components/FileError/FileError.tsx";
+var _jsxFileName$6 = "/home/runner/work/computed-23andme/computed-23andme/src/components/FileError/FileError.tsx";
 var FileError = () => {
 	const $ = (0, import_compiler_runtime.c)(5);
 	const { reset } = useFileUpload();
@@ -22403,7 +22520,7 @@ var FileError = () => {
 	let t1;
 	if ($[2] === Symbol.for("react.memo_cache_sentinel")) {
 		t1 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: "Error processing file. Please try again or use sample data." }, void 0, false, {
-			fileName: _jsxFileName$5,
+			fileName: _jsxFileName$6,
 			lineNumber: 23,
 			columnNumber: 10
 		}, void 0);
@@ -22418,12 +22535,12 @@ var FileError = () => {
 				onClick: handleReset,
 				children: "Retry"
 			}, void 0, false, {
-				fileName: _jsxFileName$5,
+				fileName: _jsxFileName$6,
 				lineNumber: 30,
 				columnNumber: 42
 			}, void 0)]
 		}, void 0, true, {
-			fileName: _jsxFileName$5,
+			fileName: _jsxFileName$6,
 			lineNumber: 30,
 			columnNumber: 10
 		}, void 0);
@@ -22434,7 +22551,7 @@ var FileError = () => {
 };
 //#endregion
 //#region src/components/SampleData/SampleData.tsx
-var _jsxFileName$4 = "/home/runner/work/computed-23andme/computed-23andme/src/components/SampleData/SampleData.tsx";
+var _jsxFileName$5 = "/home/runner/work/computed-23andme/computed-23andme/src/components/SampleData/SampleData.tsx";
 var SampleData = () => {
 	const $ = (0, import_compiler_runtime.c)(5);
 	const dispatch = (0, import_react.useContext)(AppDispatchContext);
@@ -22459,12 +22576,12 @@ var SampleData = () => {
 				onClick: handleUseSampleData,
 				children: "Use sample data to get started"
 			}, void 0, false, {
-				fileName: _jsxFileName$4,
+				fileName: _jsxFileName$5,
 				lineNumber: 28,
 				columnNumber: 39
 			}, void 0)
 		}, void 0, false, {
-			fileName: _jsxFileName$4,
+			fileName: _jsxFileName$5,
 			lineNumber: 28,
 			columnNumber: 10
 		}, void 0);
@@ -22475,131 +22592,249 @@ var SampleData = () => {
 };
 //#endregion
 //#region src/components/MainPanel/MainPanel.tsx
-var _jsxFileName$3 = "/home/runner/work/computed-23andme/computed-23andme/src/components/MainPanel/MainPanel.tsx";
-var MainPanel = () => {
-	const $ = (0, import_compiler_runtime.c)(22);
+var _jsxFileName$4 = "/home/runner/work/computed-23andme/computed-23andme/src/components/MainPanel/MainPanel.tsx";
+var MainPanel = (t0) => {
+	const $ = (0, import_compiler_runtime.c)(24);
+	const { mainPanelView } = t0;
 	const { version } = (0, import_react.useContext)(AppContext);
-	const { state: t0 } = useFileUpload();
-	const { isInitial, isPending, error, isDone } = t0;
-	const t1 = regions_module_default[version.replace(".", "_")];
-	const t2 = version && isDone;
-	const t3 = !!error;
-	let t4;
-	if ($[0] !== isInitial || $[1] !== isPending || $[2] !== t1 || $[3] !== t2 || $[4] !== t3) {
-		t4 = (0, import_classnames.default)("main-panel", {
-			[t1]: t2,
+	const isMobile = useMediaQuery("screen and (max-width: 767px)");
+	const { state: t1 } = useFileUpload();
+	const { isInitial, isPending, error, isDone } = t1;
+	const t2 = regions_module_default[version.replace(".", "_")];
+	const t3 = version && isDone;
+	const t4 = !!error;
+	let t5;
+	if ($[0] !== isInitial || $[1] !== isPending || $[2] !== t2 || $[3] !== t3 || $[4] !== t4) {
+		t5 = (0, import_classnames.default)("main-panel", {
+			[t2]: t3,
 			"initial-panel": isInitial,
-			"error-panel": t3,
+			"error-panel": t4,
 			"pending-panel": isPending
 		});
 		$[0] = isInitial;
 		$[1] = isPending;
-		$[2] = t1;
-		$[3] = t2;
-		$[4] = t3;
-		$[5] = t4;
-	} else t4 = $[5];
-	let t5;
-	if ($[6] !== error || $[7] !== isDone) {
-		t5 = isDone && !error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Proportions, {}, void 0, false, {
-			fileName: _jsxFileName$3,
-			lineNumber: 49,
+		$[2] = t2;
+		$[3] = t3;
+		$[4] = t4;
+		$[5] = t5;
+	} else t5 = $[5];
+	let t6;
+	if ($[6] !== error || $[7] !== isDone || $[8] !== isMobile || $[9] !== mainPanelView) {
+		t6 = isDone && !error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Proportions, { panelHidden: !(!isMobile || mainPanelView === "regions") }, void 0, false, {
+			fileName: _jsxFileName$4,
+			lineNumber: 58,
 			columnNumber: 32
-		}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomeViewer, {}, void 0, false, {
-			fileName: _jsxFileName$3,
-			lineNumber: 49,
-			columnNumber: 47
+		}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ChromosomeViewer, { panelHidden: !(!isMobile || mainPanelView === "chromosomes") }, void 0, false, {
+			fileName: _jsxFileName$4,
+			lineNumber: 58,
+			columnNumber: 105
 		}, void 0)] }, void 0, true, {
-			fileName: _jsxFileName$3,
-			lineNumber: 49,
+			fileName: _jsxFileName$4,
+			lineNumber: 58,
 			columnNumber: 30
 		}, void 0);
 		$[6] = error;
 		$[7] = isDone;
-		$[8] = t5;
-	} else t5 = $[8];
-	let t6;
-	if ($[9] !== isInitial) {
-		t6 = isInitial && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(FileSelector, {}, void 0, false, {
-			fileName: _jsxFileName$3,
-			lineNumber: 58,
-			columnNumber: 23
-		}, void 0);
-		$[9] = isInitial;
+		$[8] = isMobile;
+		$[9] = mainPanelView;
 		$[10] = t6;
 	} else t6 = $[10];
 	let t7;
-	if ($[11] !== error) {
-		t7 = error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(FileError, {}, void 0, false, {
-			fileName: _jsxFileName$3,
-			lineNumber: 66,
-			columnNumber: 19
+	if ($[11] !== isInitial) {
+		t7 = isInitial && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(FileSelector, {}, void 0, false, {
+			fileName: _jsxFileName$4,
+			lineNumber: 69,
+			columnNumber: 23
 		}, void 0);
-		$[11] = error;
+		$[11] = isInitial;
 		$[12] = t7;
 	} else t7 = $[12];
 	let t8;
-	if ($[13] !== error || $[14] !== isInitial) {
-		t8 = (isInitial || error) && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(SampleData, {}, void 0, false, {
-			fileName: _jsxFileName$3,
-			lineNumber: 74,
-			columnNumber: 34
+	if ($[13] !== error) {
+		t8 = error && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(FileError, {}, void 0, false, {
+			fileName: _jsxFileName$4,
+			lineNumber: 77,
+			columnNumber: 19
 		}, void 0);
 		$[13] = error;
-		$[14] = isInitial;
-		$[15] = t8;
-	} else t8 = $[15];
+		$[14] = t8;
+	} else t8 = $[14];
 	let t9;
-	if ($[16] !== t4 || $[17] !== t5 || $[18] !== t6 || $[19] !== t7 || $[20] !== t8) {
-		t9 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
+	if ($[15] !== error || $[16] !== isInitial) {
+		t9 = (isInitial || error) && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(SampleData, {}, void 0, false, {
+			fileName: _jsxFileName$4,
+			lineNumber: 85,
+			columnNumber: 34
+		}, void 0);
+		$[15] = error;
+		$[16] = isInitial;
+		$[17] = t9;
+	} else t9 = $[17];
+	let t10;
+	if ($[18] !== t5 || $[19] !== t6 || $[20] !== t7 || $[21] !== t8 || $[22] !== t9) {
+		t10 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("section", {
 			"data-testid": "main-panel",
-			className: t4,
+			className: t5,
 			children: [
-				t5,
 				t6,
 				t7,
-				t8
+				t8,
+				t9
 			]
 		}, void 0, true, {
+			fileName: _jsxFileName$4,
+			lineNumber: 94,
+			columnNumber: 11
+		}, void 0);
+		$[18] = t5;
+		$[19] = t6;
+		$[20] = t7;
+		$[21] = t8;
+		$[22] = t9;
+		$[23] = t10;
+	} else t10 = $[23];
+	return t10;
+};
+//#endregion
+//#region assets/images/icons/ch-logo.svg
+var ch_logo_default = "" + new URL("ch-logo-BHdwhgxK.svg", import.meta.url).href;
+//#endregion
+//#region src/components/Footer/Footer.tsx
+var _jsxFileName$3 = "/home/runner/work/computed-23andme/computed-23andme/src/components/Footer/Footer.tsx";
+var Footer = () => {
+	const $ = (0, import_compiler_runtime.c)(3);
+	let t0;
+	if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
+		t0 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", {
+			id: "copyright",
+			children: "© 2026 Carlos Hernandez-Schaefer"
+		}, void 0, false, {
 			fileName: _jsxFileName$3,
-			lineNumber: 83,
+			lineNumber: 8,
 			columnNumber: 10
 		}, void 0);
-		$[16] = t4;
-		$[17] = t5;
-		$[18] = t6;
-		$[19] = t7;
-		$[20] = t8;
-		$[21] = t9;
-	} else t9 = $[21];
-	return t9;
+		$[0] = t0;
+	} else t0 = $[0];
+	let t1;
+	if ($[1] === Symbol.for("react.memo_cache_sentinel")) {
+		t1 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", {
+			href: "https://carlos-hdzm.github.io/",
+			target: "_blank",
+			rel: "noopener noreferrer",
+			children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("img", {
+				src: ch_logo_default,
+				alt: "Carlos Hernandez-Schaefer logo"
+			}, void 0, false, {
+				fileName: _jsxFileName$3,
+				lineNumber: 15,
+				columnNumber: 93
+			}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { children: "Other projects" }, void 0, false, {
+				fileName: _jsxFileName$3,
+				lineNumber: 15,
+				columnNumber: 150
+			}, void 0)]
+		}, void 0, true, {
+			fileName: _jsxFileName$3,
+			lineNumber: 15,
+			columnNumber: 10
+		}, void 0);
+		$[1] = t1;
+	} else t1 = $[1];
+	let t2;
+	if ($[2] === Symbol.for("react.memo_cache_sentinel")) {
+		t2 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("footer", { children: [t0, /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", {
+			id: "footer-links",
+			children: [t1, /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("a", {
+				href: "https://github.com/carlos-hdzm/computed-23andme",
+				target: "_blank",
+				rel: "noopener noreferrer",
+				children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("svg", {
+					fill: "currentColor",
+					xmlns: "http://www.w3.org/2000/svg",
+					id: "mdi-github-footer",
+					viewBox: "0 0 24 24",
+					children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("path", { d: "M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" }, void 0, false, {
+						fileName: _jsxFileName$3,
+						lineNumber: 22,
+						columnNumber: 252
+					}, void 0)
+				}, void 0, false, {
+					fileName: _jsxFileName$3,
+					lineNumber: 22,
+					columnNumber: 149
+				}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { children: "Source code" }, void 0, false, {
+					fileName: _jsxFileName$3,
+					lineNumber: 22,
+					columnNumber: 1018
+				}, void 0)]
+			}, void 0, true, {
+				fileName: _jsxFileName$3,
+				lineNumber: 22,
+				columnNumber: 49
+			}, void 0)]
+		}, void 0, true, {
+			fileName: _jsxFileName$3,
+			lineNumber: 22,
+			columnNumber: 22
+		}, void 0)] }, void 0, true, {
+			fileName: _jsxFileName$3,
+			lineNumber: 22,
+			columnNumber: 10
+		}, void 0);
+		$[2] = t2;
+	} else t2 = $[2];
+	return t2;
 };
 //#endregion
 //#region src/components/MainView/MainView.tsx
 var _jsxFileName$2 = "/home/runner/work/computed-23andme/computed-23andme/src/components/MainView/MainView.tsx";
 var MainView = import_react.memo(() => {
-	const $ = (0, import_compiler_runtime.c)(1);
+	const $ = (0, import_compiler_runtime.c)(5);
+	const [mainPanelView, setMainPanelView] = (0, import_react.useState)("regions");
 	let t0;
-	if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
+	if ($[0] !== mainPanelView) {
 		t0 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("main", {
 			className: "main-view",
-			children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(TopPanel, {}, void 0, false, {
+			children: [/* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(TopPanel, {
+				mainPanelView,
+				setMainPanelView
+			}, void 0, false, {
 				fileName: _jsxFileName$2,
-				lineNumber: 10,
+				lineNumber: 13,
 				columnNumber: 38
-			}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(MainPanel, {}, void 0, false, {
+			}, void 0), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(MainPanel, { mainPanelView }, void 0, false, {
 				fileName: _jsxFileName$2,
-				lineNumber: 10,
-				columnNumber: 50
+				lineNumber: 13,
+				columnNumber: 116
 			}, void 0)]
 		}, void 0, true, {
 			fileName: _jsxFileName$2,
-			lineNumber: 10,
+			lineNumber: 13,
 			columnNumber: 10
 		}, void 0);
-		$[0] = t0;
-	} else t0 = $[0];
-	return t0;
+		$[0] = mainPanelView;
+		$[1] = t0;
+	} else t0 = $[1];
+	let t1;
+	if ($[2] === Symbol.for("react.memo_cache_sentinel")) {
+		t1 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Footer, {}, void 0, false, {
+			fileName: _jsxFileName$2,
+			lineNumber: 21,
+			columnNumber: 10
+		}, void 0);
+		$[2] = t1;
+	} else t1 = $[2];
+	let t2;
+	if ($[3] !== t0) {
+		t2 = /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [t0, t1] }, void 0, true, {
+			fileName: _jsxFileName$2,
+			lineNumber: 28,
+			columnNumber: 10
+		}, void 0);
+		$[3] = t0;
+		$[4] = t2;
+	} else t2 = $[4];
+	return t2;
 });
 //#endregion
 //#region src/App.tsx
