@@ -26,6 +26,7 @@ const MainPanel: React.FC<MainPanelProps> = ({ mainPanelView }) => {
 
   return (
     <section
+      id="main-panel"
       data-testid="main-panel"
       className={classNames("main-panel", {
         [regionStyles[version.replace(".", "_")]]: version && isDone,

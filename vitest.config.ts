@@ -9,9 +9,8 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "json", "html"],
       exclude: [
-        "./App.tsx",
-        "./main.tsx",
         "assets",
+        "src/main.tsx",
         "src/types",
         "src/context/context.ts",
         "src/components/MainView/MainView.tsx",
@@ -40,6 +39,7 @@ export default defineConfig({
         test: {
           name: "browser",
           include: [
+            "src/App.test.tsx",
             "src/components/**/*.test.tsx",
             "src/context/**/*.test.tsx",
           ],
