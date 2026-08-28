@@ -89,7 +89,6 @@
             align-items: center;
 
             @media @desktop {
-                gap: revert;
                 justify-content: space-evenly;
             }
 
@@ -165,6 +164,10 @@
                 &.active {
                     background-color: var(--info-color);
                     font-weight: bold;
+                }
+
+                &:not(.active):hover {
+                    background-color: var(--hover-color);
                 }
 
                 &#main-view-regions {

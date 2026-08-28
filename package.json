@@ -15,7 +15,7 @@
     "@uidotdev/usehooks": "^2.4.1",
     "classnames": "^2.5.1",
     "csvtojson": "^2.0.10",
-    "less": "^4.6.4",
+    "less": "^4.9.0",
     "react": "^19.2.4",
     "react-async": "^10.0.1",
     "react-dom": "^19.2.4"

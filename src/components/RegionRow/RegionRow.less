@@ -2,41 +2,57 @@
   cursor: pointer;
   --region-border-width: 5px;
   --depth-padding-step: 1rem;
+  --transtition-time: 0.5s;
 
   &.depth-0 {
-    --depth-padding-left: 0;
+    --depth: 0;
     font-weight: bolder;
   }
 
   &.depth-1 {
-    --depth-padding-left: 0;
+    --depth: 1;
     font-weight: bold;
   }
 
   &.depth-2 {
-    --depth-padding-left: var(--depth-padding-step);
+    --depth: 2;
   }
 
   &.depth-3 {
-    --depth-padding-left: calc(2 * var(--depth-padding-step));
+    --depth: 3;
   }
 
-  &.depth-0,
-  &.depth-1,
-  &.depth-2,
-  &.depth-3 {
+  --depth-padding-left:~"calc(max(var(--depth) - 1, 0) * var(--depth-padding-step))";
+  --prev-depth-padding-left:~"calc(max(var(--depth-padding-left) - var(--depth-padding-step), 0rem))";
+
+  .region-name {
+    padding: 0 0 0 var(--depth-padding-left);
+    transition: padding-left var(--transtition-time);
+
+    div {
+      border-left: var(--region-border-width) solid var(--region-color);
+      padding: 0.25rem 0 0.25rem 0.5rem;
+      transition: border-left-width var(--transtition-time);
+    }
+  }
+
+  &:hover {
     .region-name {
-      padding: 0 0 0 var(--depth-padding-left);
+      padding-left: var(--prev-depth-padding-left);
 
       div {
-        border-left: var(--region-border-width) solid var(--region-color);
-        padding: 0.25rem 0 0.25rem 0.5rem;
+        border-left-width: calc((var(--depth-padding-left) - var(--prev-depth-padding-left)) + var(--region-border-width));
+        background: var(--hover-color);
       }
     }
 
     .region-proportion {
-      width: fit-content;
+      background: var(--hover-color);
     }
+  }
+
+  .region-proportion {
+    width: fit-content;
   }
 
   &.depth-1:has(+ .depth-2),
@@ -54,9 +70,5 @@
         left: calc(-1 * var(--region-border-width));
       }
     }
-  }
-
-  &:hover {
-    background: #ccc;
   }
 }
