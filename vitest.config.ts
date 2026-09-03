@@ -47,7 +47,7 @@ export default defineConfig({
           browser: {
             enabled: true,
             provider:
-              process.env.NODE_ENV === "CI"
+              process.env.NODE_ENV === "ci"
                 ? playwright({
                     launchOptions: {
                       channel: "chrome",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.2 - September 3, 2026
+
+### Modified
+
+- Slight styling changes for view toggle and region rows
+
 ## 1.0.1 - August 24, 2026
 
 ### Added
