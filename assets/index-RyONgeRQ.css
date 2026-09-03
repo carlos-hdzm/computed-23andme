@@ -75,6 +75,7 @@
   --bg: #fff;
   --text-1: #1b1b1b;
   --text-2: #ebebeb;
+  --hover-color: #ccc;
   --divider-color: #000;
   --hl-color: #cbf4d9;
   --divider-hl-color: #095923;
@@ -227,7 +228,6 @@ body {
 }
 @media screen and (min-width: 768px) {
   .top-panel .action-panel .controls {
-    gap: revert;
     justify-content: space-evenly;
   }
 }
@@ -294,6 +294,9 @@ body {
 .top-panel .action-panel #main-view-toggle .main-view-button.active {
   background-color: var(--info-color);
   font-weight: bold;
+}
+.top-panel .action-panel #main-view-toggle .main-view-button:not(.active):hover {
+  background-color: var(--hover-color);
 }
 .top-panel .action-panel #main-view-toggle .main-view-button#main-view-regions {
   border-radius: 0.5rem 0 0 0.5rem;
@@ -1066,38 +1069,44 @@ table tr td.chromosome-segments.hap2 {
   cursor: pointer;
   --region-border-width: 5px;
   --depth-padding-step: 1rem;
+  --transtition-time: 0.5s;
+  --depth-padding-left: calc(max(var(--depth) - 1, 0) * var(--depth-padding-step));
+  --prev-depth-padding-left: calc(max(var(--depth-padding-left) - var(--depth-padding-step), 0rem));
 }
 .region-row.depth-0 {
-  --depth-padding-left: 0;
+  --depth: 0;
   font-weight: bolder;
 }
 .region-row.depth-1 {
-  --depth-padding-left: 0;
+  --depth: 1;
   font-weight: bold;
 }
 .region-row.depth-2 {
-  --depth-padding-left: var(--depth-padding-step);
+  --depth: 2;
 }
 .region-row.depth-3 {
-  --depth-padding-left: calc(2 * var(--depth-padding-step));
+  --depth: 3;
 }
-.region-row.depth-0 .region-name,
-.region-row.depth-1 .region-name,
-.region-row.depth-2 .region-name,
-.region-row.depth-3 .region-name {
+.region-row .region-name {
   padding: 0 0 0 var(--depth-padding-left);
+  transition: padding-left var(--transtition-time);
 }
-.region-row.depth-0 .region-name div,
-.region-row.depth-1 .region-name div,
-.region-row.depth-2 .region-name div,
-.region-row.depth-3 .region-name div {
+.region-row .region-name div {
   border-left: var(--region-border-width) solid var(--region-color);
   padding: 0.25rem 0 0.25rem 0.5rem;
+  transition: border-left-width var(--transtition-time);
 }
-.region-row.depth-0 .region-proportion,
-.region-row.depth-1 .region-proportion,
-.region-row.depth-2 .region-proportion,
-.region-row.depth-3 .region-proportion {
+.region-row:hover .region-name {
+  padding-left: var(--prev-depth-padding-left);
+}
+.region-row:hover .region-name div {
+  border-left-width: calc((var(--depth-padding-left) - var(--prev-depth-padding-left)) + var(--region-border-width));
+  background: var(--hover-color);
+}
+.region-row:hover .region-proportion {
+  background: var(--hover-color);
+}
+.region-row .region-proportion {
   width: fit-content;
 }
 .region-row.depth-1:has(+ .depth-2) .region-name div,
@@ -1113,9 +1122,6 @@ table tr td.chromosome-segments.hap2 {
   position: absolute;
   bottom: 0;
   left: calc(-1 * var(--region-border-width));
-}
-.region-row:hover {
-  background: #ccc;
 }
 .proportions {
   padding: 1rem;
