@@ -2,7 +2,7 @@
   cursor: pointer;
   --region-border-width: 5px;
   --depth-padding-step: 1rem;
-  --transtition-time: 0.5s;
+  --transition-time: 0.5s;
 
   &.depth-0 {
     --depth: 0;
@@ -27,12 +27,10 @@
 
   .region-name {
     padding: 0 0 0 var(--depth-padding-left);
-    transition: padding-left var(--transtition-time);
 
     div {
       border-left: var(--region-border-width) solid var(--region-color);
       padding: 0.25rem 0 0.25rem 0.5rem;
-      transition: border-left-width var(--transtition-time);
     }
   }
 
@@ -48,6 +46,16 @@
 
     .region-proportion {
       background: var(--hover-color);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .region-name {
+      transition: padding-left var(--transition-time);
+
+      div {
+        transition: border-left-width var(--transition-time);
+      }
     }
   }
 
