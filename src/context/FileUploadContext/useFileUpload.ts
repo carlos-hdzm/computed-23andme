@@ -4,6 +4,7 @@ import {
   FileUploadDispatchContext,
   FileUploadPropsContext,
 } from "./FileUploadContextProvider";
+import { MAX_FILE_SIZE, MAX_FILE_SIZE_MB, FILE_TOO_LARGE_ERROR_CAUSE } from "../../constants/fileProcessing";
 import type { ComputedData } from "../../types";
 
 type UseFileUploadProps<T> = {
@@ -29,6 +30,12 @@ const useFileUpload = <T extends ComputedData>({
     (file: File) => {
       if (isPending || !processData) return;
 
+      setIsInitial(false);
+      if (file.size > MAX_FILE_SIZE) {
+        setError(new Error(`File size exceeds the maximum limit of ${MAX_FILE_SIZE_MB} MB`, { cause: FILE_TOO_LARGE_ERROR_CAUSE }));
+        return;
+      }
+
       setFile(file);
       const reader = new FileReader();
       reader.onload = (event) => {
@@ -47,7 +54,6 @@ const useFileUpload = <T extends ComputedData>({
               setIsPending(false);
             });
 
-          setIsInitial(false);
           setIsPending(true);
         } catch (err) {
           setError(err ? (err as Error) : /* v8 ignore next -- @preserve */ new Error("Unknown error reading file"));
@@ -60,7 +66,6 @@ const useFileUpload = <T extends ComputedData>({
           (event.target?.error as Error) || new Error("Unknown error reading file"),
         );
         setIsPending(false);
-        setIsInitial(false);
         console.error("Error reading file:", event.target?.error);
       };
 

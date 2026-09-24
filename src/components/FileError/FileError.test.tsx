@@ -3,6 +3,7 @@ import { render } from "vitest-browser-react";
 import * as fileUploadContext from "../../context/FileUploadContext";
 import AppContextProvider from "../../context/AppContext";
 import FileError from "./FileError";
+import { FILE_TOO_LARGE_ERROR_CAUSE, MAX_FILE_SIZE_MB } from "../../constants/fileProcessing";
 
 vi.mock(import("../../context/FileUploadContext"), { spy: true });
 
@@ -32,6 +33,17 @@ describe("FileError", () => {
   const useFileUploadSpy = vi.mocked(fileUploadContext.useFileUpload);
   useFileUploadSpy.mockReturnValue(useFileUploadInitialValue);
 
+  const mockUseFileUploadState = (targetState: {
+    error?: Error | null;
+  }) =>
+    useFileUploadSpy.mockReturnValue({
+      ...useFileUploadInitialValue,
+      state: {
+        ...useFileUploadInitialValue.state,
+        ...targetState,
+      },
+    });
+
   beforeEach(() => {
     useFileUploadSpy.mockClear();
     resetMock.mockClear();
@@ -44,6 +56,22 @@ describe("FileError", () => {
       .element(
         getByText(
           "Error processing file. Please try again or use sample data.",
+        ),
+      )
+      .toBeInTheDocument();
+    await expect.element(getByText("Retry")).toBeInTheDocument();
+  });
+
+  test("file size error message is displayed", async () => {
+    mockUseFileUploadState({
+      error: new Error(`File size exceeds the maximum limit of ${MAX_FILE_SIZE_MB} MB`, { cause: FILE_TOO_LARGE_ERROR_CAUSE }),
+    });
+    const { getByText } = await renderComponent();
+
+    await expect
+      .element(
+        getByText(
+          `File size exceeds the maximum limit of ${MAX_FILE_SIZE_MB} MB. Please try again with a smaller file or use sample data.`,
         ),
       )
       .toBeInTheDocument();

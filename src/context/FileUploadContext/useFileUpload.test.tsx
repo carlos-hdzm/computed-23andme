@@ -1,6 +1,7 @@
 import { expect, describe, test, vi, beforeEach, afterEach } from "vitest";
 import { render, renderHook } from "vitest-browser-react";
 import useFileUpload from "./useFileUpload";
+import { MAX_FILE_SIZE_MB } from "../../constants/fileProcessing";
 import type { ComputedData } from "../../types";
 import FileUploadContextProvider from "./FileUploadContextProvider";
 
@@ -32,6 +33,16 @@ const TestComponent = ({
         onClick={() => processFile(new File(["test"], "test.csv"))}
       >
         Process File
+      </button>
+      <button
+        data-testid="process-large-file"
+        onClick={() => {
+          const largeFile = new File(["test"], "test.csv");
+          Object.defineProperty(largeFile, "size", { value: 11 * 1024 * 1024 }); // 11 MB
+          processFile(largeFile);
+        }}
+      >
+        Process Large File
       </button>
       <button data-testid="reset" onClick={() => reset()}>
         Reset
@@ -109,6 +120,41 @@ describe("useFileUpload", () => {
     expect(onResolveMock).toHaveBeenCalledWith({} as ComputedData);
   });
 
+  test("file size error", async () => {
+    const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
+
+    const { getByText, getByTestId } =
+      await renderTestComponent(processDataMock);
+
+    await getByTestId("process-large-file").click();
+
+    const expectedState = {
+      isInitial: false,
+      isPending: false,
+      error: `File size exceeds the maximum limit of ${MAX_FILE_SIZE_MB} MB`,
+      isDone: false,
+      isSampleData: false,
+    };
+
+    await expect
+      .element(getByText(`Is Initial: ${expectedState.isInitial}`))
+      .toBeInTheDocument();
+    await expect
+      .element(getByText(`Is Pending: ${expectedState.isPending}`))
+      .toBeInTheDocument();
+    await expect
+      .element(getByText(`Error: ${expectedState.error}`))
+      .toBeInTheDocument();
+    await expect
+      .element(getByText(`Is Done: ${expectedState.isDone}`))
+      .toBeInTheDocument();
+    await expect
+      .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
+      .toBeInTheDocument();
+    expect(processDataMock).not.toHaveBeenCalled();
+    expect(onResolveMock).not.toHaveBeenCalled();
+  });
+
   test("error processing file", async () => {
     const processDataMock = vi.fn().mockRejectedValue(new Error("Test error"));
 
@@ -154,7 +200,7 @@ describe("useFileUpload", () => {
     await getByTestId("process-file").click();
 
     const expectedState = {
-      isInitial: true,
+      isInitial: false,
       isPending: false,
       error: "Reader error",
       isDone: false,
