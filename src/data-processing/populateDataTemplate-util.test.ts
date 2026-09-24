@@ -1,5 +1,6 @@
 import { describe, test, expect } from "vitest";
 import { populateSegmentData, populateProportionData } from "./populateDataTemplate-util";
+import { createDataTemplate } from "./createTemplates";
 import type {
   ChromosomeHaplotypeNoSplit,
   ConfidenceEntry,
@@ -98,7 +99,6 @@ describe("populateProportionData", () => {
       "500",
     ],
   ] as [string, string, string, string, string][];
-  const data = "test_region";
 
   test.for(expectedData)(
     "should populate region data for label: %s",
@@ -122,7 +122,59 @@ describe("populateProportionData", () => {
 
   test("should return undefined for invalid label format", () => {
     expect(
-      populateProportionData("invalid label", confidenceEntry, data),
+      populateProportionData("invalid label", confidenceEntry, "1"),
     ).toBeUndefined();
+  });
+
+  describe("should not allow prototype pollution", () => {
+    const realConfidenceEntry = createDataTemplate()["v5.2"]![50] as unknown as ConfidenceEntry<ChromosomeHaplotypeNoSplit, UnsortedRegionsEntry>;
+
+    test("with __proto__ as a region name", () => {
+      const obj = {};
+      expect(
+        populateProportionData("population_proportions___proto___hap1_proportion", realConfidenceEntry, "1"),
+      ).toBeUndefined();
+      expect(obj).not.toHaveProperty("hap1.proportion", 1);
+    });
+
+    describe("with constructor as a region name", () => {
+      test("replacing constructor", () => {
+        const obj = {};
+        expect(
+          populateProportionData("population_proportions_constructor_hap1_proportion", realConfidenceEntry, "1"),
+        ).toBeUndefined();
+        expect(obj).not.toHaveProperty("constructor.hap1.proportion", 1);
+      });
+
+      test("polluting prototype", () => {
+        // Although the label will not match the RegEx (so the function will return early),
+        // we still want to ensure that the function does not allow prototype pollution.
+        const obj = {};
+        expect(
+          populateProportionData("population_proportions_constructor_prototype_proportion", realConfidenceEntry, "1"),
+        ).toBeUndefined();
+        expect(obj).not.toHaveProperty("proportion", 1);
+      });
+    });
+
+    test("with __proto__ as a property name", () => {
+      // Since the matched property name is set to a number, it doesn't actually pollute the prototype,
+      // but we still want to ensure that the function does not allow prototype pollution.
+      const obj = {};
+      expect(
+        populateProportionData("population_proportions_region_hap1___proto__", realConfidenceEntry, "1"),
+      ).toBeUndefined();
+      expect(obj).not.toHaveProperty("__proto__", 1);
+    });
+
+    test("with constructor as a property name", () => {
+      // Since the matched property name is set to a number, it doesn't actually pollute the prototype,
+      // but we still want to ensure that the function does not allow prototype pollution.
+      const obj = {};
+      expect(
+        populateProportionData("population_proportions_region_hap1_constructor", realConfidenceEntry, "1"),
+      ).toBeUndefined();
+      expect(obj).not.toHaveProperty("constructor", 1);
+    });
   });
 });

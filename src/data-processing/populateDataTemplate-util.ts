@@ -7,6 +7,7 @@ import type {
   UnsortedRegionDataEntry,
   ChromosomeSegment,
   UnsortedRegionsEntry,
+  ProportionsEntry,
 } from '../types/index.ts';
 
 const labelSegmentRegEx = /chr([1-9]|1[0-9]|2[0-2]|X-npar)_hap([12])_(\d+)_(\d+)/;
@@ -51,19 +52,19 @@ export const populateProportionData = (label: string, confidenceEntry: Confidenc
   const regions = confidenceEntry.regions;
   /* v8 ignore else -- @preserve */
   if (!regions[region]) {
-    regions[region] = { depth: 0 } as UnsortedRegionDataEntry;
+    regions[region] = Object.create(null) as UnsortedRegionDataEntry;
+    regions[region].depth = 0;
   }
 
   const regionDataEntry = regions[region];
 
   /* v8 ignore else -- @preserve */
   if (!regionDataEntry[haplotype]) {
-    regionDataEntry[haplotype] = {
-      proportion: 0,
-      cm_proportion: 0,
-      length: 0,
-      length_cm: 0,
-    }
+    regionDataEntry[haplotype] = Object.create(null) as ProportionsEntry;
+    regionDataEntry[haplotype].proportion = 0;
+    regionDataEntry[haplotype].cm_proportion = 0;
+    regionDataEntry[haplotype].length = 0;
+    regionDataEntry[haplotype].length_cm = 0;
   }
 
   regionDataEntry[haplotype][property] = Number.parseFloat(data);
