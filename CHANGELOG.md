@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.0.3 - September 24, 2026
+
+### Modified
+
+- **Accessibility**: Made animations opt-in for users without a preference set for `prefers-reduced-motion`.
+- **Security**
+  - Fixed unsafe handling of CSV region names.
+  - Various package versions bumped.
+- Implement a maximum file size limit of 10 MB.
+
 ## 1.0.2 - September 3, 2026
 
 ### Modified
@@ -11,7 +21,7 @@
 ### Added
 
 - Added privacy disclaimer about file processing
-- Accessibility improvements:
+- **Accessibility**
   - "Skip to main content" link
   - Improved color contrast
   - Improved accessible name and ARIA live region for panel toggle
