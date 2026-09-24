@@ -1069,7 +1069,7 @@ table tr td.chromosome-segments.hap2 {
   cursor: pointer;
   --region-border-width: 5px;
   --depth-padding-step: 1rem;
-  --transtition-time: 0.5s;
+  --transition-time: 0.5s;
   --depth-padding-left: calc(max(var(--depth) - 1, 0) * var(--depth-padding-step));
   --prev-depth-padding-left: calc(max(var(--depth-padding-left) - var(--depth-padding-step), 0rem));
 }
@@ -1089,12 +1089,10 @@ table tr td.chromosome-segments.hap2 {
 }
 .region-row .region-name {
   padding: 0 0 0 var(--depth-padding-left);
-  transition: padding-left var(--transtition-time);
 }
 .region-row .region-name div {
   border-left: var(--region-border-width) solid var(--region-color);
   padding: 0.25rem 0 0.25rem 0.5rem;
-  transition: border-left-width var(--transtition-time);
 }
 .region-row:hover .region-name {
   padding-left: var(--prev-depth-padding-left);
@@ -1105,6 +1103,14 @@ table tr td.chromosome-segments.hap2 {
 }
 .region-row:hover .region-proportion {
   background: var(--hover-color);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .region-row .region-name {
+    transition: padding-left var(--transition-time);
+  }
+  .region-row .region-name div {
+    transition: border-left-width var(--transition-time);
+  }
 }
 .region-row .region-proportion {
   width: fit-content;

@@ -10296,6 +10296,7 @@ var FileUploadContextProvider = (t0) => {
 	} else t5 = $[15];
 	return t5;
 };
+var FILE_TOO_LARGE_ERROR_CAUSE = "FileTooLarge";
 //#endregion
 //#region src/context/FileUploadContext/useFileUpload.ts
 var useFileUpload = ({ processData } = {}) => {
@@ -10305,6 +10306,11 @@ var useFileUpload = ({ processData } = {}) => {
 	return {
 		processFile: (0, import_react.useCallback)((file) => {
 			if (isPending || !processData) return;
+			setIsInitial(false);
+			if (file.size > 10485760) {
+				setError(new Error(`File size exceeds the maximum limit of 10 MB`, { cause: FILE_TOO_LARGE_ERROR_CAUSE }));
+				return;
+			}
 			setFile(file);
 			const reader = new FileReader();
 			reader.onload = (event) => {
@@ -10319,7 +10325,6 @@ var useFileUpload = ({ processData } = {}) => {
 					}).finally(() => {
 						setIsPending(false);
 					});
-					setIsInitial(false);
 					setIsPending(true);
 				} catch (err) {
 					setError(err ? err : 					/* v8 ignore next -- @preserve */ /* @__PURE__ */ new Error("Unknown error reading file"));
@@ -10330,7 +10335,6 @@ var useFileUpload = ({ processData } = {}) => {
 			reader.onerror = (event_0) => {
 				setError(event_0.target?.error || /* @__PURE__ */ new Error("Unknown error reading file"));
 				setIsPending(false);
-				setIsInitial(false);
 				console.error("Error reading file:", event_0.target?.error);
 			};
 			reader.readAsText(file);
@@ -14677,29 +14681,35 @@ var import_browser = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((ex
 		}
 	]);
 })))(), 1);
-var createChromosomesTemplate = () => ({
-	autosomal: [],
-	sex: [[]]
-});
-var createConfidenceEntryTemplate = () => ({
-	regions: {},
-	chromosomes: createChromosomesTemplate()
-});
-var createVersionTemplate = () => ({
-	50: createConfidenceEntryTemplate(),
-	60: createConfidenceEntryTemplate(),
-	70: createConfidenceEntryTemplate(),
-	80: createConfidenceEntryTemplate(),
-	90: createConfidenceEntryTemplate()
-});
-var createDataTemplate = () => ({
-	"v5.2": createVersionTemplate(),
-	"v5.9": createVersionTemplate(),
-	"v7.0": {
-		...createVersionTemplate(),
-		mostLikely: createConfidenceEntryTemplate()
-	}
-});
+var createChromosomesTemplate = () => {
+	const chromosomesTemplate = Object.create(null);
+	chromosomesTemplate.autosomal = [];
+	chromosomesTemplate.sex = [[]];
+	return chromosomesTemplate;
+};
+var createConfidenceEntryTemplate = () => {
+	const confidenceEntryTemplate = Object.create(null);
+	confidenceEntryTemplate.regions = Object.create(null);
+	confidenceEntryTemplate.chromosomes = createChromosomesTemplate();
+	return confidenceEntryTemplate;
+};
+var createVersionTemplate = () => {
+	const versionTemplate = Object.create(null);
+	versionTemplate[50] = createConfidenceEntryTemplate();
+	versionTemplate[60] = createConfidenceEntryTemplate();
+	versionTemplate[70] = createConfidenceEntryTemplate();
+	versionTemplate[80] = createConfidenceEntryTemplate();
+	versionTemplate[90] = createConfidenceEntryTemplate();
+	return versionTemplate;
+};
+var createDataTemplate = () => {
+	const dataTemplate = Object.create(null);
+	dataTemplate["v5.2"] = createVersionTemplate();
+	dataTemplate["v5.9"] = createVersionTemplate();
+	dataTemplate["v7.0"] = Object.assign(Object.create(null), createVersionTemplate());
+	dataTemplate["v7.0"].mostLikely = createConfidenceEntryTemplate();
+	return dataTemplate;
+};
 //#endregion
 //#region src/data-processing/populateDataTemplate-util.ts
 var labelSegmentRegEx = /chr([1-9]|1[0-9]|2[0-2]|X-npar)_hap([12])_(\d+)_(\d+)/;
@@ -14732,15 +14742,19 @@ var populateProportionData = (label, confidenceEntry, data) => {
 	const [, region, haplotype, property] = labelMatchProportion;
 	const regions = confidenceEntry.regions;
 	/* v8 ignore else -- @preserve */
-	if (!regions[region]) regions[region] = { depth: 0 };
+	if (!regions[region]) {
+		regions[region] = Object.create(null);
+		regions[region].depth = 0;
+	}
 	const regionDataEntry = regions[region];
 	/* v8 ignore else -- @preserve */
-	if (!regionDataEntry[haplotype]) regionDataEntry[haplotype] = {
-		proportion: 0,
-		cm_proportion: 0,
-		length: 0,
-		length_cm: 0
-	};
+	if (!regionDataEntry[haplotype]) {
+		regionDataEntry[haplotype] = Object.create(null);
+		regionDataEntry[haplotype].proportion = 0;
+		regionDataEntry[haplotype].cm_proportion = 0;
+		regionDataEntry[haplotype].length = 0;
+		regionDataEntry[haplotype].length_cm = 0;
+	}
 	regionDataEntry[haplotype][property] = Number.parseFloat(data);
 };
 //#endregion
@@ -16629,36 +16643,46 @@ function _temp(event_0) {
 //#endregion
 //#region src/components/FileError/FileError.tsx
 var FileError = () => {
-	const $ = (0, import_compiler_runtime.c)(5);
-	const { reset } = useFileUpload();
-	let t0;
+	const $ = (0, import_compiler_runtime.c)(9);
+	const { state: t0, reset } = useFileUpload();
+	const { error } = t0;
+	let t1;
 	if ($[0] !== reset) {
-		t0 = () => {
+		t1 = () => {
 			reset();
 		};
 		$[0] = reset;
-		$[1] = t0;
-	} else t0 = $[1];
-	const handleReset = t0;
-	let t1;
-	if ($[2] === Symbol.for("react.memo_cache_sentinel")) {
-		t1 = /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Error processing file. Please try again or use sample data." });
-		$[2] = t1;
-	} else t1 = $[2];
+		$[1] = t1;
+	} else t1 = $[1];
+	const handleReset = t1;
+	const errorMessage = error?.cause === "FileTooLarge" ? `${error.message}. Please try again with a smaller file or use sample data.` : "Error processing file. Please try again or use sample data.";
 	let t2;
-	if ($[3] !== handleReset) {
-		t2 = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "file-error",
-			children: [t1, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-				href: "#",
-				onClick: handleReset,
-				children: "Retry"
-			})]
+	if ($[2] !== errorMessage) {
+		t2 = /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: errorMessage });
+		$[2] = errorMessage;
+		$[3] = t2;
+	} else t2 = $[3];
+	let t3;
+	if ($[4] !== handleReset) {
+		t3 = /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+			href: "#",
+			onClick: handleReset,
+			children: "Retry"
 		});
-		$[3] = handleReset;
-		$[4] = t2;
-	} else t2 = $[4];
-	return t2;
+		$[4] = handleReset;
+		$[5] = t3;
+	} else t3 = $[5];
+	let t4;
+	if ($[6] !== t2 || $[7] !== t3) {
+		t4 = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "file-error",
+			children: [t2, t3]
+		});
+		$[6] = t2;
+		$[7] = t3;
+		$[8] = t4;
+	} else t4 = $[8];
+	return t4;
 };
 //#endregion
 //#region src/components/SampleData/SampleData.tsx
