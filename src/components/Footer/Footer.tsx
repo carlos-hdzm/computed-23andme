@@ -7,7 +7,7 @@ const Footer = () => {
       <p id="copyright">&copy; 2026 Carlos Hernandez-Schaefer</p>
       <div id="footer-links">
         <a
-          href="https://carlos-hdzm.github.io/"
+          href="https://www.carlos-hdzm.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
