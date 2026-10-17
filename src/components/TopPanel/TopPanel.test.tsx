@@ -83,7 +83,7 @@ describe("TopPanel", () => {
   const useFileUploadInitialValue = {
     processFile: vi.fn(),
     reset: resetMock,
-    setUsingSampleData: vi.fn(),
+    handleSampleData: vi.fn(),
     state: {
       isInitial: true,
       isPending: false,

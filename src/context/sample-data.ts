@@ -1,11 +1,17 @@
-import type { ComputedData, ContextData } from '../types';
-import sampleData from '../../assets/json/sample-data.json' with { type: 'json' };
+import type { ComputedData, ContextData } from "../types";
 
-const sampleContextData: ContextData = {
-  version: 'v7.0',
-  confidence: 'mostLikely',
-  data: sampleData as unknown as ComputedData,
-  highlight: '',
-}
+const getSampleContextData = async () => {
+  const { default: sampleData } =
+    (await import("../../assets/json/sample-data.json")) as unknown as {
+      default: ComputedData;
+    };
 
-export default sampleContextData;
+  return {
+    version: "v7.0",
+    confidence: "mostLikely",
+    data: sampleData,
+    highlight: "",
+  } as ContextData;
+};
+
+export default getSampleContextData;

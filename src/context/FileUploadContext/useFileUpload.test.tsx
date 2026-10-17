@@ -2,10 +2,22 @@ import { expect, describe, test, vi, beforeEach, afterEach } from "vitest";
 import { render, renderHook } from "vitest-browser-react";
 import useFileUpload from "./useFileUpload";
 import { MAX_FILE_SIZE_MB } from "../../constants/fileProcessing";
-import type { ComputedData } from "../../types";
+import type { ComputedData, ContextData } from "../../types";
 import FileUploadContextProvider from "./FileUploadContextProvider";
+import contextActions from "../actions";
+import getSampleContextData from "../sample-data";
+
+vi.mock(import("../sample-data"));
 
 const onResolveMock = vi.fn();
+const dispatchMock = vi.fn();
+
+const sampleDataMock = {
+  version: "v5.2",
+  confidence: 50,
+  highlight: "",
+  data: { test: "data" },
+} as ContextData;
 
 const TestComponent = ({
   processData,
@@ -14,8 +26,8 @@ const TestComponent = ({
 }) => {
   const {
     processFile,
+    handleSampleData,
     reset,
-    setUsingSampleData,
     state: { isInitial, isPending, error, isDone, isSampleData },
   } = useFileUpload({
     processData,
@@ -47,7 +59,10 @@ const TestComponent = ({
       <button data-testid="reset" onClick={() => reset()}>
         Reset
       </button>
-      <button data-testid="sample-data" onClick={() => setUsingSampleData()}>
+      <button
+        data-testid="sample-data"
+        onClick={handleSampleData(dispatchMock)}
+      >
         Sample Data
       </button>
     </div>
@@ -75,7 +90,7 @@ describe("useFileUpload", () => {
     expect(result.current).toEqual({
       processFile: expect.any(Function),
       reset: expect.any(Function),
-      setUsingSampleData: expect.any(Function),
+      handleSampleData: expect.any(Function),
       state: {
         isInitial: true,
         isPending: false,
@@ -313,6 +328,7 @@ describe("useFileUpload", () => {
     });
 
     test("reset after sample data", async () => {
+      vi.mocked(getSampleContextData).mockResolvedValue(sampleDataMock);
       const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
 
       const { getByText, getByTestId } =
@@ -350,7 +366,13 @@ describe("useFileUpload", () => {
 
   describe("sample data processing", () => {
     test("set sample data", async () => {
+      vi.mocked(getSampleContextData).mockResolvedValue(sampleDataMock);
       const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
+      const setSampleDataSpy = vi.spyOn(contextActions, "setSampleData");
+      setSampleDataSpy.mockReturnValueOnce({
+        type: "SET_SAMPLE_DATA",
+        data: sampleDataMock,
+      });
 
       const { getByText, getByTestId } =
         await renderTestComponent(processDataMock);
@@ -381,12 +403,23 @@ describe("useFileUpload", () => {
         .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
         .toBeInTheDocument();
       expect(onResolveMock).not.toHaveBeenCalled();
+      expect(setSampleDataSpy).toHaveBeenCalledWith(sampleDataMock);
+      expect(dispatchMock).toHaveBeenCalledWith({
+        type: "SET_SAMPLE_DATA",
+        data: sampleDataMock,
+      });
     });
 
     test("set sample data after error", async () => {
+      vi.mocked(getSampleContextData).mockResolvedValue(sampleDataMock);
       const processDataMock = vi
         .fn()
         .mockRejectedValue(new Error("Test error"));
+      const setSampleDataSpy = vi.spyOn(contextActions, "setSampleData");
+      setSampleDataSpy.mockReturnValueOnce({
+        type: "SET_SAMPLE_DATA",
+        data: sampleDataMock,
+      });
 
       const { getByText, getByTestId } =
         await renderTestComponent(processDataMock);
@@ -421,6 +454,101 @@ describe("useFileUpload", () => {
         .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
         .toBeInTheDocument();
       expect(onResolveMock).not.toHaveBeenCalled();
+      expect(setSampleDataSpy).toHaveBeenCalledWith(sampleDataMock);
+      expect(dispatchMock).toHaveBeenCalledWith({
+        type: "SET_SAMPLE_DATA",
+        data: sampleDataMock,
+      });
+    });
+
+    describe("error setting sample data", () => {
+      test("promise rejected", async () => {
+        vi.mocked(getSampleContextData).mockRejectedValue(
+          new Error("Sample data error"),
+        );
+        const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
+        const setSampleDataSpy = vi.spyOn(contextActions, "setSampleData");
+        setSampleDataSpy.mockReturnValueOnce({
+          type: "SET_SAMPLE_DATA",
+          data: sampleDataMock,
+        });
+
+        const { getByText, getByTestId } =
+          await renderTestComponent(processDataMock);
+
+        await getByTestId("sample-data").click();
+
+        const expectedState = {
+          isInitial: false,
+          isPending: false,
+          error: "Sample data error",
+          isDone: false,
+          isSampleData: false,
+        };
+
+        await expect
+          .element(getByText(`Is Initial: ${expectedState.isInitial}`))
+          .toBeInTheDocument();
+        await expect
+          .element(getByText(`Is Pending: ${expectedState.isPending}`))
+          .toBeInTheDocument();
+        await expect
+          .element(getByText(`Error: ${expectedState.error}`))
+          .toBeInTheDocument();
+        await expect
+          .element(getByText(`Is Done: ${expectedState.isDone}`))
+          .toBeInTheDocument();
+        await expect
+          .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
+          .toBeInTheDocument();
+        expect(onResolveMock).not.toHaveBeenCalled();
+        expect(setSampleDataSpy).not.toHaveBeenCalled();
+        expect(dispatchMock).not.toHaveBeenCalled();
+      });
+
+      test("error thrown", async () => {
+        vi.mocked(getSampleContextData).mockThrow(
+          new Error("Sample data error"),
+        );
+        const processDataMock = vi.fn().mockResolvedValue({} as ComputedData);
+        const setSampleDataSpy = vi.spyOn(contextActions, "setSampleData");
+        setSampleDataSpy.mockReturnValueOnce({
+          type: "SET_SAMPLE_DATA",
+          data: sampleDataMock,
+        });
+
+        const { getByText, getByTestId } =
+          await renderTestComponent(processDataMock);
+
+        await getByTestId("sample-data").click();
+
+        const expectedState = {
+          isInitial: false,
+          isPending: false,
+          error: "Sample data error",
+          isDone: false,
+          isSampleData: false,
+        };
+
+        await expect
+          .element(getByText(`Is Initial: ${expectedState.isInitial}`))
+          .toBeInTheDocument();
+        await expect
+          .element(getByText(`Is Pending: ${expectedState.isPending}`))
+          .toBeInTheDocument();
+        await expect
+          .element(getByText(`Error: ${expectedState.error}`))
+          .toBeInTheDocument();
+        await expect
+          .element(getByText(`Is Done: ${expectedState.isDone}`))
+          .toBeInTheDocument();
+        await expect
+          .element(getByText(`Is Sample Data: ${expectedState.isSampleData}`))
+          .toBeInTheDocument();
+        expect(onResolveMock).not.toHaveBeenCalled();
+        expect(setSampleDataSpy).not.toHaveBeenCalled();
+        expect(dispatchMock).not.toHaveBeenCalled();
+      });
     });
   });
 

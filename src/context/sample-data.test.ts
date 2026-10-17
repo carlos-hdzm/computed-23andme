@@ -1,9 +1,9 @@
 import { test, expect } from "vitest";
-import sampleContextData from "./sample-data";
+import getSampleContextData from "./sample-data";
 import sampleData from "../../assets/json/sample-data.json" with { type: "json" };
 
-test("sampleContextData returns the correct sample data structure", () => {
-  expect(sampleContextData).toEqual({
+test("getSampleContextData returns the correct sample data structure", async () => {
+  await expect(getSampleContextData()).resolves.toEqual({
     version: "v7.0",
     confidence: "mostLikely",
     data: sampleData,

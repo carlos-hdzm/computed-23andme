@@ -8,6 +8,7 @@ import type {
   SetHighlightAction,
   SetSampleDataAction,
   ClearDataAction,
+  ContextData,
 } from "../types";
 
 const contextActions = {
@@ -23,8 +24,8 @@ const contextActions = {
   setHighlight(highlight: string): SetHighlightAction {
     return { type: "SET_HIGHLIGHT", highlight };
   },
-  setSampleData(): SetSampleDataAction {
-    return { type: "SET_SAMPLE_DATA" };
+  setSampleData(data: ContextData): SetSampleDataAction {
+    return { type: "SET_SAMPLE_DATA", data };
   },
   clearData(): ClearDataAction {
     return { type: "CLEAR_DATA" };

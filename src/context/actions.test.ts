@@ -3,6 +3,7 @@ import actions from "./actions";
 import type {
   ComputedData,
   ConfidenceLevel,
+  ContextData,
   ModelVersion,
 } from "../types";
 
@@ -44,8 +45,16 @@ describe("context actions", () => {
   });
 
   test("setSampleData", () => {
-    expect(actions.setSampleData()).toEqual({
+    const data = {
+      data: { test: "data" },
+      version: "v5.2",
+      confidence: 50,
+      highlight: "",
+    } as ContextData;
+
+    expect(actions.setSampleData(data)).toEqual({
       type: "SET_SAMPLE_DATA",
+      data,
     });
   });
 

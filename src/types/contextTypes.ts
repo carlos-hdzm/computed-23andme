@@ -47,6 +47,7 @@ export type SetHighlightAction = {
 
 export type SetSampleDataAction = {
   type: 'SET_SAMPLE_DATA'
+  data: ContextData
 }
 
 export type ClearDataAction = {

@@ -4,6 +4,10 @@ import contextActions from "../../context/actions";
 import { useFileUpload } from "../../context/FileUploadContext";
 import AppContextProvider from "../../context/AppContext";
 import SampleData from "./SampleData";
+import getSampleContextData from "../../context/sample-data";
+import type { ContextData } from "../../types";
+
+vi.mock(import("../../context/sample-data"));
 
 const TestComponent = () => {
   const {
@@ -36,6 +40,14 @@ describe("SampleData", () => {
   });
 
   test("should set sample data on click of the button", async () => {
+    const sampleDataMock = {
+      version: "v5.2",
+      confidence: 50,
+      highlight: "",
+      data: { test: "data" },
+    } as ContextData;
+
+    vi.mocked(getSampleContextData).mockResolvedValue(sampleDataMock);
     const setSampleDataActionSpy = vi.spyOn(contextActions, "setSampleData");
 
     const { getByText, getByTestId } = await renderComponent();

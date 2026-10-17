@@ -1,17 +1,13 @@
-import React, { useCallback, useContext } from "react";
+import React, { useContext } from "react";
 import { AppDispatchContext } from "../../context/context";
 import "./SampleData.less";
-import contextActions from "../../context/actions";
 import { useFileUpload } from "../../context/FileUploadContext";
 
 const SampleData: React.FC = () => {
   const dispatch = useContext(AppDispatchContext);
-  const { setUsingSampleData } = useFileUpload();
+  const { handleSampleData } = useFileUpload();
 
-  const handleUseSampleData = useCallback(() => {
-    dispatch(contextActions.setSampleData());
-    setUsingSampleData();
-  }, [dispatch, setUsingSampleData]);
+  const handleUseSampleData = handleSampleData(dispatch);
 
   return (
     <div className="sample-data">

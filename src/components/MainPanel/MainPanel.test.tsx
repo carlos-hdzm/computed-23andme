@@ -74,7 +74,7 @@ describe("MainPanel", () => {
   const useFileUploadInitialValue = {
     processFile: vi.fn(),
     reset: vi.fn(),
-    setUsingSampleData: vi.fn(),
+    handleSampleData: vi.fn(),
     state: {
       isInitial: true,
       isPending: false,

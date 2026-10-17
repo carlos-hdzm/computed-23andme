@@ -1,4 +1,4 @@
-import { describe, test, expect, vi } from "vitest";
+import { describe, test, expect } from "vitest";
 import dataReducer from "./reducer";
 import type {
   ComputedData,
@@ -7,15 +7,6 @@ import type {
   ContextData,
   ModelVersion,
 } from "../types";
-
-vi.mock(import("./sample-data"), () => ({
-  default: {
-    version: "v5.9",
-    confidence: 70,
-    data: { "v5.9": { 70: {} as ConfidenceEntry } } as unknown as ComputedData,
-    highlight: "sample-highlight",
-  } as ContextData,
-}));
 
 describe("dataReducer", () => {
   const initialState: ContextData = {
@@ -93,6 +84,14 @@ describe("dataReducer", () => {
     expect(
       dataReducer(initialState, {
         type: "SET_SAMPLE_DATA",
+        data: {
+          version: "v5.9",
+          confidence: 70,
+          data: {
+            "v5.9": { 70: {} as ConfidenceEntry },
+          } as unknown as ComputedData,
+          highlight: "sample-highlight",
+        } as ContextData,
       }),
     ).toEqual({
       version: "v5.9",
