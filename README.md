@@ -43,7 +43,7 @@ As of now, the following additions/improvements are being considered, in no part
 - ~~Provide functional sample data.~~
 - ~~Add unit tests with Vitest.~~
 - ~~Improve UI.~~
-- Analyze the feasability of React 19's `use` API, along with `Suspense` for the `async` behavior (file processing).
+- Analyze the feasibility of React 19's `use` API, along with `Suspense` for the `async` behavior (file processing).
 - Look for and implement performance improvements.
 - Historical Matches analysis (chromosome segment location, for example).
 

@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.4 - October 16, 2026
+
+### Modified
+
+- Load sample data on demand
+- **Security**
+  - Various package versions bumped.
+
 ## 1.0.3 - September 24, 2026
 
 ### Modified
