@@ -25,6 +25,10 @@ jobs:
         env:
           NODE_ENV: ci
         run: npm run test:coverage
+      - name: Generating coverage badge
+        uses: jpb06/coverage-badges-action@latest
+        with:
+          badges-icon: vitest
       - name: Build
         if: github.ref_type == 'tag'
         env:

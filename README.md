@@ -1,5 +1,7 @@
 # Computed 23andMe
 
+![Total coverage](./badges/coverage-total.svg)
+
 ***This project is not affiliated with 23andMe or TTAM.***
 
 <div align="center">
